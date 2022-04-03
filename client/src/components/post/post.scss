@@ -1,0 +1,58 @@
+.post {
+    height: 360px;
+    width: 320px;
+    // background-color: aquamarine;
+    display: flex;
+    flex-direction: column;
+    margin-left: 40px;
+    margin-bottom: 50px;
+
+    .postTitle {
+        font-size: 24px;
+        font-weight: 600;
+        font-family: "Varela", sans-serif;
+        margin-bottom: 14px;
+        display: flex;
+        justify-content: center;
+      
+    }
+
+    .postImg {
+        height: 180px;
+        width: 320px;
+        border-radius: 10px;
+        object-fit: cover;
+    }
+    .timeLocationRow {
+        margin-top: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+
+        .postTime {
+            margin-right: 20px;
+            font-size: 14px;
+            color: #999;
+        }
+
+        .locationIcon {
+            font-size: 14px;
+            margin-right: 5px;
+            color: #777;
+        }
+        .locationText {
+            font-size: 16px;
+            font-weight: 500;
+            color: #777;
+        }
+        .postDescription {
+            margin-top: 14px;
+            line-height: 20px;
+            color: #444;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+        }
+    }
+}
