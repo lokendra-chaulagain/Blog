@@ -1,12 +1,19 @@
-.login {
-    .loginWrapper {
+.register {
+    .registerWrapper {
         .formContainer {
-            width: 500px;
-            height: 500px;
+            width: 550px;
+            // height: 500px;
             display: flex;
             flex-direction: column;
             margin-left: 34%;
             margin-top: 100px;
+
+            .heading{
+                font-size: 32px;
+                margin-bottom: 40px;
+                font-weight: 600;
+
+            }
 
             .labelText {
                 font-size: 20px;
@@ -23,12 +30,11 @@
             }
             .dontHaveAccountTxt {
                 font-size: 16px;
-                margin-top: 20px;
                 margin-bottom: 20px;
                 cursor: pointer;
             }
 
-            .loginButton {
+            .signUpButton {
                 height: 40px;
                 margin-bottom: 18px;
                 outline: none;
