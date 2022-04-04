@@ -1,0 +1,79 @@
+.singlePost {
+    flex: 9;
+    background-color: pink;
+
+    .singlePostWrapper {
+        padding: 20px;
+
+        .singlePostImg {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .timeLocationUpdateDeleteRow {
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+
+            .postTime {
+                margin-right: 20px;
+                font-size: 14px;
+                color: #999;
+            }
+            .locationIcon {
+                font-size: 14px;
+                margin-right: 5px;
+                color: #777;
+            }
+            .locationText {
+                font-size: 16px;
+                font-weight: 500;
+                color: #777;
+            }
+
+            .updateAndDeleteIcon {
+                font-size: 16px;
+                margin-right: 20px;
+                .updateIcon {
+                    margin-right: 20px;
+                }
+            }
+        }
+
+        .singlePostTitle {
+            font-size: 30px;
+            // margin-left: 30px;
+            margin-top: 14px;
+            font-family: "Varela", sans-serif;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .author {
+            font-size: 16px;
+            .authorName {
+                font-size: 16px;
+                font-weight: 600;
+                color: rgb(144, 94, 94);
+            }
+        }
+
+        .singlePostDescription {
+            margin-top: 10px;
+            font-size: 18px;
+            line-height: 25px;
+
+            // .descriptionFirstLetter{
+            //
+            // }
+        }
+        .singlePostDescription::first-letter {
+            font-size: 32px;
+            font-weight: 600;
+            color: #777;
+            margin-left: 20px;
+        }
+    }
+}

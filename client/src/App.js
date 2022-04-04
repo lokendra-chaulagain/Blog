@@ -1,12 +1,15 @@
+
 import TopBar from './components/topbar/TopBar'
-import Home from './pages/home/Home';
+import Singlepage from './pages/singlepage/Singlepage';
+// import Home from './pages/home/Home';
 
 
 function App() {
   return (
     <div className="App">
       <TopBar />
-      <Home/>
+      {/* <Home/> */}
+     <Singlepage/>
     </div>
   );
 }
