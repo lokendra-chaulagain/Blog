@@ -1,0 +1,63 @@
+.writePage {
+    padding-top: 50px;
+    
+
+    .writePostImg{
+        width: 70%;
+        height: 380px;
+        max-height: 3800px;
+        object-fit: cover;
+        margin-left: 150px;
+        border-radius: 10px;
+        margin-bottom: 40px;
+    }
+
+    .writeForm {
+        .writeFormGroup1 {
+            margin-left: 150px;
+            display: flex;
+            align-items: center;
+
+            .addIcon {
+                font-size: 30px;
+                cursor: pointer;
+            }
+            .titleInput {
+                font-size: 30px;
+                border: none;
+                outline: none;
+                margin-left: 20px;
+            }
+
+            
+        }
+
+        .writeFormGroup2 {
+            margin-left: 150px;
+            height: 100vh;
+            
+            .descriptionInput {
+                font-size: 20px;
+                border: none;
+                outline: none;
+                margin-top: 40px;
+                margin-left: 20px;
+                font-family: 'Varela', sans-serif;
+              
+            }
+
+            .publishButton{
+                margin-left: 86%;
+                background-color: pink;
+                border: none;
+                border-radius: 1px solid ;
+                border-radius: 10px;
+                padding: 10px;
+                font-size: 14px;
+                font-weight: 600;
+
+                
+        }
+        }
+    }
+}

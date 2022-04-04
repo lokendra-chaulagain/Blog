@@ -1,6 +1,7 @@
 
 import TopBar from './components/topbar/TopBar'
-import Singlepage from './pages/singlepage/Singlepage';
+// import Singlepage from './pages/singlepage/Singlepage';
+import Writepage from './pages/write/Writepage';
 // import Home from './pages/home/Home';
 
 
@@ -9,7 +10,8 @@ function App() {
     <div className="App">
       <TopBar />
       {/* <Home/> */}
-     <Singlepage/>
+      {/* <Singlepage/> */}
+      <Writepage />
     </div>
   );
 }
