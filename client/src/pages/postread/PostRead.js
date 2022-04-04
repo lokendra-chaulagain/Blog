@@ -1,11 +1,11 @@
 import React from 'react'
 import Singlepost from '../../components/singlepost/Singlepost'
-import "./singlepage.scss"
+import "./postRead.scss"
 import Rightbar from '../../components/rightbar/Rightbar'
 
 
 
-function Singlepage() {
+function PostRead() {
   return (
     <div className='singlePage'>
      <Singlepost/>
@@ -15,4 +15,4 @@ function Singlepage() {
   )
 }
 
-export default Singlepage
+export default PostRead

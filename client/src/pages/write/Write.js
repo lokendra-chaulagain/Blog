@@ -1,9 +1,9 @@
 import React from 'react'
-import "./writepage.scss"
+import "./write.scss"
 
-function Writepage() {
+function Write() {
   return (
-    <div className='writePage'>
+    <div className='write'>
       <img src="assets/post/1.jpeg" alt="" className="writePostImg" />
       <form className='writeForm'>
         <div className="writeFormGroup1">
@@ -31,4 +31,4 @@ function Writepage() {
   )
 }
 
-export default Writepage
+export default Write
