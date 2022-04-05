@@ -6,6 +6,7 @@ const authRoute = require('./routes/auth');
 const User = require('./models/User');
 const userRoute = require('./routes/users');
 const postRoute = require('./routes/Posts');
+const categoryRoute = require('./routes/categories');
 
 
 
@@ -24,6 +25,7 @@ mongoose.connect(process.env.MONGODB_URL)
 app.use('/api/auth', authRoute);
 app.use('/api/users', userRoute);
 app.use('/api/posts', postRoute);
+app.use('/api/categories', categoryRoute);
 
 
 
