@@ -1,7 +1,8 @@
 import React from 'react'
-import "./singlepost.scss"
+import "./singlePost.scss"
 
-function Singlepost() {
+
+function SinglePost() {
     return (
         <div className='singlePost'>
             <div className="singlePostWrapper">
@@ -21,9 +22,6 @@ function Singlepost() {
                 </div>
 
 
-
-
-
                 <h1 className="singlePostTitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas.</h1>
                 <span className='author'>Author : <span className='authorName'>Loki Chaulagain</span></span>
                 <p className='singlePostDescription'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus suscipit nesciunt, possimus officia aspernatur aliquid aperiam explicabo molestias dignissimos praesentium sapiente eos asperiores, dolor adipisci. Nostrum voluptatem maiores veritatis animi magni suscipit quae placeat reiciendis saepe architecto. Labore doloremque unde officiis, sed atque cupiditate ad qui fuga. Explicabo obcaecati accusamus nisi quo maiores beatae nostrum nobis similique laborum, odit ipsam exercitationem fugit consequatur facere reprehenderit tempore eaque harum rerum deleniti distinctio itaque. Aspernatur temporibus animi, in at error, ab, vel dolores eligendi et odit dolor. Facilis nulla ipsa veritatis et aut. Aliquid illum voluptatibus necessitatibus sit obcaecati quasi ducimus dolores ratione, rerum deserunt porro nam laudantium provident maiores, totam magnam beatae et! Dicta dolor eos placeat inventore sed molestias quam eligendi mollitia, ipsa eaque, doloribus nemo atque doloremque pariatur iusto culpa perspiciatis quisquam fugiat nam laudantium? Saepe consequuntur quisquam consectetur, dolor nobis animi tempora laboriosam aliquam aperiam impedit accusantium similique reprehenderit odio nulla iure vel unde repellendus amet. Eos sunt obcaecati accusantium expedita eligendi harum libero vel eveniet, corporis, asperiores mollitia provident. Perferendis quae facilis modi adipisci dolorum id aperiam soluta ab accusantium nihil provident officiis odio nulla ipsa et unde, vero cupiditate voluptatem deserunt suscipit. Earum quisquam veritatis unde.
@@ -36,4 +34,4 @@ function Singlepost() {
     )
 }
 
-export default Singlepost
+export default SinglePost

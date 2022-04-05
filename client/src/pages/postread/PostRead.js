@@ -1,5 +1,5 @@
 import React from 'react'
-import Singlepost from '../../components/singlepost/Singlepost'
+import SinglePost from '../../components/singlepost/SinglePost'
 import "./postRead.scss"
 import Rightbar from '../../components/rightbar/Rightbar'
 
@@ -8,7 +8,7 @@ import Rightbar from '../../components/rightbar/Rightbar'
 function PostRead() {
   return (
     <div className='singlePage'>
-     <Singlepost/>
+     <SinglePost/>
      <Rightbar/>
     
     </div>
