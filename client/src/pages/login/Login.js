@@ -1,5 +1,7 @@
 import React from 'react'
 import "./login.scss"
+import { Link } from 'react-router-dom'
+
 
 function Login() {
     return (
@@ -10,9 +12,13 @@ function Login() {
                     <input className='loginInput' type="email" placeholder='Email' />
                     <label className='labelText'>Password</label>
                     <input className='loginInput' type="password" placeholder='Password' />
-                    <button className='loginButton'>Login</button>
+                    <button className='loginButton'>LOGIN</button>
                     <span className='dontHaveAccountTxt'>Dont have an account ?</span>
-                    <button className='loginButton'>Create an Account</button>
+                    <button className='loginButton'>
+                    <Link to="/register" className='link' >Create an Account</Link>
+                    
+                        
+                        </button>
 
 
                 </div>
