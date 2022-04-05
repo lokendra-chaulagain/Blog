@@ -7,6 +7,7 @@ const User = require('./models/User');
 const userRoute = require('./routes/users');
 const postRoute = require('./routes/Posts');
 const categoryRoute = require('./routes/categories');
+const multer = require('multer');
 
 
 
@@ -28,6 +29,20 @@ app.use('/api/posts', postRoute);
 app.use('/api/categories', categoryRoute);
 
 
+//Multer Storage 
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, "images");
+    },
+    filename: (req, file, cb) => {
+        cb(null, req.body.username);
+    },
+});
+
+const upload = multer({ storage: storage });
+app.post("/api/upload", upload.single("file"), (req, res) => {
+    res.status(200).json("File has been uploaded");
+});
 
 
 
@@ -41,6 +56,6 @@ app.listen(5000, () => {
 
 
 
-// starts from multer======================>
+
 
 
