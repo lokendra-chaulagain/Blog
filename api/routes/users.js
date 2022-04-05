@@ -61,6 +61,28 @@ router.delete("/:id", async (req, res) => {
 })
 
 
+//GET A USER
+router.get("/:id", async (req, res) => {
+    try {
+        const user =await User.findById(req.params.id);
+
+        //dont want to send all info to the client
+        const {password,updatedAt,createdAt,__v, ...others} = user._doc;
+
+
+        res.status(200).json({ message: "User found successfully", others });
+   
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+        
+    }
+
+
+
+})
+
+
+
 //export
 module.exports = router;
 
