@@ -29,8 +29,11 @@ const PostSchema = new mongoose.Schema({
         minlength: 4,
         maxlength: 12,
     },
+
+    
+    
     categories: {
-        type: Array,  
+        type: Array,
     }
 }, { timestamps: true })
 

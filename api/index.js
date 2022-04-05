@@ -5,6 +5,7 @@ const dotenv = require('dotenv').config();
 const authRoute = require('./routes/auth');
 const User = require('./models/User');
 const userRoute = require('./routes/users');
+const postRoute = require('./routes/Posts');
 
 
 
@@ -22,6 +23,10 @@ mongoose.connect(process.env.MONGODB_URL)
 //Routes
 app.use('/api/auth', authRoute);
 app.use('/api/users', userRoute);
+app.use('/api/posts', postRoute);
+
+
+
 
 
 
