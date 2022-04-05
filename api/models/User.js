@@ -2,7 +2,7 @@ const mongoose = require("mongoose")
 
 
 //User Schema
-const UserSchema = mongoose.Schema ({
+const UserSchema = mongoose.Schema({
     username: {
         type: String,
         required: true,
@@ -29,7 +29,8 @@ const UserSchema = mongoose.Schema ({
     profilePic: {
         type: String,
         default: "",
-    }
+    },
+
 
 }, { timestamps: true })
 
