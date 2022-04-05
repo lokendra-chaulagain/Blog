@@ -42,6 +42,25 @@ router.put("/:id", async (req, res) => {
 
 })
 
+
+//DELETE
+router.delete("/:id", async (req, res) => {
+    //verify if the user is owner or not
+    if (req.body.userId === req.params.id) {
+        try {
+            const user = await User.findByIdAndDelete(req.params.id);
+            res.status(200).json({ message: "User deleted successfully", user });
+
+        } catch (error) {
+            res.status(500).json({ message: error.message });
+        }
+
+    } else {
+        res.status(401).json({ message: "You are not authorized to delete this user" });
+    }
+})
+
+
 //export
 module.exports = router;
 
