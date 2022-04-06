@@ -3,6 +3,7 @@ import React from 'react'
 import { useLocation } from 'react-router-dom';
 import "./singlePost.scss"
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 
 
 
@@ -57,7 +58,16 @@ function SinglePost() {
 
 
                 <h1 className="singlePostTitle">{post.title}</h1>
-                <span className='author'>Author : <span className='authorName'>{post.username}</span></span>
+                <span className='author'>Author :
+                <Link to={`/?user=${post.username}`} className="link">
+
+                <span className='authorName'>{post.username}</span>
+                
+                </Link>
+
+                
+                
+                </span>
                 <p className='singlePostDescription'>{post.desc}</p>
 
 
