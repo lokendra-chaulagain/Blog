@@ -4,6 +4,7 @@ import Postbar from '../../components/postbar/Postbar'
 import Rightbar from '../../components/rightbar/Rightbar'
 import "./home.scss"
 import axios from 'axios'
+import { useLocation } from 'react-router-dom'
 
 
 
@@ -21,17 +22,23 @@ function Home() {
   //useState Hook
   const [posts, setPosts] = React.useState([])//empty array for initial state we have not fetched data yet
 
+  const {search}= useLocation();
+
   //lets fetch data
   React.useEffect(() => {
     const fetchPosts = async () => {
-      const res = await axios.get("/posts")
+      const res = await axios.get("/posts"+search)
       // console.log(res.data);
       setPosts(res.data)
     }
     fetchPosts()
 
-  }, [])//empty array pass .it means fire this just at the beginning
+  }, [search])//empty array pass .it means fire this just at the beginning
 
+  // -----------------------------------------------------
+  
+
+  
 
 
 

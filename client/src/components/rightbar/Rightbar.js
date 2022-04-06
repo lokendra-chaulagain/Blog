@@ -1,7 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useEffect } from 'react'
 import "./rightbar.scss"
+import axios from 'axios'
 
 function Rightbar() {
+    const [cats, setCats] = useState([])//initial state
+
+    useEffect(() => {
+        const getCatch = async () => {
+            const res = await axios.get("/categories")
+            setCats(res.data)
+        }
+        getCatch()
+
+    }, [])
+
+
+
+
+
+
+
+
     return (
         <div className='rightbar'>
 
@@ -20,12 +40,17 @@ function Rightbar() {
                 <span className="rightbarTitle">CATEGORIES</span>
                 <hr className="lineHrBottom" />
                 <ul className="rightbarList">
-                    <li className="rightbarListItem">Life</li>
-                    <li className="rightbarListItem">Music</li>
+
+                    {cats.map((c) => (
+                        <li className="rightbarListItem">{c.name}</li>
+                    ))}
+                    {/* <li className="rightbarListItem">Life</li> */}
+
+                    {/* <li className="rightbarListItem">Music</li>
                     <li className="rightbarListItem">Style</li>
                     <li className="rightbarListItem">Sports</li>
                     <li className="rightbarListItem">Tech</li>
-                    <li className="rightbarListItem">Cinema</li>
+                    <li className="rightbarListItem">Cinema</li> */}
                 </ul>
             </div>
 
