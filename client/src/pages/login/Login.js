@@ -8,10 +8,14 @@ function Login() {
         <div className='login'>
             <div className="loginWrapper">
                 <div className="formContainer">
-                    <label className='labelText'>Email</label>
-                    <input className='loginInput' type="email" placeholder='Email' />
+                    <label className='labelText'>Username</label>
+                    <input className='loginInput' type="text" placeholder='Username' />
+
+
                     <label className='labelText'>Password</label>
                     <input className='loginInput' type="password" placeholder='Password' />
+
+                    
                     <button className='loginButton'>LOGIN</button>
                     <span className='dontHaveAccountTxt'>Dont have an account ?</span>
                     <button className='loginButton'>
