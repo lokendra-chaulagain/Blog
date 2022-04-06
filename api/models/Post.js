@@ -30,8 +30,6 @@ const PostSchema = new mongoose.Schema({
         maxlength: 12,
     },
 
-    
-    
     categories: {
         type: Array,
     }
