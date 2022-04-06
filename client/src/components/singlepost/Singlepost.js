@@ -1,8 +1,15 @@
 import React from 'react'
+import { useLocation } from 'react-router-dom';
 import "./singlePost.scss"
 
 
 function SinglePost() {
+
+    //Hook
+    const location= useLocation();
+    console.log(location.pathname.split('/')[2])
+
+    
     return (
         <div className='singlePost'>
             <div className="singlePostWrapper">
@@ -11,7 +18,7 @@ function SinglePost() {
                 <div className="timeLocationUpdateDeleteRow">
                     <div className='timeLocationRow'>
                         <span className='postTime'>43 mins ago</span>
-                        <i class="locationIcon fa-solid fa-location-dot"></i>
+                        <i className="locationIcon fa-solid fa-location-dot"></i>
                         <span className="locationText">Kathmandu Nepal</span>
                     </div>
 

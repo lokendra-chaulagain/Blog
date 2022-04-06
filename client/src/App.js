@@ -7,10 +7,10 @@ import Home from './pages/home/Home';
 import Setting from './pages/setting/Setting';
 
 import {
-  BrowserRouter as Router,
-  Switch,
+  // BrowserRouter as Router,
+  Routes,
   Route,
-  Link
+  // Link
 } from "react-router-dom";
 
 
@@ -26,46 +26,39 @@ function App() {
 
 
   return (
-    <Router>
-
+    // <Router>
+    <>
       {/* Topbar will be in every  page */}
       <TopBar />
+      <Routes>
 
 
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
+        <Route exact path="/" element={<Home />} />
+        {/* </Route> */}
 
-        <Route path="/register">
-          {user ? <Home /> : <Register />}
-          {/* if there is a user login (true) then we will not show register page instead we will redirect to home page  */}
-        </Route>
-
-        <Route path="/login">
-          {user ? <Home /> : <Login />}
-        </Route>
+        <Route path="/register" element={user ? <Home /> : <Register />} />
 
 
-        <Route path="/setting">
-         {user ? <Setting /> : <Register/>}
-        </Route>
+        <Route path="/login" element={user ? <Home /> : <Login />} />
+        {/* {}
+        </Route> */}
 
-        <Route path="/write">
-          {user ? <Write /> : <Register />}
-        </Route>
+
+        <Route path="/setting" element={user ? <Setting /> : <Register />} />
+        {/* {}
+        </Route> */}
+
+        <Route path="/write" element={user ? <Write /> : <Register />} />
+        {/* {}
+        </Route> */}
 
 
         {/* ---everyone can read and see this page so we dont need any condition -------- */}
-        <Route path="/post/:postId">
-          <PostRead />
-        </Route>
+        <Route path="/post/:postId" element={<PostRead />} />
+        {/*           
+        </Route> */}
 
-
-
-      </Switch>
-
-
+      </Routes>
 
 
 
@@ -74,13 +67,15 @@ function App() {
 
 
 
-      {/* <Home/> */}
-      {/* <Singlepage/> */}
-      {/* <Writepage /> */}
-      {/* <Setting/> */}
-      {/* <Login/> */}
-      {/* <Register /> */}
-    </Router>
+
+
+
+    </>
+
+
+
+
+
   );
 }
 export default App;

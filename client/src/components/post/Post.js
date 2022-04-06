@@ -1,18 +1,40 @@
 import React from 'react'
 import "./post.scss"
+import { Link } from 'react-router-dom'
 
-function Post() {
+
+// taking props from postbar.js
+function Post({ post }) {
     return (
         <div className='post'>
-            <span className="postTitle">House Decorartion</span>
-            <img className='postImg' src="assets/post/5.jpeg" alt="" />
+            {/*condition  for postPic */}
+            {post.postPic && (
+                <img className='postImg' src={post.postPic} alt="" />
+
+            )}
+
+
+            {/* <Link to="/register" className='link' >Create an Account</Link> */}
+
+
+            <Link to={`/post/${post._id}`} className="link"  ><span className="postTitle">{post.title}</span> </Link>
+
+            {/* <img className='postImg' src="assets/post/5.jpeg" alt="" /> */}
+            <div className="postCats timeLocationRow">
+                {/* <span className="postCat">Music</span>
+                <span className="postCat">Life</span> */}
+                {post.categories.map((c) => (
+                    <span className="postCat">{c.name}</span>
+                ))}
+            </div>
+
+
+            
             <div className='timeLocationRow'>
-                <span className='postTime'>43 mins ago</span>
-                <i class="locationIcon fa-solid fa-location-dot"></i>
+                <span className='postTime'>{new Date(post.createdAt).toDateString()}</span>
+                <i className="locationIcon fa-solid fa-location-dot"></i>
                 <span className="locationText">Kathmandu Nepal</span>
-                <p className='postDescription'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis accusantium sint laudantium ab nesciunt, provident repudiandae. Natus, ullam suscipit rem id molestiae odionobis voluptatum dolor quos  soluta!
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium doloribus deserunt corrupti corporis odio repudiandae odit quis quo cupiditate ut. In aliquam quisquam necessitatibus perspiciatis dolores maiores quo fugiat animi sunt voluptates ab dolorem, quidem earum, officia sit laudantium explicabo voluptate doloribus nam? Veritatis praesentium excepturi nam rem. Fugit, illo!
-                </p>
+                <p className='postDescription'>{post.desc}</p>
             </div>
 
 
