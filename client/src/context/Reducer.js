@@ -15,7 +15,7 @@ const Reducer = (state, action) => {
                 error: false
             }
 
-        case "LOGIN_Failure":
+        case "LOGIN_FAILURE":
             return {
                 user: null,
                 isFetching: false,
