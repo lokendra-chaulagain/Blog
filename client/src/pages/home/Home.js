@@ -10,14 +10,15 @@ import { useState, useEffect } from 'react'
 
 function Home() {
   const [posts, setPosts] = useState([])
+  const { search } = useLocation()
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await axios.get("/posts")
-      // console.log(res.data)
+      const res = await axios.get("/posts" + search)
       setPosts(res.data)
     }
     fetchPosts()
-  }, [])
+  }, [search])
+
 
 
   return (

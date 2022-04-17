@@ -5,28 +5,18 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 function Rightbar() {
-    const [cats, setCats] = useState([])//initial state
-
+    const [cats, setCats] = useState([])
     useEffect(() => {
-        const getCatch = async () => {
+        const getCats = async () => {
             const res = await axios.get("/categories")
             setCats(res.data)
         }
-        getCatch()
+        getCats()
 
     }, [])
 
-
-
-
-
-
-
-
     return (
         <div className='rightbar'>
-
-
             <div className="rightbarItem">
                 <hr className="lineHrTop" />
                 <span className="rightbarTitle">ABOUT ME</span>
@@ -35,37 +25,18 @@ function Rightbar() {
                 <p className='introduction'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est tempore, quis eveniet officia quisquam modi. Deleniti alias ad, nulla iusto praesentium cupiditate.</p>
             </div>
 
-
             <div className="rightbarItem">
                 <hr className="lineHrTop" />
                 <span className="rightbarTitle">CATEGORIES</span>
                 <hr className="lineHrBottom" />
                 <ul className="rightbarList">
-
-
-
-
-
-
-
                     {cats.map((c) => (
-
                         <Link to={`/?cat=${c.name}`} className="link" >
-                            <li  className="rightbarListItem">  {c.name}</li>
-
+                        <li className="rightbarListItem">  {c.name}</li>
                         </Link>
-
                     ))}
-                    {/* <li className="rightbarListItem">Life</li> */}
-
-                    {/* <li className="rightbarListItem">Music</li>
-                    <li className="rightbarListItem">Style</li>
-                    <li className="rightbarListItem">Sports</li>
-                    <li className="rightbarListItem">Tech</li>
-                    <li className="rightbarListItem">Cinema</li> */}
                 </ul>
             </div>
-
 
             <div className="rightbarItem">
                 <hr className="lineHrTop" />
@@ -76,16 +47,9 @@ function Rightbar() {
                     <i className=" rightbarIcon fa-brands fa-twitter-square"></i>
                     <i className=" rightbarIcon fa-brands fa-pinterest-square"></i>
                     <i className=" rightbarIcon fa-brands fa-instagram-square"></i>
-
                 </div>
-
-
             </div>
-
-
-
         </div>
     )
 }
-
 export default Rightbar

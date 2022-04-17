@@ -2,8 +2,7 @@ import React from 'react'
 import Post from '../post/Post'
 import "./posts.scss"
 
-
-function Postbar({ posts }) {
+function Posts({ posts }) {
     return (
         <div className='posts'>
             {posts.map((p, id) => (
@@ -12,4 +11,4 @@ function Postbar({ posts }) {
         </div>
     )
 }
-export default Postbar
+export default Posts
