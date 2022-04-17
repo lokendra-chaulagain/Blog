@@ -1,10 +1,6 @@
-
-
-
-
 const Reducer = (state, action) => {
-
     switch (action.type) {
+
         case "LOGIN_START":
             return {
                 user: null,
@@ -29,6 +25,4 @@ const Reducer = (state, action) => {
             return state;
     }
 }
-
-//export
 export default Reducer;
