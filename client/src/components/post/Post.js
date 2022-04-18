@@ -12,7 +12,7 @@ function Post({ post }) {
                 <span className="postTitle">{post.title}</span>
             </Link>
 
-            <div className="postCats timeLocationRow">
+            <div className="postCats"   >
                 {post.categories.map((c) => (
                     <span className="postCat">{c.name}</span>
                 ))}
@@ -27,5 +27,4 @@ function Post({ post }) {
         </div>
     )
 }
-
 export default Post

@@ -5,9 +5,11 @@ import "./singlePost.scss"
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 
+
 function SinglePost() {
-    const location = useLocation();
-    const path = location.pathname.split('/')[2];
+    const location = useLocation()
+    const path = location.pathname.split('/')[2]
+
     const [post, setPost] = useState({})
     useEffect(() => {
         const getPost = async () => {
@@ -16,19 +18,15 @@ function SinglePost() {
         }
         getPost()
     }, [path])
-    console.log(post);
 
 
     return (
         <div className='singlePost'>
             <div className="singlePostWrapper">
-                {post.postPic && (
-                    <img className='singlePostImg' src={post.postPic} alt="" />
-                )}
-
+                <img className='singlePostImg' src={post.postPic} alt="" />
                 <div className="timeLocationUpdateDeleteRow">
                     <div className='timeLocationRow'>
-                        <span className='postTime'>{new Date(post.createdAt).toDateString()}</span>
+                        <span className='postTime'>{new Date(post.createdAt).toDateString()} </span>
                         <i className="locationIcon fa-solid fa-location-dot"></i>
                         <span className="locationText">Kathmandu Nepal</span>
                     </div>
@@ -41,11 +39,8 @@ function SinglePost() {
 
                 <h1 className="singlePostTitle">{post.title}</h1>
                 <span className='author'>Author :
-                    <Link to={`/?user=${post.username}`} className="link">
-                        <span className='authorName'>{post.username}</span>
-                    </Link>
+                    <span className='authorName'>{post.username}</span>
                 </span>
-
                 <p className='singlePostDescription'>{post.desc}</p>
             </div>
         </div>
