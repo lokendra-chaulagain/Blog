@@ -41,7 +41,7 @@ function TopBar() {
 
 
             <div className="topRight">
-                {user ? (<img className='topImg' src={user.profilePic}   alt="" />
+                {user ? (<img className='topImg' src={user.profilePic}  alt="" />
                 ) : (
                     <ul className="topList" >
                         <li className="topListItems">
