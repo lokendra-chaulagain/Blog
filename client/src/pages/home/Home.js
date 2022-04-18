@@ -1,7 +1,7 @@
 import React from 'react'
 import "./home.scss"
 import Header from '../../components/header/Header'
-import Postbar from '../../components/posts/Posts'
+import Posts from '../../components/posts/Posts'
 import Rightbar from '../../components/rightbar/Rightbar'
 import axios from 'axios'
 import { useLocation } from 'react-router-dom'
@@ -10,22 +10,35 @@ import { useState, useEffect } from 'react'
 
 function Home() {
   const [posts, setPosts] = useState([])
-  const { search } = useLocation()
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await axios.get("/posts" + search)
+      const res = await axios.get("/posts")
       setPosts(res.data)
     }
     fetchPosts()
-  }, [search])
+  }, [])//fire this useEffect just at the beginning
 
+
+
+
+
+
+  // const { search } = useLocation()
+  // const [posts, setPosts] = useState([])
+  // useEffect(() => {
+  //   const fetchPosts = async () => {
+  //     const res = await axios.get("/posts" + search)
+  //     setPosts(res.data)
+  //   }
+  //   fetchPosts()
+  // }, [search])
 
 
   return (
     <>
       <Header />
       <div className='home'>
-        <Postbar posts={posts} />
+        <Posts posts={posts} />
         <Rightbar />
       </div>
     </>

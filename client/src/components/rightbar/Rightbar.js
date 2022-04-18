@@ -32,7 +32,7 @@ function Rightbar() {
                 <ul className="rightbarList">
                     {cats.map((c) => (
                         <Link to={`/?cat=${c.name}`} className="link" >
-                        <li className="rightbarListItem">  {c.name}</li>
+                            <li className="rightbarListItem" >  {c.name}</li>
                         </Link>
                     ))}
                 </ul>
