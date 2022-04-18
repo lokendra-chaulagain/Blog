@@ -7,14 +7,11 @@ import Home from './pages/home/Home';
 import Setting from './pages/setting/Setting';
 import { Context } from './context/Context';
 import { useContext } from 'react';
-
-import {
-  Routes,
-  Route,
-} from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   const { user } = useContext(Context);
+
   return (
     <>
       <TopBar />
