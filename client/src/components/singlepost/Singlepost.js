@@ -39,7 +39,9 @@ function SinglePost() {
 
                 <h1 className="singlePostTitle">{post.title}</h1>
                 <span className='author'>Author :
-                    <span className='authorName'>{post.username}</span>
+                    <Link to={`/?user=${post.username}`} className="link">
+                        <span className='authorName'>{post.username}</span>  
+                    </Link>
                 </span>
                 <p className='singlePostDescription'>{post.desc}</p>
             </div>

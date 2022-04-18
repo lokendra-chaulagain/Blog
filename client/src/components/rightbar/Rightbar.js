@@ -5,14 +5,13 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 function Rightbar() {
-    const [cats, setCats] = useState([])
+    const [cats, setCat] = useState([])
     useEffect(() => {
         const getCats = async () => {
             const res = await axios.get("/categories")
-            setCats(res.data)
+            setCat(res.data)
         }
         getCats()
-
     }, [])
 
     return (
@@ -31,8 +30,8 @@ function Rightbar() {
                 <hr className="lineHrBottom" />
                 <ul className="rightbarList">
                     {cats.map((c) => (
-                        <Link to={`/?cat=${c.name}`} className="link" >
-                            <li className="rightbarListItem" >  {c.name}</li>
+                        <Link to={`/?cat=${c.name}`} >
+                            <li className="rightbarListItem" >{c.name} </li>
                         </Link>
                     ))}
                 </ul>
