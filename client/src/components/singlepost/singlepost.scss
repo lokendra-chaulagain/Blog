@@ -35,6 +35,7 @@
             .updateAndDeleteIcon {
                 font-size: 16px;
                 margin-right: 20px;
+                cursor: pointer;
                 .updateIcon {
                     margin-right: 20px;
                 }
@@ -65,9 +66,7 @@
             font-size: 18px;
             line-height: 25px;
 
-            // .descriptionFirstLetter{
-            //
-            // }
+            
         }
         .singlePostDescription::first-letter {
             font-size: 32px;
