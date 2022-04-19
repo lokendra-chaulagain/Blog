@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 function Post({ post }) {
     return (
         <div className='post'>
-            <img className='postImg' src={post.postPic} alt="" />
+            <img className='postImg' src={post.postPic } alt="" />
 
             <Link to={`/post/${post._id}`} className="link" >
                 <span className="postTitle">{post.title}</span>
