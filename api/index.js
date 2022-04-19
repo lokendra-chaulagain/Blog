@@ -8,11 +8,15 @@ const userRoute = require('./routes/users');
 const postRoute = require('./routes/Posts');
 const categoryRoute = require('./routes/categories');
 const multer = require('multer');
+const path = require('path');
 
 
 
 //middleware
 app.use(express.json());
+app.use("/images", express.static(path.join(__dirname, "/images")));
+
+
 
 
 
@@ -22,11 +26,7 @@ mongoose.connect(process.env.MONGODB_URL)
     .catch(err => console.log(err));
 
 
-//Routes
-app.use('/api/auth', authRoute);
-app.use('/api/users', userRoute);
-app.use('/api/posts', postRoute);
-app.use('/api/categories', categoryRoute);
+
 
 
 //Multer Storage 
@@ -35,7 +35,7 @@ const storage = multer.diskStorage({
         cb(null, "images");
     },
     filename: (req, file, cb) => {
-        cb(null, "coffee.png");
+        cb(null, req.body.name);
     },
 });
 
@@ -44,7 +44,11 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
     res.status(200).json("File has been uploaded");
 });
 
-
+//Routes
+app.use('/api/auth', authRoute);
+app.use('/api/users', userRoute);
+app.use('/api/posts', postRoute);
+app.use('/api/categories', categoryRoute);
 
 
 //Port listening
