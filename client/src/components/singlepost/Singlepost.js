@@ -18,11 +18,14 @@ function SinglePost() {
         const getPost = async () => {
             const res = await axios.get("/posts/" + path)
             setPost(res.data)
+            setTitle(res.data.title)
+            setDesc(res.data.desc)
         }
         getPost()
     }, [path])
 
 
+    //delete handler
     const handleDelete = async () => {
         try {
             await axios.delete("/posts/" + path, { data: { username: user.username } })
@@ -31,6 +34,19 @@ function SinglePost() {
 
         }
     }
+
+
+    //update post handler
+    const [title, setTitle] = useState("")
+    const [desc, setDesc] = useState("")
+    const [updateMode, setUpdateMode] = useState(false)
+
+    const handleUpdate = async () => {
+        setUpdateMode(true)
+        await axios.put("/posts/" + path, { title, desc })
+    }
+
+
 
 
     return (
@@ -44,23 +60,53 @@ function SinglePost() {
                         <span className="locationText">Kathmandu Nepal</span>
                     </div>
 
-                    {post.username === user?.username && (
-                        <div className="updateAndDeleteIcon">
-                            <i className=" updateIcon fa-solid fa-pen-to-square"></i>
-                            <i className=" deleteIcon fa-solid fa-trash-arrow-up" onClick={handleDelete}  ></i>
-                        </div>
+
+
+
+                    {updateMode ? <input type="text" value={post.title} className="singlePostTitleInput" onChange={(e) => setTitle(e.target.value)} /> : (
+
+                        post.username === user?.username && (
+                            <div className="updateAndDeleteIcon">
+                                <h1 className="singlePostTitle">{post.title}</h1>
+                                <i className=" updateIcon fa-solid fa-pen-to-square" onClick={() => setUpdateMode(true)}   ></i>
+                                <i className=" deleteIcon fa-solid fa-trash-arrow-up" onClick={handleDelete}  ></i>
+                            </div>
+                        )
+
+
                     )}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 </div>
-                <h1 className="singlePostTitle">{post.title}</h1>
                 <span className='author'>Author :
                     <Link to={`/?user=${post.username}`} className="link">
                         <span className='authorName'>{post.username}</span>
                     </Link>
                 </span>
-                <p className='singlePostDescription'>{post.desc}</p>
+
+
+                {updateMode ? <textarea className='singlePostDescriptionInput' value={desc} onChange={(e) => setDesc(e.target.value)} />
+                    : <p className='singlePostDescription'>{post.desc}</p>}
+
             </div>
         </div>
+
     )
 }
+
 export default SinglePost
