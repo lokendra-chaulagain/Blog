@@ -41,16 +41,18 @@ function TopBar() {
 
 
             <div className="topRight">
-                {user ? (<img className='topImg' src={user.profilePic}  alt="" />
-                ) : (
-                    <ul className="topList" >
-                        <li className="topListItems">
-                            <Link to="/login" className='link' >LOGIN</Link>
-                        </li>
-                        <li className="topListItems">
-                            <Link to="/register" className='link' >REGISTER</Link>
-                        </li>
-                    </ul>)}
+                <Link to={"/setting"} >
+                    {user ? (<img className='topImg' src={user.profilePic} alt="" />
+                    ) : (
+                        <ul className="topList" >
+                            <li className="topListItems">
+                                <Link to="/login" className='link' >LOGIN</Link>
+                            </li>
+                            <li className="topListItems">
+                                <Link to="/register" className='link' >REGISTER</Link>
+                            </li>
+                        </ul>)}
+                </Link>
                 <i className=" topSearchIcon fa-solid fa-magnifying-glass"></i>
             </div>
         </div>

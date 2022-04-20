@@ -42,7 +42,6 @@ function Write() {
   }
 
 
-
   return (
     <div className='write'>
       {file && (<img src={URL.createObjectURL(file)} alt="" className="writePostImg" />)}

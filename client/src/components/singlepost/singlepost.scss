@@ -44,19 +44,15 @@
 
         .singlePostTitle {
             font-size: 30px;
-            // margin-left: 30px;
-            margin-top: 14px;
+            margin-top: 40px;
             font-family: "Varela", sans-serif;
             margin-bottom: 10px;
             display: flex;
             justify-content: center;
         }
-        .singlePostTitleInput{
-            font-size: 28px;  
-           
+        .singlePostTitleInput {
+            font-size: 28px;
             font-family: "Varela", sans-serif;
-            
-            
         }
 
         .author {
@@ -67,13 +63,23 @@
                 color: rgb(144, 94, 94);
             }
         }
+        .postUpdateBut {
+            width: 100px;
+            height: 34px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            background-color: teal;
+            font-size: 20px;
+            font-weight: 500;
+            cursor: pointer;
+           
+        }
 
         .singlePostDescription {
             margin-top: 10px;
             font-size: 18px;
             line-height: 25px;
-
-            
         }
         .singlePostDescription::first-letter {
             font-size: 32px;
