@@ -10,7 +10,7 @@ import axios from 'axios'
 
 
 function Setting() {
-    const { user } = useContext(Context)
+    
 
     const [file, setFile] = useState(null)
     const [username, setUsername] = useState("")
@@ -19,9 +19,11 @@ function Setting() {
     const [success, setSuccess] = useState(false)
 
 
+    const { user, dispatch } = useContext(Context)
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+        dispatch({ type: "UPDATE_START" })
         const updatedUser = {
             userId: user._id,
             username,
@@ -44,10 +46,12 @@ function Setting() {
             }
         }
         try {
-            await axios.put("/users/" + user._id, updatedUser)
+            const res = await axios.put("/users/" + user._id, updatedUser)
             setSuccess(true)
-            window.location.reload()
+            dispatch({ type: "UPDATE_SUCCESS", payload: res.data })
+            // window.location.reload()
         } catch (error) {
+            dispatch({ type: "UPDATE_FAILURE" })
 
         }
     }
@@ -59,11 +63,12 @@ function Setting() {
             <div className="settingWrapper"   >
                 <span className="headingTxt">Update Your Account</span>
                 <span className="deleteAccountTxt">Delete Account</span>
-
                 <form className="profileUpdateform" onSubmit={handleSubmit}>
 
                     <div className="profileTxtPicIconCon">
-                        <img src={user.profilePic} alt="" className="profileImg" />
+
+                        {/* <img src={user.profilePic} alt="" className="profileImg" /> */}
+                        <img src={file ? URL.createObjectURL(file) : user.profilePic} alt="" className="profileImg" />
                         <label htmlFor="fileInput">
                             <i class="settingProfileUploadIcon fa-regular fa-image" ></i>
                         </label>
