@@ -41,10 +41,7 @@ function SinglePost() {
     const [desc, setDesc] = useState("")
     const [updateMode, setUpdateMode] = useState(false)
 
-    // const handleUpdate = async () => {
-    //     setUpdateMode(true)
-    //     await axios.put("/posts/" + path, { title, desc })
-    // }
+    
 
     const handleUpdate = async () => {
 
