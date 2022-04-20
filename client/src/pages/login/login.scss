@@ -20,6 +20,8 @@
                 font-size: 16px;
                 border-radius: 10px;
                 padding-left: 10px;
+                border:none;
+                border: 1.5px solid teal;
             }
             .dontHaveAccountTxt {
                 font-size: 16px;
@@ -36,6 +38,9 @@
                 border-radius: 10px;
                 padding-left: 10px;
                 font-weight: 600;
+                background-color: teal;
+                border: none;
+                color: white;
             }
 
             .loginButton:disabled{

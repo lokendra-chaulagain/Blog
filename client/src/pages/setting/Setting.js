@@ -68,33 +68,54 @@ function Setting() {
 
     return (
         <div className='setting'>
-            <form className="settingWrapper" onSubmit={handleSubmit}  >
+            <div className="settingWrapper"   >
                 <span className="headingTxt">Update Your Account</span>
                 <span className="deleteAccountTxt">Delete Account</span>
-                <span className="profilePicTxt">Profile Picture</span>
-                <img src={user.profilePic} alt="" className="profileImg" />
-                <label htmlFor="fileInput">
-                    <i class="settingProfileUploadIcon fa-regular fa-image" ></i>
-                </label>
-                <input type="file" id='fileInput' style={{ display: "none" }} onChange={(e) => setFile(e.target.value)} />
 
-                <div className="usernameEmailPasswordContainer">
-                    <label className='labelTxt'>Username</label>
-                    <input className='updateInput' type="text" placeholder={user.username} onChange={e => setUsername(e.target.value)} />
+                <form className="profileUpdateform" onSubmit={handleSubmit}>
 
-                    <label className='labelTxt' >Email</label>
-                    <input className='updateInput' type="email" placeholder={user.email} onChange={e => setEmail(e.target.value)} />
 
-                    <label className='labelTxt'>Password</label>
-                    <input className='updateInput' type="password" placeholder='********' onChange={e => setPassword(e.target.value)} />
 
-                    <button className="profileUpdateButton" type='submit'>Update</button>
+                    <label className="profilePicTxt">Profile Picture</label>
 
-                    {
-                        success && (<div className="successMsg" style={{ color: 'green' }}      >Profile has been updated</div>)
-                    }
-                </div>
-            </form>
+
+
+
+
+
+
+                    {/* <img src={file ? URL.createObjectURL(file) : user.profilePic} alt="" className="profileImg" /> */}
+                    <img src={user.profilePic} alt="" className="profileImg" />
+
+
+
+                    <label htmlFor="fileInput">
+                        <i class="settingProfileUploadIcon fa-regular fa-image" ></i>
+                    </label>
+                    <input type="file" id='fileInput' style={{ display: "none" }} onChange={(e) => setFile(e.target.files[0])} />
+
+
+
+                    <div className="usernameEmailPasswordContainer">
+                        <label className='labelTxt'>Username</label>
+                        <input className='updateInput' type="text" placeholder={user.username} onChange={e => setUsername(e.target.value)} />
+
+                        <label className='labelTxt' >Email</label>
+                        <input className='updateInput' type="email" placeholder={user.email} onChange={e => setEmail(e.target.value)} />
+
+                        <label className='labelTxt'>Password</label>
+                        <input className='updateInput' type="password" placeholder='********' onChange={e => setPassword(e.target.value)} />
+
+                        <button className="profileUpdateButton" type='submit'>Update</button>
+
+                        {
+                            success && (<div className="successMsg" style={{ color: 'green' }}      >Profile has been updated</div>)
+                        }
+                    </div>
+                </form>
+
+
+            </div>
             <Rightbar />
         </div>
     )

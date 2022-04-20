@@ -41,7 +41,7 @@ function Login() {
                     <span className='dontHaveAccountTxt'>Dont have an account ?</span>
 
                     <button className='loginButton'>
-                        <Link to="/register" className='link' >Create an Account</Link>
+                        <Link to="/register" className='link  loginButton' >Create an Account</Link>
                     </button>
                 </form>
             </div>

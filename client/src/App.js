@@ -4,6 +4,8 @@ import Login from './pages/login/Login';
 import PostRead from './pages/postread/PostRead';
 import Write from './pages/write/Write';
 import Home from './pages/home/Home';
+import About from './pages/about/About';
+import Contact from './pages/contact/Contact';
 import Setting from './pages/setting/Setting';
 import { Context } from './context/Context';
 import { useContext } from 'react';
@@ -22,6 +24,8 @@ function App() {
         <Route path="/setting" element={user ? <Setting /> : <Register />} />
         <Route path="/write" element={user ? <Write /> : <Register />} />
         <Route path="/post/:postId" element={<PostRead />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </>
   );

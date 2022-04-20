@@ -1,6 +1,7 @@
 import "./register.scss"
 import { useState } from "react"
 import axios from "axios";
+import { Link } from 'react-router-dom'
 
 function Register() {
     const [username, setUsername] = useState("")
@@ -39,8 +40,16 @@ function Register() {
 
                     <button className='signUpButton' type='submit' >Register</button>
                     {error && <span style={{ color: "red", marginTop: "2px", marginBottom: "5px", textAlign: "center" }}   >Something went Wrong</span>}
+
+
+
+
                     <span className='dontHaveAccountTxt'>Already have an account ?</span>
-                    <button className='signUpButton'>SignIn</button>
+                    <Link to={"/login"}>
+                        <button className='signUpButton'>SignIn</button>
+                    </Link>
+
+
                 </form>
             </div>
         </div>

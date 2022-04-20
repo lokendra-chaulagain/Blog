@@ -20,16 +20,22 @@ function TopBar() {
                 <i className=" topIcon fa-brands fa-instagram-square"></i>
             </div>
 
+            <div className="searchCon" >
+                <i className=" topSearchIcon fa-solid fa-magnifying-glass"></i>
+            </div>
+
+
             <div className="topCenter">
                 <ul className="topList">
                     <li className="topListItems">
-                        <Link to="/" className='link' >HOME</Link>
+                        <Link to="/" className=' link ' active  >HOME</Link>
+                    </li>
+
+                    <li className="topListItems">
+                        <Link to="/about" className='link' >ABOUT</Link>
                     </li>
                     <li className="topListItems">
-                        <Link to="/" className='link' >ABOUT</Link>
-                    </li>
-                    <li className="topListItems">
-                        <Link to="/" className='link' >CONTACT</Link>
+                        <Link to="/contact" className='link' >CONTACT</Link>
                     </li>
                     <li className="topListItems">
                         <Link to="/write" className='link' >WRITE</Link>
@@ -48,14 +54,14 @@ function TopBar() {
                             <li className="topListItems">
                                 <Link to="/login" className='link' >LOGIN</Link>
                             </li>
-                            <li className="topListItems">
-                                <Link to="/register" className='link' >REGISTER</Link>
+                            <li className="topListItems"  >
+                                <Link to="/register" className='link' style={{ textDecoration: "none" }}  >REGISTER</Link>
                             </li>
                         </ul>)}
                 </Link>
-                <i className=" topSearchIcon fa-solid fa-magnifying-glass"></i>
             </div>
         </div>
     )
 }
+
 export default TopBar
