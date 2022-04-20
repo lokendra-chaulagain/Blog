@@ -1,8 +1,7 @@
 .write {
     padding-top: 50px;
-    
 
-    .writePostImg{
+    .writePostImg {
         width: 70%;
         height: 380px;
         max-height: 3800px;
@@ -10,6 +9,7 @@
         margin-left: 150px;
         border-radius: 10px;
         margin-bottom: 40px;
+        border: 2px solid teal;
     }
 
     .writeForm {
@@ -21,6 +21,7 @@
             .addIcon {
                 font-size: 30px;
                 cursor: pointer;
+                color: teal;
             }
             .titleInput {
                 font-size: 30px;
@@ -28,37 +29,34 @@
                 outline: none;
                 margin-left: 20px;
             }
-
-            
         }
 
         .writeFormGroup2 {
             margin-left: 150px;
             height: 100vh;
-            
+
             .descriptionInput {
                 font-size: 20px;
                 border: none;
                 outline: none;
                 margin-top: 40px;
                 margin-left: 20px;
-                font-family: 'Varela', sans-serif;
-              
+                font-family: "Varela", sans-serif;
             }
 
-            .publishButton{
+            .publishButton {
                 margin-left: 86%;
-                background-color: pink;
+                background-color: teal;
                 border: none;
-                border-radius: 1px solid ;
                 border-radius: 10px;
                 padding: 10px;
                 font-size: 14px;
-                font-weight: 600;
+                font-weight: 500;
                 cursor: pointer;
-
-                
-        }
+                color: white;
+                width: 100px;
+                height: 38px;
+            }
         }
     }
 }

@@ -11,6 +11,7 @@
             margin-top: 30px;
             border-top: 0.2px solid #a7a4a4;
         }
+
         .lineHrBottom {
             margin-top: 0px;
             border-top: 0.2px solid #a7a4a4;
@@ -26,6 +27,7 @@
             font-family: "Varela Round", sans-serif;
             color: #222;
         }
+
         .rightbarImg {
             height: 320px;
             width: 100%;
@@ -53,10 +55,17 @@
             margin-bottom: 30px;
             display: flex;
             justify-content: center;
+
             .rightbarIcon {
                 margin-right: 20px;
                 font-size: 22px;
                 cursor: pointer;
+                color: rgb(46, 173, 173);
+
+                &:hover {
+                    color: teal;
+                    transition: all 0.2s ease-out;
+                }
             }
         }
     }

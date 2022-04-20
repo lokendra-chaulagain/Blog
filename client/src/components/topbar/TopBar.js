@@ -20,7 +20,7 @@ function TopBar() {
                 <i className=" topIcon fa-brands fa-instagram-square"></i>
             </div>
 
-            <div className="searchCon" >
+            <div className="searchCon">
                 <i className=" topSearchIcon fa-solid fa-magnifying-glass"></i>
             </div>
 
@@ -52,10 +52,10 @@ function TopBar() {
                     ) : (
                         <ul className="topList" >
                             <li className="topListItems">
-                                <Link to="/login" className='link' >LOGIN</Link>
+                                <Link to="/login" className='link'    >LOGIN</Link>
                             </li>
                             <li className="topListItems"  >
-                                <Link to="/register" className='link' style={{ textDecoration: "none" }}  >REGISTER</Link>
+                                <Link to="/register" className=' link' >REGISTER</Link>
                             </li>
                         </ul>)}
                 </Link>

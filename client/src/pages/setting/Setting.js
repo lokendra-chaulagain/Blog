@@ -54,18 +54,6 @@ function Setting() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
     return (
         <div className='setting'>
             <div className="settingWrapper"   >
@@ -74,25 +62,16 @@ function Setting() {
 
                 <form className="profileUpdateform" onSubmit={handleSubmit}>
 
-
+                    <div className="profileTxtPicIconCon">
+                        <img src={user.profilePic} alt="" className="profileImg" />
+                        <label htmlFor="fileInput">
+                            <i class="settingProfileUploadIcon fa-regular fa-image" ></i>
+                        </label>
+                        <input type="file" id='fileInput' style={{ display: "none" }} onChange={(e) => setFile(e.target.files[0])} />
+                    </div>
 
                     <label className="profilePicTxt">Profile Picture</label>
 
-
-
-
-
-
-
-                    {/* <img src={file ? URL.createObjectURL(file) : user.profilePic} alt="" className="profileImg" /> */}
-                    <img src={user.profilePic} alt="" className="profileImg" />
-
-
-
-                    <label htmlFor="fileInput">
-                        <i class="settingProfileUploadIcon fa-regular fa-image" ></i>
-                    </label>
-                    <input type="file" id='fileInput' style={{ display: "none" }} onChange={(e) => setFile(e.target.files[0])} />
 
 
 

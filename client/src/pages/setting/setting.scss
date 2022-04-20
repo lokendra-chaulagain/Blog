@@ -9,71 +9,77 @@
         display: flex;
         flex-direction: column;
 
-        .headingTxt {
-            font-size: 40px;
-            color: red;
-        }
         .deleteAccountTxt {
-            font-size: 14px;
+            font-size: 16px;
             color: red;
             display: flex;
             justify-content: flex-end;
-        }
-
-        .profilePicTxt {
-            font-size: 16px;
-            margin-top: 20px;
-            margin-bottom: 10px;
-        }
-
-        .profileImg {
-            width: 60px;
-            height: 60px;
-            border-radius: 20px;
-            object-fit: cover;
-        }
-
-        .settingProfileUploadIcon{
-            font-size: 30px;
-            margin-top: 10px;
-            margin-bottom: 10px;
-        }
-    }
-
-    .usernameEmailPasswordContainer {
-        display: flex;
-        flex-direction: column;
-        margin-right: 50px;
-
-        .labelTxt {
-            font-size: 20px;
             font-weight: 500;
-            margin-top: 22px;
-            margin-bottom: 10px;
         }
-        .updateInput {
-            height: 40px;
-            border: none;
-            outline: none;
-            border-bottom: 1px solid #ccc;
-            font-size: 18px;
-        }
-        .profileUpdateButton{
-            width: 100px;
-            height: 35px;
-            border-radius: 6px;
-            margin-top: 20px;
-            background-color: rgb(24, 211, 24);
-            border: none;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            margin-left: 50%;
-            
-       
-        
-         
 
+        .profileUpdateform {
+            .profileTxtPicIconCon {
+                display: flex;
+                align-items: center;
+
+                .profileImg {
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 50px;
+                    object-fit: cover;
+                    margin: 0px 20px;
+                }
+
+                .settingProfileUploadIcon {
+                    font-size: 30px;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                    color: teal;
+                    display: flex;
+                    align-items: center;
+                    cursor: pointer;
+                }
+            }
+
+            .headingTxt {
+                font-size: 40px;
+                color: rgb(47, 45, 45);
+            }
+
+            
+        }
+
+        .usernameEmailPasswordContainer {
+            display: flex;
+            flex-direction: column;
+            margin-right: 50px;
+
+            .labelTxt {
+                font-size: 20px;
+                font-weight: 500;
+                margin-top: 22px;
+                margin-bottom: 10px;
+            }
+            .updateInput {
+                height: 40px;
+                border: none;
+                outline: none;
+                border-bottom: 1px solid #ccc;
+                font-size: 18px;
+            }
+            .profileUpdateButton {
+                width: 100px;
+                height: 35px;
+                border-radius: 10px;
+                margin-top: 20px;
+                background-color: teal;
+                color: white;
+                border: none;
+                font-size: 16px;
+                font-weight: 600;
+                cursor: pointer;
+                margin-left: 50%;
+            }
         }
     }
 }
