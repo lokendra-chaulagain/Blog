@@ -1,24 +1,64 @@
-import React from 'react'
+// import React from 'react'
+// import "./home.scss"
+// import Header from '../../components/header/Header'
+// import Posts from '../../components/posts/Posts'
+// import Rightbar from '../../components/rightbar/Rightbar'
+// import axios from 'axios'
+// import { useLocation } from 'react-router-dom'
+// import { useState, useEffect } from 'react'
+
+
+// function Home() {
+//   const { search } = useLocation()
+
+//   const [posts, setPosts] = useState([])
+//   useEffect(() => {
+//     const fetchPosts = async () => {
+//       const res = await axios.get("/posts" + search)
+//       setPosts(res.data)
+//     }
+//     fetchPosts()
+//   }, [search])
+
+
+//   return (
+//     <>
+//       <Header />
+//       <div className='home'>
+//         <Posts posts={posts} />
+//         <Rightbar />
+//       </div>
+//     </>
+//   )
+// }
+// export default Home
+
+
+
+//=======================================>
 import "./home.scss"
 import Header from '../../components/header/Header'
 import Posts from '../../components/posts/Posts'
 import Rightbar from '../../components/rightbar/Rightbar'
+import { useState, useEffect } from "react"
 import axios from 'axios'
-import { useLocation } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+
 
 
 function Home() {
-  const { search } = useLocation()
 
+  //fetching posts
   const [posts, setPosts] = useState([])
+
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await axios.get("/posts" + search)
+      const res = await axios.get("/posts")
+      // console.log(res)
       setPosts(res.data)
     }
     fetchPosts()
-  }, [search])
+  }, [])//fire this use effect whenever home page is rendered
+
 
 
   return (
@@ -31,6 +71,7 @@ function Home() {
     </>
   )
 }
+
 export default Home
 
 
@@ -49,20 +90,36 @@ export default Home
 
 
 
-//useState Hook
-  // const [posts, setPosts] = React.useState([])//empty array for initial state we have not fetched data yet
 
-  // const { search } = useLocation();
 
-  // //lets fetch data
-  // React.useEffect(() => {
-  //   const fetchPosts = async () => {
-  //     const res = await axios.get("/posts" + search)
-  //     // console.log(res.data);
-  //     setPosts(res.data)
-  //   }
-  //   fetchPosts()
 
-  // }, [search])//empty array pass .it means fire this just at the beginning
 
-  // -------------
+
+
+
+
+
+
+//CLIENT ONLY===========>
+// import React from 'react'
+// import "./home.scss"
+// import Header from '../../components/header/Header'
+// import Posts from '../../components/posts/Posts'
+// import Rightbar from '../../components/rightbar/Rightbar'
+
+
+// function Home() {
+//   return (
+//     <>
+//       <Header />
+//       <div className='home'>
+//         <Posts />
+//         <Posts />
+//         <Posts />
+//         <Rightbar />
+//       </div>
+//     </>
+//   )
+// }
+
+// export default Home
