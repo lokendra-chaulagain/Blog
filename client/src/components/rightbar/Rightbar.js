@@ -59,10 +59,30 @@
 
 // //CLIENT ONLY===========>
 import "./rightbar.scss"
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 
 
 
 function Rightbar() {
+
+    //Fetching sidebar category list
+    const [cats, setCats] = useState([])
+
+    useEffect(() => {
+        const getCats = async () => {
+            const res = await axios.get("/categories")
+            console.log(res.data);
+            setCats(res.data)
+        }
+        getCats()
+
+    }, [])//at the beginning only fire this useEffect
+
+
+
+
+
     return (
         <div className='rightbar'>
             <div className="rightbarItem">
@@ -79,13 +99,10 @@ function Rightbar() {
                 <hr className="lineHrBottom" />
                 <ul className="rightbarList">
 
-                    <li className="rightbarListItem" >link </li>
-                    <li className="rightbarListItem" >link </li>
-                    <li className="rightbarListItem" >link </li>
-                    <li className="rightbarListItem" >link </li>
-                    <li className="rightbarListItem" >link </li>
-                    <li className="rightbarListItem" >link </li>
-
+                    {cats.map((c) => (
+                        <li className="rightbarListItem" >{c.name} </li>
+                    ))}
+                    
                 </ul>
             </div>
 

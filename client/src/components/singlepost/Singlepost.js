@@ -1,3 +1,138 @@
+import { Link, useLocation } from "react-router-dom";
+import "./singlePost.css";
+import { useEffect, useState } from "react";
+import axios from "axios";
+
+
+export default function SinglePost() {
+
+    //FETCHING DATA FROM URL KO POST ID----------------------------
+    const location = useLocation()
+    // console.log(location.pathname)
+    const path = location.pathname.split('/')[2]    //taking id only
+    console.log(path)
+
+    const [post, setPost] = useState({})
+    useEffect(() => {
+        const getPost = async () => {
+            const res = await axios.get("/posts/" + path)
+            console.log(res.data);
+            setPost(res.data)
+        }
+        getPost()
+    }, [path]) //whenever this path changes fire this useEffect
+
+
+    return (
+        <div className="singlePost">
+            <div className="singlePostWrapper">
+                <img className="singlePostImg" src={post.postPic || "/assets/post/1.jpeg"} alt="" />
+                <h1 className="singlePostTitle">
+                    {post.title}
+                    <div className="singlePostEdit">
+                        <i className="singlePostIcon far fa-edit"></i>
+                        <i className="singlePostIcon far fa-trash-alt"></i>
+                    </div>
+                </h1>
+
+                <div className="singlePostInfo">
+                    <span>
+                        Author:
+                        <b className="singlePostAuthor">
+                            <Link className="link" to="/posts?username=loki">
+                                {post.username}
+                            </Link>
+                        </b>
+                    </span>
+                    <span>1 day ago</span>
+                </div>
+                <p className="singlePostDesc">{post.desc} </p>
+            </div>
+        </div>
+    );
+}
+
+
+
+
+
+
+
+
+
+
+//CLIENT ONLY=============================
+// import { Link } from "react-router-dom";
+// import "./singlePost.css";
+
+// export default function SinglePost() {
+//   return (
+//     <div className="singlePost">
+//       <div className="singlePostWrapper">
+//         <img
+//           className="singlePostImg"
+//           src="https://images.pexels.com/photos/6685428/pexels-photo-6685428.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+//           alt=""
+//         />
+//         <h1 className="singlePostTitle">
+//           Lorem ipsum dolor
+//           <div className="singlePostEdit">
+//             <i className="singlePostIcon far fa-edit"></i>
+//             <i className="singlePostIcon far fa-trash-alt"></i>
+//           </div>
+//         </h1>
+//         <div className="singlePostInfo">
+//           <span>
+//             Author:
+//             <b className="singlePostAuthor">
+//               <Link className="link" to="/posts?username=Safak">
+//                 Safak
+//               </Link>
+//             </b>
+//           </span>
+//           <span>1 day ago</span>
+//         </div>
+//         <p className="singlePostDesc">
+//           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste error
+//           quibusdam ipsa quis quidem doloribus eos, dolore ea iusto impedit!
+//           Voluptatum necessitatibus eum beatae, adipisci voluptas a odit modi
+//           eos! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste
+//           error quibusdam ipsa quis quidem doloribus eos, dolore ea iusto
+//           impedit! Voluptatum necessitatibus eum beatae, adipisci voluptas a
+//           odit modi eos! Lorem, ipsum dolor sit amet consectetur adipisicing
+//           elit. Iste error quibusdam ipsa quis quidem doloribus eos, dolore ea
+//           iusto impedit! Voluptatum necessitatibus eum beatae, adipisci voluptas
+//           a odit modi eos! Lorem, ipsum dolor sit amet consectetur adipisicing
+//           elit. Iste error quibusdam ipsa quis quidem doloribus eos, dolore ea
+//           iusto impedit! Voluptatum necessitatibus eum beatae, adipisci voluptas
+//           a odit modi eos! Lorem, ipsum dolor sit amet consectetur adipisicing
+//           elit. Iste error quibusdam ipsa quis quidem doloribus eos, dolore ea
+//           iusto impedit! Voluptatum necessitatibus eum beatae, adipisci voluptas
+//           a odit modi eos!
+//           <br />
+//           <br />
+//           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste error
+//           quibusdam ipsa quis quidem doloribus eos, dolore ea iusto impedit!
+//           Voluptatum necessitatibus eum beatae, adipisci voluptas a odit modi
+//           eos! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste
+//           error quibusdam ipsa quis quidem doloribus eos, dolore ea iusto
+//           impedit! Voluptatum necessitatibus eum beatae, adipisci voluptas a
+//           odit modi eos! Lorem, ipsum dolor sit amet consectetur adipisicing
+//           elit. Iste error quibusdam ipsa quis quidem doloribus eos, dolore ea
+//           iusto impedit! Voluptatum necessitatibus eum beatae, adipisci voluptas
+//           a odit modi eos! Lorem, ipsum dolor sit amet consectetur.
+//         </p>
+//       </div>
+//     </div>
+//   );
+// }
+
+
+
+
+
+
+//=======================================
 // import axios from 'axios';
 // import React from 'react'
 // import { useLocation } from 'react-router-dom';
@@ -118,154 +253,3 @@
 // }
 
 // export default SinglePost
-
-
-
-
-
-
-
-
-//=====================================================
-import { Link, useLocation } from "react-router-dom";
-import "./singlePost.css";
-import { useEffect, useState } from "react";
-import axios from "axios";
-
-
-
-export default function SinglePost() {
-
-    //Fetching data according to id
-
-    // const location=useLocation()
-    // console.log(location.pathname)
-
-    const location = useLocation()
-    const path = location.pathname.split('/')[2]
-    // console.log(path)
-
-    const [post, setPost] = useState({})
-
-    useEffect(() => {
-        const getPost = async () => {
-            const res = await axios.get("/posts/" + path)
-            // console.log(res.data);
-            setPost(res.data)
-        }
-        getPost()
-
-
-
-
-
-    }, [path]) //whenever this path changes fire this useEffect
-
-
-
-
-
-
-
-
-    return (
-        <div className="singlePost">
-            <div className="singlePostWrapper">
-                <img className="singlePostImg" src={post.postPic || "/assets/post/1.jpeg"} alt="" />
-                <h1 className="singlePostTitle">
-                    {post.title}
-                    <div className="singlePostEdit">
-                        <i className="singlePostIcon far fa-edit"></i>
-                        <i className="singlePostIcon far fa-trash-alt"></i>
-                    </div>
-                </h1>
-
-                <div className="singlePostInfo">
-                    <span>
-                        Author:
-                        <b className="singlePostAuthor">
-                            {post.username}
-                        </b>
-                    </span>
-                    <span>1 day ago</span>
-                </div>
-                <p className="singlePostDesc">{post.desc} </p>
-            </div>
-        </div>
-    );
-}
-
-
-
-
-
-
-
-
-
-
-//CLIENT ONLY===========
-// import { Link } from "react-router-dom";
-// import "./singlePost.css";
-
-// export default function SinglePost() {
-//   return (
-//     <div className="singlePost">
-//       <div className="singlePostWrapper">
-//         <img
-//           className="singlePostImg"
-//           src="https://images.pexels.com/photos/6685428/pexels-photo-6685428.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-//           alt=""
-//         />
-//         <h1 className="singlePostTitle">
-//           Lorem ipsum dolor
-//           <div className="singlePostEdit">
-//             <i className="singlePostIcon far fa-edit"></i>
-//             <i className="singlePostIcon far fa-trash-alt"></i>
-//           </div>
-//         </h1>
-//         <div className="singlePostInfo">
-//           <span>
-//             Author:
-//             <b className="singlePostAuthor">
-//               <Link className="link" to="/posts?username=Safak">
-//                 Safak
-//               </Link>
-//             </b>
-//           </span>
-//           <span>1 day ago</span>
-//         </div>
-//         <p className="singlePostDesc">
-//           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste error
-//           quibusdam ipsa quis quidem doloribus eos, dolore ea iusto impedit!
-//           Voluptatum necessitatibus eum beatae, adipisci voluptas a odit modi
-//           eos! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste
-//           error quibusdam ipsa quis quidem doloribus eos, dolore ea iusto
-//           impedit! Voluptatum necessitatibus eum beatae, adipisci voluptas a
-//           odit modi eos! Lorem, ipsum dolor sit amet consectetur adipisicing
-//           elit. Iste error quibusdam ipsa quis quidem doloribus eos, dolore ea
-//           iusto impedit! Voluptatum necessitatibus eum beatae, adipisci voluptas
-//           a odit modi eos! Lorem, ipsum dolor sit amet consectetur adipisicing
-//           elit. Iste error quibusdam ipsa quis quidem doloribus eos, dolore ea
-//           iusto impedit! Voluptatum necessitatibus eum beatae, adipisci voluptas
-//           a odit modi eos! Lorem, ipsum dolor sit amet consectetur adipisicing
-//           elit. Iste error quibusdam ipsa quis quidem doloribus eos, dolore ea
-//           iusto impedit! Voluptatum necessitatibus eum beatae, adipisci voluptas
-//           a odit modi eos!
-//           <br />
-//           <br />
-//           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste error
-//           quibusdam ipsa quis quidem doloribus eos, dolore ea iusto impedit!
-//           Voluptatum necessitatibus eum beatae, adipisci voluptas a odit modi
-//           eos! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste
-//           error quibusdam ipsa quis quidem doloribus eos, dolore ea iusto
-//           impedit! Voluptatum necessitatibus eum beatae, adipisci voluptas a
-//           odit modi eos! Lorem, ipsum dolor sit amet consectetur adipisicing
-//           elit. Iste error quibusdam ipsa quis quidem doloribus eos, dolore ea
-//           iusto impedit! Voluptatum necessitatibus eum beatae, adipisci voluptas
-//           a odit modi eos! Lorem, ipsum dolor sit amet consectetur.
-//         </p>
-//       </div>
-//     </div>
-//   );
-// }
