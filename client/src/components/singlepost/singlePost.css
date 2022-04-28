@@ -96,6 +96,9 @@
   .singlePostWrapper {
     padding: 20px;
     padding-right: 0;
+    display: flex;
+    flex-direction: column
+
   }
   
   .singlePostImg {
@@ -110,6 +113,19 @@
     margin: 10px;
     font-size: 28px;
     font-family: "Lora", sans-serif;
+  }
+
+  .singlePostTitleUpdateMode{
+    text-align: center;
+    margin: 10px;
+    font-size: 28px;
+    font-family: "Lora", sans-serif;
+    outline: none;
+    border: none;
+    border-bottom:1px solid grey;
+    color: #666;
+    
+
   }
   
   .singlePostEdit {
@@ -147,9 +163,40 @@
     font-size: 18px;
     line-height: 25px;
   }
+  .singlePostDescUpdateMode{
+    text-align: center;
+    margin: 10px;
+    font-size: 22px;
+    font-family: "Lora", sans-serif;
+    border: 1px solid grey;
+    
+    
+    
+  }
+  .singlePostDescUpdateMode:focus{
+    outline: none
+    
+
+  }
   
   .singlePostDesc::first-letter {
     margin-left: 20px;
     font-size: 30px;
     font-weight: 600;
+  }
+
+  .postUpdateBut{
+    width: 130px;
+    height: 40px;
+    background-color: teal;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    align-self: flex-end;
+    margin-right: 10px;
+    cursor: pointer;
+    
   }
