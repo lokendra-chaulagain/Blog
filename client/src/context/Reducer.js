@@ -21,8 +21,8 @@ const Reducer = (state, action) => {
                 isFetching: false,
                 error: true
             }
-        //////////////////////////////////////////////
 
+        //update user
         case "UPDATE_START":
             return {
                 ...state,
@@ -54,6 +54,7 @@ const Reducer = (state, action) => {
             return state;
     }
 }
+
 export default Reducer;
 
 

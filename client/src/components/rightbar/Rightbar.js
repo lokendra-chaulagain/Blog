@@ -1,6 +1,7 @@
 import "./rightbar.scss"
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 
 function Rightbar() {
@@ -35,7 +36,9 @@ function Rightbar() {
                 <ul className="rightbarList">
 
                     {cats.map((c, key) => (
-                        <li className="rightbarListItem" key={key} >{c.name} </li>
+                        <Link key={key} to={`/?cat=${c.name}`} className=" link" >
+                            <li className="rightbarListItem">{c.name} </li>
+                        </Link>
                     ))}
 
                 </ul>
