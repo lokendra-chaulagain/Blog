@@ -14,8 +14,8 @@ function Post({ post }) {  //taking post props from Posts.js
             </Link >
 
             <div className="postCats">
-                {post.categories.map((c) => (
-                    <span>{c.name}</span>
+                {post.categories.map((c,key) => (
+                    <span key={key}>{c.name}</span>
                 ))}
             </div>
 
@@ -30,6 +30,34 @@ function Post({ post }) {  //taking post props from Posts.js
 }
 
 export default Post
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

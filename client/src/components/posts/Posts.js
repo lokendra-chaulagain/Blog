@@ -6,8 +6,8 @@ import "./posts.scss"
 function Posts({ posts }) {    //taking posts props from Home.js
     return (
         <div className='posts'>
-            {posts.map((p) => (
-                <Post post={p} />   //passing this Post as props to Post.js
+            {posts.map((p ,key) => (
+                <Post key={key} post={p} />   //passing this Post as props to Post.js
             ))}
         </div>
     )

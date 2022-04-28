@@ -9,22 +9,31 @@ import { useLocation } from "react-router-dom"
 
 function Home() {
 
+  //FETCHING POSTS OF A PARTICULAR AUTHOR ONLY-------------
+  //fetching post according user/ i.e with user query //localhost:3000/posts?user=loki
+  // const location = useLocation()
+  // console.log(location)
+  const { search } = useLocation()
+
+
+
   //FETCHING POSTS----------------------
   const [posts, setPosts] = useState([])
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await axios.get("/posts")
+      const res = await axios.get("/posts"+search)
       console.log(res.data)
       setPosts(res.data)
     }
     fetchPosts()
-  }, [])  //run this useEffect only when the home page is rendered
+  }, [search])  //run this useEffect only when the home page is rendered
 
 
 
-  // //Fetching post of particular author only
-  // const location = useLocation()
-  // console.log(location)
+
+
+
+
 
 
   return (
