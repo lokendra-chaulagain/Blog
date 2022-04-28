@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 function Post({ post }) {  //taking post props from Posts.js
     return (
         <div className='post'>
-            <img className='postImg' src={post.postPic || "/assets/post/1.jpeg"} alt="" />
+            <img className='postImg' src={post.postPic || "/images"} alt="" />
 
 
             <Link to={`/post/${post._id}`} className="link" >   {/* <Route path="/post/:postId" element={<PostRead />} /> */} 
