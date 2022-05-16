@@ -1,0 +1,33 @@
+.deleteContainer {
+    height: 100px;
+    width: 200px;
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .areYouSure {
+        font-size: 24px;
+        font-weight: 500;
+    }
+
+    .nuYesRow {
+        display: flex;
+        gap: 30px;
+        margin-top: 10px;
+
+        .nuNoBtn,
+        .nuYesBtn {
+            width: 60px;
+            height: 35px;
+            border-radius: 10px;
+            background-color: teal;
+            color: white;
+            border: none;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+    }
+}

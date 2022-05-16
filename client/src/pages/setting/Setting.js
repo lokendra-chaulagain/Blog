@@ -118,43 +118,86 @@
 // export default Setting;
 
 /////////////////
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./setting.scss";
 import Rightbar from "../../components/rightbar/Rightbar";
+import axios from "axios";
+import { Context } from "../../context/Context";
+import DeleteAlert from "../../components/deleteAlert/DeleteAlert";
 
 function Setting() {
+  const { user } = useContext(Context);
+
+  //Update user
+  const [username, setUsername] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const res = await axios.put("/users/update/" + user._id, {
+      username,
+      email,
+      password,
+    });
+    window.location.reload();
+    console.log(res);
+  };
+
+  //Fetching current user
+  const [currentUser, setCurrentUser] = useState({});
+  useEffect(() => {
+    const getUserDetails = async () => {
+      const details = await axios.get("users/get/" + user._id);
+      console.log(details);
+      setCurrentUser(details.data);
+    };
+    getUserDetails();
+  }, [user._id]);
+
+  //
+  const [showDeleteAlert, setShowDeleteAlert] = useState(false);
+
   return (
     <div className="setting">
       <div className="settingWrapper">
         <span className="headingTxt">Update Your Account</span>
-        <span className="deleteAccountTxt">Delete Account</span>
-        <form className="profileUpdateform">
+        <span className="deleteAccountTxt" onClick={()=>setShowDeleteAlert(!showDeleteAlert)}>Delete Account</span>
+        <form className="profileUpdateform" onSubmit={handleSubmit}>
           <div className="profileTxtPicIconCon">
-            <img
-              src=""
-              alt=""
-              className="profileImg"
-            />
+            <img src="" alt="" className="profileImg" />
             <label htmlFor="fileInput">
-              <i class="settingProfileUploadIcon fa-regular fa-image"></i>
+              <i className="settingProfileUploadIcon fa-regular fa-image"></i>
             </label>
             <input type="file" id="fileInput" style={{ display: "none" }} />
           </div>
+         {showDeleteAlert && <DeleteAlert/>}
 
           <label className="profilePicTxt">Profile Picture</label>
 
           <div className="usernameEmailPasswordContainer">
             <label className="labelTxt">Username</label>
-            <input className="updateInput" type="text" placeholder="dddd" />
+            <input
+              className="updateInput"
+              type="text"
+              defaultValue={currentUser?.username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
 
             <label className="labelTxt">Email</label>
-            <input className="updateInput" type="email" placeholder="email" />
+            <input
+              className="updateInput"
+              type="email"
+              defaultValue={currentUser?.email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
 
             <label className="labelTxt">Password</label>
             <input
               className="updateInput"
-              type="password"
-              placeholder="********"
+              type="text"
+              placeholder="New Password"
+              onChange={(e) => setPassword(e.target.value)}
             />
 
             <button className="profileUpdateButton" type="submit">

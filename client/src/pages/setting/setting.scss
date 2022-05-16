@@ -15,6 +15,7 @@
             display: flex;
             justify-content: flex-end;
             font-weight: 500;
+            cursor: pointer;
         }
 
         .profileUpdateform {
@@ -40,13 +41,14 @@
                     cursor: pointer;
                 }
             }
+            // .deleteCon {
+            //     margin-left: 50px;
+            // }
 
             .headingTxt {
                 font-size: 40px;
                 color: rgb(47, 45, 45);
             }
-
-            
         }
 
         .usernameEmailPasswordContainer {

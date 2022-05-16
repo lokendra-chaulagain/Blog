@@ -91,6 +91,19 @@ function TopBar() {
     getUserDetails();
   }, [currentUser]);
 
+  //Logout
+  const { dispatch } = useContext(Context);
+  const handleLogout = (e) => {
+    dispatch({ type: "LOGOUT" });
+    window.location.replace("/login");
+  };
+
+  //Logout Alternative
+  // const handleLogout = () => {
+  //   localStorage.clear();
+  //   window.location.replace("/login");
+  // };
+
   return (
     <div className="topBarCon">
       <div className="topLeft">
@@ -127,13 +140,15 @@ function TopBar() {
               WRITE
             </Link>
           </li>
-          <li className="topListItems"> LOGOUT</li>
+          <li className="topListItems" onClick={handleLogout}>
+            LOGOUT
+          </li>
         </ul>
       </div>
 
       <div className="topRight">
         <Link to={"/setting"}>
-          <img className="topImg" src={userDetails.profilePic} alt="" />
+          <img className="topImg" src={userDetails?.profilePic} alt="" />
         </Link>
 
         <ul className="topList">
