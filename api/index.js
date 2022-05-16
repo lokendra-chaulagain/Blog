@@ -43,6 +43,18 @@ app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
 app.use("/api/categories", categoryRoute);
 
+//Error handling middleWare
+app.use((error, req, res, next) => {
+  const errorStatus = error.status || 500;
+  const errorMessage = error.message || "Something went wrong";
+  return res.status(errorStatus).json({
+    successStatus: false,
+    status: error.status,
+    message: error.message,
+    stack: error.stack,
+  });
+});
+
 //Port listening
 app.listen(process.env.PORT, () => {
   console.log("Server is running on port " + process.env.PORT);
