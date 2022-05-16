@@ -3,16 +3,16 @@ const Post = require('../models/Post');
 
 
 //CREATE NEW POST
-router.post("/newPost", async (req, res) => {
+router.post("/", async (req, res) => {
     try {
         const newPost = new Post(req.body);//we gonna take everything od ewq.body
 
         //save the post
         const savedPost = await newPost.save();
-        res.status(200).json({ message: "Post created successfully", savedPost });
+        res.status(200).json( savedPost );
 
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        res.status(500).json( error );
 
     }
 })
