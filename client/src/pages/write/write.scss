@@ -1,23 +1,26 @@
 .write {
-    padding-top: 50px;
-
+    max-width: 90vw;
+   padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 300px;
+    padding-bottom: 50px;
+    
     .writePostImg {
-        width: 70%;
+        width: 80%;
         height: 380px;
-        max-height: 3800px;
         object-fit: cover;
-        margin-left: 150px;
         border-radius: 10px;
         margin-bottom: 40px;
         border: 2px solid teal;
     }
 
     .writeForm {
+        display: flex;
+        flex-direction: column;
         .writeFormGroup1 {
-            margin-left: 150px;
             display: flex;
-            align-items: center;
-
+            flex-direction: column;
             .addIcon {
                 font-size: 30px;
                 cursor: pointer;
@@ -25,38 +28,44 @@
             }
             .titleInput {
                 font-size: 30px;
+                margin-top: 50px;
                 border: none;
                 outline: none;
-                margin-left: 20px;
             }
         }
 
         .writeFormGroup2 {
-            margin-left: 150px;
-            height: 100vh;
-
             .descriptionInput {
                 font-size: 20px;
                 border: none;
                 outline: none;
                 margin-top: 40px;
-                margin-left: 20px;
                 font-family: "Varela", sans-serif;
+                border: 1px solid grey;
+                height: 300px;
+                width: 80%;
             }
-
-            .publishButton {
-                margin-left: 86%;
-                background-color: teal;
-                border: none;
-                border-radius: 10px;
-                padding: 10px;
-                font-size: 14px;
-                font-weight: 500;
-                cursor: pointer;
-                color: white;
-                width: 100px;
-                height: 38px;
-            }
+        }
+        .locationInput {
+            font-size: 20px;
+            border: none;
+            outline: none;
+            margin-top: 40px;
+            font-family: "Varela", sans-serif;
+            border: 1px solid grey;
+            width: 200px;
+        }
+        .publishButton {
+            background-color: teal;
+            border: none;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            color: white;
+            width: 100px;
+            height: 38px;
+            margin-top: 30px;
         }
     }
 }

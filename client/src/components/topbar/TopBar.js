@@ -70,11 +70,27 @@
 // export default TopBar
 
 //CLIENT ONLY===========>
-import React from "react";
+import axios from "axios";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Context } from "../../context/Context";
 import "./topBar.scss";
 
 function TopBar() {
+  const { user } = useContext(Context);
+  const currentUser = user;
+
+  //
+  const [userDetails, setUserDetails] = useState({});
+  useEffect(() => {
+    const getUserDetails = async () => {
+      const res = await axios.get(`/users/get/${currentUser?._id}`);
+      setUserDetails(res.data);
+      console.log(res.data);
+    };
+    getUserDetails();
+  }, [currentUser]);
+
   return (
     <div className="topBarCon">
       <div className="topLeft">
@@ -91,7 +107,7 @@ function TopBar() {
       <div className="topCenter">
         <ul className="topList">
           <li className="topListItems">
-            <Link to="/" className=" link " >
+            <Link to="/" className=" link ">
               HOME
             </Link>
           </li>
@@ -117,7 +133,7 @@ function TopBar() {
 
       <div className="topRight">
         <Link to={"/setting"}>
-          <img className="topImg" src="" alt="" />
+          <img className="topImg" src={userDetails.profilePic} alt="" />
         </Link>
 
         <ul className="topList">

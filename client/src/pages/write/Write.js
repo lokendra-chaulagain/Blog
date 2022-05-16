@@ -86,15 +86,44 @@
 
 // export default Write;
 
-//CLIENT ONLY===========>
-import React from "react";
+//=================================================================>
+import React, { useContext, useState } from "react";
+import { Context } from "../../context/Context";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import "./write.scss";
 
 function Write() {
+  const { user } = useContext(Context);
+  // console.log(use
+
+  const [title, setTitle] = useState("");
+  const [desc, setDesc] = useState("");
+  const [timeRead, setTimeRead] = useState("");
+  const [location, setLocation] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newPost = {
+      username: user.username,
+      title,
+      desc,
+      location,
+      timeRead,
+    };
+    try {
+      const res = axios.post("/posts/create", newPost);
+      console.log(newPost);
+      window.location.replace("/")
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="write">
-      (<img src="" alt="" className="writePostImg" />)
-      <form className="writeForm">
+      <img src="" alt="" className="writePostImg" />
+      <form className="writeForm" onSubmit={handleSubmit}>
         <div className="writeFormGroup1">
           <label htmlFor="fileInput">
             <i className=" addIcon fa-solid fa-square-plus"></i>
@@ -104,6 +133,7 @@ function Write() {
             placeholder="Title"
             type="text"
             className="titleInput"
+            onChange={(e) => setTitle(e.target.value)}
             autoFocus={true}
           />
         </div>
@@ -113,11 +143,25 @@ function Write() {
             placeholder="Tell your Story ..."
             type="text"
             className="descriptionInput "
+            onChange={(e) => setDesc(e.target.value)}
           />
-          <button className="publishButton" type="submit">
-            Publish
-          </button>
         </div>
+        <input
+          placeholder="Location ..."
+          type="text"
+          className="locationInput"
+          onChange={(e) => setLocation(e.target.value)}
+        />
+
+        <input
+          placeholder="time to read"
+          type="text"
+          className="locationInput"
+          onChange={(e) => setTimeRead(e.target.value)}
+        />
+        <button className="publishButton" type="submit">
+          Publish
+        </button>
       </form>
     </div>
   );

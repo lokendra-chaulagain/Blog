@@ -128,7 +128,7 @@
 
 //==========================================================>
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./singlePost.css";
 import axios from "axios";
 import { format } from "timeago.js";
@@ -162,7 +162,9 @@ export default function SinglePost() {
         <div className="singlePostInfo">
           <span>
             Author:
-            <b className="singlePostAuthor">{post.username}</b>
+            <Link to={`/?user=${post.username}`} className="link">
+              <b className="singlePostAuthor">{post.username}</b>
+            </Link>
           </span>
           <span>{format(post.createdAt)}</span>
         </div>
