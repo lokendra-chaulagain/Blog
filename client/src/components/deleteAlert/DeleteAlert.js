@@ -5,16 +5,13 @@ import "./deleteAlert.scss";
 
 function DeleteAlert() {
   const { user } = useContext(Context);
-  //delete user
-  const [deleteUser, setDeleteUser] = React.useState(false);
 
-  const handleDelete = async() => {
-    const res =await axios.delete(`/users/delete/${user._id}`);
+  //delete user
+  const handleDelete = async () => {
+    const res = await axios.delete(`/users/delete/${user._id}`);
     localStorage.clear();
     console.log("This user has been deleted" + res);
-    
     window.location.replace("/login");
-
   };
 
   return (

@@ -148,17 +148,36 @@ export default function SinglePost() {
     getPost();
   }, [path]);
 
+  //Edit Blog
+  const [editMode, setEditMode] = useState(false);
+
+  const handleEditSave = async () => {
+    const res=await axios.put("/posts/"+post._id,{
+      title:post.title,
+      desc:post.desc,
+    })
+    console.log(res.data)
+  };
+
   return (
     <div className="singlePost">
       <div className="singlePostWrapper">
         <img className="singlePostImg" src="" alt="" />
-        <h1 className="singlePostTitle">
-          {post.title}
-          <div className="singlePostEdit">
-            <i className="singlePostIcon far fa-edit"></i>
-            <i className="singlePostIcon far fa-trash-alt"></i>
-          </div>
-        </h1>
+        {editMode ? (
+          <input type="text" className="editTitle" defaultValue={post.title} />
+        ) : (
+          <h1 className="singlePostTitle">
+            {post.title}
+            <div className="singlePostEdit">
+              <i
+                className="singlePostIcon far fa-edit"
+                onClick={() => setEditMode(true)}
+              ></i>
+              <i className="singlePostIcon far fa-trash-alt"></i>
+            </div>
+          </h1>
+        )}
+
         <div className="singlePostInfo">
           <span>
             Author:
@@ -168,7 +187,17 @@ export default function SinglePost() {
           </span>
           <span>{format(post.createdAt)}</span>
         </div>
-        <p className="singlePostDesc">{post.desc}</p>
+        {editMode ? (
+          <input type="text" className="editDesc" defaultValue={post.desc} />
+        ) : (
+          <p className="singlePostDesc">{post.desc}</p>
+        )}
+
+        {editMode && (
+          <button className="editSave" onClick={handleEditSave}>
+            Save
+          </button>
+        )}
       </div>
     </div>
   );
