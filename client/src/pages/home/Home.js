@@ -50,7 +50,7 @@ function Home() {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     const fetchAllPosts = async () => {
-      const res = await axios.get("/posts");
+      const res = await axios.get("/posts/getAll");
       console.log(res.data);
       setPosts(res.data);
     };

@@ -132,6 +132,7 @@ import { Link, useLocation } from "react-router-dom";
 import "./singlePost.css";
 import axios from "axios";
 import { format } from "timeago.js";
+import DeleteAlertPost from "../deleteAlert Post/DeleteAlertPost";
 
 export default function SinglePost() {
   //Fetching data from URL id
@@ -141,7 +142,7 @@ export default function SinglePost() {
   const [post, setPost] = useState({});
   useEffect(() => {
     const getPost = async () => {
-      const res = await axios.get("/posts/" + path);
+      const res = await axios.get("/posts/get/" + path);
       console.log(res.data);
       setPost(res.data);
     };
@@ -150,13 +151,18 @@ export default function SinglePost() {
 
   //Edit Blog
   const [editMode, setEditMode] = useState(false);
+  const [showDeleteCon, setShowDeleteCon] = useState(false);
+  const [title, setTitle] = useState(post.title);
+  const [desc, setDesc] = useState(post.desc);
 
   const handleEditSave = async () => {
-    const res=await axios.put("/posts/"+post._id,{
-      title:post.title,
-      desc:post.desc,
-    })
-    console.log(res.data)
+    const updatePost = {
+      title,
+      desc,
+    };
+    const res = await axios.put("/posts/update/" + post._id, updatePost);
+    console.log(res.data);
+    window.location.reload();
   };
 
   return (
@@ -164,7 +170,12 @@ export default function SinglePost() {
       <div className="singlePostWrapper">
         <img className="singlePostImg" src="" alt="" />
         {editMode ? (
-          <input type="text" className="editTitle" defaultValue={post.title} />
+          <input
+            type="text"
+            className="editTitle"
+            defaultValue={post.title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
         ) : (
           <h1 className="singlePostTitle">
             {post.title}
@@ -173,7 +184,11 @@ export default function SinglePost() {
                 className="singlePostIcon far fa-edit"
                 onClick={() => setEditMode(true)}
               ></i>
-              <i className="singlePostIcon far fa-trash-alt"></i>
+              <i
+                className="singlePostIcon far fa-trash-alt"
+                onClick={() => setShowDeleteCon(true)}
+              ></i>
+              {showDeleteCon && <DeleteAlertPost />}
             </div>
           </h1>
         )}
@@ -188,7 +203,12 @@ export default function SinglePost() {
           <span>{format(post.createdAt)}</span>
         </div>
         {editMode ? (
-          <input type="text" className="editDesc" defaultValue={post.desc} />
+          <input
+            type="text"
+            className="editDesc"
+            defaultValue={post.desc}
+            onChange={(e) => setDesc(e.target.value)}
+          />
         ) : (
           <p className="singlePostDesc">{post.desc}</p>
         )}
