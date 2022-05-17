@@ -10,6 +10,7 @@ import Setting from "./pages/setting/Setting";
 import { Context } from "./context/Context";
 import { useContext } from "react";
 import { Routes, Route } from "react-router-dom";
+import AltRegister from "./pages/alternative Register/AltRegister";
 
 function App() {
   const { user } = useContext(Context);
@@ -27,6 +28,7 @@ function App() {
         <Route path="/post/:postId" element={<PostRead />} />
         <Route path="/about" element={user ? <About /> : <Register />} />
         <Route path="/contact" element={user ? <Contact /> : <Register />} />
+        <Route path="/altRegister" element={<AltRegister/>} />
       </Routes>
     </>
   );
