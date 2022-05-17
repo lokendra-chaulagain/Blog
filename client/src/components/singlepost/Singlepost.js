@@ -168,7 +168,7 @@ export default function SinglePost() {
   return (
     <div className="singlePost">
       <div className="singlePostWrapper">
-        <img className="singlePostImg" src="" alt="" />
+        <img className="singlePostImg" src={post.img} alt="" />
         {editMode ? (
           <input
             type="text"
@@ -196,8 +196,12 @@ export default function SinglePost() {
         <div className="singlePostInfo">
           <span>
             Author:
-            <Link to={`/?user=${post.username}`} className="link">
-              <b className="singlePostAuthor">{post.username}</b>
+            <Link to={`/posts/getAll/?user=${post.username}`} className="link">
+              {editMode ? (
+                <b className="singlePostAuthor">{post.username}</b>
+              ) : (
+                <b className="singlePostAuthor">{post.username}</b>
+              )}
             </Link>
           </span>
           <span>{format(post.createdAt)}</span>

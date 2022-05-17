@@ -1,0 +1,29 @@
+.drawer {
+    background-color: yellow;
+    z-index: 5;
+    width: 40%;
+    height: 200vh;
+    position: absolute;
+    top: 100px;
+    left: 0;
+
+    .dtopCenter{
+        .dtopList{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            .dtopListItems{
+                font-size: 20px;
+                font-weight: 600;
+                margin-top: 40px;
+                list-style: none;
+
+                
+            }
+            
+        }
+
+    }
+    
+}

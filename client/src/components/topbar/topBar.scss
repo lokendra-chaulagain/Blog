@@ -9,6 +9,10 @@
     align-items: center;
     font-family: "Josefin Sans", sans-serif;
 
+    .drawerIcon {
+        color: red;
+    }
+
     .topLeft {
         flex: 3;
         display: flex;
@@ -65,7 +69,7 @@
 
                 .link {
                     color: rgb(14, 13, 13);
-                    
+
                     &:hover {
                         color: teal;
                         border-bottom: 2px solid teal;
@@ -91,6 +95,7 @@
             object-fit: cover;
             cursor: pointer;
             border: 2px solid teal;
+            overflow: hidden;
         }
 
         .topSearchIcon {
@@ -98,6 +103,38 @@
             color: #666;
             cursor: pointer;
             margin-left: 30px;
+        }
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .topBarCon {
+        .drawerIcon {
+            display: none;
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .topBarCon {
+        .topLeft {
+            display: none;
+        }
+        .searchCon {
+            display: none;
+        }
+        .topCenter {
+            display: none;
+        }
+        .topRight {
+            .topImg {
+                display:flex;
+                margin-left: 118vh;
+            }
+
+            .topList {
+                display: none;
+            }
         }
     }
 }

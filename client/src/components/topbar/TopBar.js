@@ -74,13 +74,16 @@ import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../../context/Context";
+import HorizontalSplitIcon from "@mui/icons-material/HorizontalSplit";
 import "./topBar.scss";
+
+import Drawer from "../drawer/Drawer";
 
 function TopBar() {
   const { user } = useContext(Context);
   const currentUser = user;
 
-  //
+  //Fetch user details
   const [userDetails, setUserDetails] = useState({});
   useEffect(() => {
     const getUserDetails = async () => {
@@ -104,8 +107,16 @@ function TopBar() {
   //   window.location.replace("/login");
   // };
 
+  const [isOpen, setIsOpen] = useState(false);
+  // const handleDrawerOpen = () => {
+  //   setIsOpen(!isOpen);
+  // };
+
   return (
-    <div className="topBarCon">
+    <div className="topBarCon" >
+      <HorizontalSplitIcon className="drawerIcon" onClick={()=>setIsOpen(!isOpen)} />
+     { isOpen && <Drawer  isOpen={isOpen}/>}
+
       <div className="topLeft">
         <i className=" topIcon fa-brands fa-facebook-square"></i>
         <i className=" topIcon fa-brands fa-twitter-square"></i>
@@ -118,6 +129,7 @@ function TopBar() {
       </div>
 
       <div className="topCenter">
+
         <ul className="topList">
           <li className="topListItems">
             <Link to="/" className=" link ">
@@ -150,7 +162,6 @@ function TopBar() {
         <Link to={"/setting"}>
           <img className="topImg" src={userDetails?.profilePic} alt="" />
         </Link>
-
         <ul className="topList">
           <li className="topListItems">
             <Link to="/login" className="link">
