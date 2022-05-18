@@ -79,6 +79,7 @@ import "./topBar.scss";
 
 import Drawer from "../drawer/Drawer";
 import ToggleButton from "../toggleButton/ToggleButton";
+import DrawerSlider from "../drawerSlider/DrawerSlider";
 
 function TopBar() {
   const { user } = useContext(Context);
@@ -108,18 +109,24 @@ function TopBar() {
   //   window.location.replace("/login");
   // };
 
-  const [isOpen, setIsOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
   // const handleDrawerOpen = () => {
   //   setIsOpen(!isOpen);
   // };
+  // const [openSlider, setOpenSlider] = useState(false);
+  // const showSideBar = () => {
+  //   setOpenSlider(!openSlider);
+  // };
 
   return (
-    <div className="topBarCon" >
-      <HorizontalSplitIcon className="drawerIcon" onClick={()=>setIsOpen(!isOpen)} />
-     { isOpen && <Drawer  isOpen={isOpen}/>}
-
-     
-
+    <div className="topBarCon">
+      {/* <HorizontalSplitIcon
+        className="drawerIcon"
+        onClick={() => setIsOpen(!isOpen)}
+      />
+      {isOpen && <Drawer isOpen={isOpen} />} */}
+      <HorizontalSplitIcon className="barIcon"  />
+      <DrawerSlider />
       <div className="topLeft">
         <i className=" topIcon fa-brands fa-facebook-square"></i>
         <i className=" topIcon fa-brands fa-twitter-square"></i>
@@ -132,7 +139,6 @@ function TopBar() {
       </div>
 
       <div className="topCenter">
-
         <ul className="topList">
           <li className="topListItems">
             <Link to="/" className=" link ">
@@ -158,7 +164,7 @@ function TopBar() {
           <li className="topListItems" onClick={handleLogout}>
             LOGOUT
           </li>
-          <ToggleButton/>
+          <ToggleButton />
         </ul>
       </div>
 

@@ -20,7 +20,7 @@ function Write() {
   const [location, setLocation] = useState("");
   const [file, setFile] = useState(null);
 
-  console.log(file)
+  console.log(file);
   const handleClick = (e) => {
     e.preventDefault();
     //uploading same file overwrites so we need to rename it before uploading
@@ -28,14 +28,6 @@ function Write() {
     const storage = getStorage(app);
     const storageRef = ref(storage, fileName);
     const uploadTask = uploadBytesResumable(storageRef, file);
-    // const newPost = {
-      // username: user.username,
-      // title,
-      // desc,
-      // location,
-      // timeRead,
-      // img: fileName,
-    // };
 
     uploadTask.on(
       "state_changed",
@@ -59,13 +51,15 @@ function Write() {
           // console.log("File available at", downloadURL);
           // newPost.img = downloadURL;
           try {
-            const res = axios.post("/posts/create", {username: user.username,
+            const res = axios.post("/posts/create", {
+              username: user.username,
               title,
               desc,
               location,
               timeRead,
-              img: fileName,});
-              console.log(res.data)
+              img: downloadURL,
+            });
+            console.log(res.data);
             // console.log(newPost);
             window.location.replace("/");
           } catch (error) {
@@ -74,14 +68,6 @@ function Write() {
         });
       }
     );
-
-    // try {
-    //   const res = axios.post("/posts/create", newPost);
-    //   console.log(newPost);
-    //   window.location.replace("/");
-    // } catch (error) {
-    //   console.log(error);
-    // }
   };
   console.log(file);
 

@@ -153,7 +153,7 @@ export default function SinglePost() {
   const [editMode, setEditMode] = useState(false);
 
   const [showDeleteCon, setShowDeleteCon] = useState(false);
-  
+
   const [title, setTitle] = useState(post.title);
   const [desc, setDesc] = useState(post.desc);
 
@@ -166,6 +166,7 @@ export default function SinglePost() {
     console.log(res.data);
     window.location.reload();
   };
+  console.log(post);
 
   return (
     <div className="singlePost">
@@ -198,13 +199,7 @@ export default function SinglePost() {
         <div className="singlePostInfo">
           <span>
             Author:
-            <Link to={`/posts/getAll/?user=${post.username}`} className="link">
-              {editMode ? (
-                <b className="singlePostAuthor">{post.username}</b>
-              ) : (
-                <b className="singlePostAuthor">{post.username}</b>
-              )}
-            </Link>
+            <b className="singlePostAuthor">{post.username}</b>
           </span>
           <span>{format(post.createdAt)}</span>
         </div>
