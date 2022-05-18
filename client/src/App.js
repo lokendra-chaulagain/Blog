@@ -19,16 +19,17 @@ function App() {
       <TopBar />
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route path="/register" element={user ? <Home /> : <Register />} />
+        {/* <Route path="/register" element={user ? <Home /> : <Register />} /> */}
+        <Route path="/register" element={<Register />} />
+
         <Route path="/login" element={user ? <Home /> : <Login />} />
         {/* <Route path="/login" element={<Login />} /> */}
-
         <Route path="/setting" element={user ? <Setting /> : <Register />} />
         <Route path="/write" element={user ? <Write /> : <Register />} />
         <Route path="/post/:postId" element={<PostRead />} />
         <Route path="/about" element={user ? <About /> : <Register />} />
         <Route path="/contact" element={user ? <Contact /> : <Register />} />
-        <Route path="/altRegister" element={<AltRegister/>} />
+        <Route path="/altRegister" element={<AltRegister />} />
       </Routes>
     </>
   );
