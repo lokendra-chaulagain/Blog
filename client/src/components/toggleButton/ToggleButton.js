@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import "./toggleButton.scss";
 import Switch from "@mui/material/Switch";
 import { DarkModeContext } from "../../darkModeContext/darkModeContext";
@@ -9,8 +9,7 @@ function ToggleButton() {
     setChecked(event.target.checked);
   };
 
-  //dark mode
-  // const [darkMode, setDarkMode] = useState(true);
+  //Dark mode
   const { dispatch } = useContext(DarkModeContext);
   const changeTheme = () => {
     dispatch({ type: "TOGGLE" });
@@ -21,7 +20,7 @@ function ToggleButton() {
       <Switch
         checked={checked}
         onChange={handleChange}
-        onClick={changeTheme}
+        onClick={changeTheme} //dark mode
         inputProps={{ "aria-label": "controlled" }}
       />
       ToggleButton

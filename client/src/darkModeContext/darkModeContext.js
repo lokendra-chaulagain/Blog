@@ -1,4 +1,4 @@
-import { createContext, useReducer, useEffect } from "react";
+import { createContext, useReducer } from "react";
 import DarkModeReducer from "./darkModeReducer";
 
 const INITIAL_STATE = {
