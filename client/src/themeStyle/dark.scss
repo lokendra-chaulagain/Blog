@@ -1,0 +1,47 @@
+.dark {
+  background-color: #222;
+  color: white;
+
+  .topBarCon {
+    .topCenter {
+      .topListItems {
+        .link {
+          color: white;
+        }
+      }
+    }
+
+    .topRight {
+      .topList {
+        .topListItems {
+          .link {
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
+
+.header {
+  .headerTitles {
+    color: teal;
+  }
+}
+
+.rightbar {
+  background-color: #111;
+  .rightbarItem {
+    .rightbarTitle {
+      color: white;
+    }
+  }
+
+  .rightbarItem {
+    .rightbarList {
+      .rightbarListItem {
+        color: white;
+      }
+    }
+  }
+}

@@ -78,6 +78,7 @@ import HorizontalSplitIcon from "@mui/icons-material/HorizontalSplit";
 import "./topBar.scss";
 
 import Drawer from "../drawer/Drawer";
+import ToggleButton from "../toggleButton/ToggleButton";
 
 function TopBar() {
   const { user } = useContext(Context);
@@ -117,6 +118,8 @@ function TopBar() {
       <HorizontalSplitIcon className="drawerIcon" onClick={()=>setIsOpen(!isOpen)} />
      { isOpen && <Drawer  isOpen={isOpen}/>}
 
+     
+
       <div className="topLeft">
         <i className=" topIcon fa-brands fa-facebook-square"></i>
         <i className=" topIcon fa-brands fa-twitter-square"></i>
@@ -155,6 +158,7 @@ function TopBar() {
           <li className="topListItems" onClick={handleLogout}>
             LOGOUT
           </li>
+          <ToggleButton/>
         </ul>
       </div>
 

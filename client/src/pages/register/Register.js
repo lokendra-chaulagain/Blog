@@ -1,132 +1,37 @@
-// import "./register.scss";
-// import { useState } from "react";
-// import axios from "axios";
-// import { Link } from "react-router-dom";
-
-// function Register() {
-//   //Register
-//   const [username, setUsername] = useState("");
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
-//   const [confirmPassword, setConfirmPassword] = useState("");
-//   const [error, setError] = useState(false);
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     setError(false);
-//     if (password !== confirmPassword) {
-//       setError(true);
-//       confirmPassword.setCustomValidity("password does not match");
-//     }
-//     try {
-//       const res = await axios.post("/auth/register", {
-//         username,
-//         email,
-//         password,
-//       });
-//       res.data && window.location.replace("/login");
-//     } catch (error) {
-//       setError(true);
-//     }
-//   };
-
-//   return (
-//     <div className="register">
-//       <div className="registerWrapper">
-//         <form className="formContainer" onSubmit={handleSubmit}>
-//           <span className="heading">Enter Your Credentials For Register</span>
-
-//           <label className="labelText">Username</label>
-//           <input
-//             className="loginInput"
-//             type="text"
-//             placeholder="Create Username"
-//             onChange={(e) => setUsername(e.target.value)}
-//           />
-
-//           <label className="labelText">Email</label>
-//           <input
-//             className="loginInput"
-//             type="email"
-//             placeholder="Email"
-//             onChange={(e) => setEmail(e.target.value)}
-//           />
-
-//           <label className="labelText">Password</label>
-//           <input
-//             className="loginInput"
-//             type="password"
-//             placeholder="Create Password"
-//             onChange={(e) => setPassword(e.target.value)}
-//           />
-
-//           <label className="labelText">Confirm Password</label>
-//           <input
-//             className="loginInput"
-//             type="password"
-//             placeholder="Confirm Password"
-//             onChange={(e) => setConfirmPassword(e.target.value)}
-//           />
-
-//           <button className="signUpButton" type="submit">
-//             Register
-//           </button>
-
-//           {/* If error show this span */}
-//           {error && (
-//             <span
-//               style={{
-//                 color: "red",
-//                 marginTop: "2px",
-//                 marginBottom: "5px",
-//                 textAlign: "center",
-//               }}
-//             >
-//               Something went Wrong
-//             </span>
-//           )}
-
-//           <span className="dontHaveAccountTxt">Already have an account ?</span>
-//           <Link to={"/login"}>
-//             <button className="signUpButton">SignIn</button>
-//           </Link>
-//         </form>
-//       </div>
-//     </div>
-//   );
-// }
-// export default Register;
-
-//Form validation with formik and yup============>
-import React from "react";
+import React, { useContext } from "react";
 import { registerSchema } from "./formValidationSchema";
 import axios from "axios";
-
 import "./register.css";
+import { Context } from "../../context/Context";
 const { useFormik } = require("formik");
 
-const onSubmit = async (values, actions) => {
-  console.log(values);
-  console.log(actions);
-  console.log("submitted");
-  // await new Promise((resolve) => setTimeout(resolve, 1000)); //wait 1 sec
-  // actions.resetForm();
-  try {
-    const res = await axios.post("/auth/register",{
-      username: values.username,
-      email: values.email,
-      password: values.password,
-    });
-    await new Promise((resolve) => setTimeout(resolve, 1000)); //wait 1 sec
-     actions.resetForm();
-    console.log(res.data)
-    // res.data && window.location.replace("/login");
-  } catch (error) {
-    console.log(error);
-  }
-};
-
 function Register() {
+  const { user, dispatch } = useContext(Context);
+  console.log(user);
+
+  const onSubmit = async (values, actions) => {
+    console.log(values);
+    console.log(actions);
+    console.log("submitted");
+    dispatch({ type: "LOGIN_START" });
+    try {
+      const res = await axios.post("/auth/register", {
+        username: values.username,
+        email: values.email,
+        password: values.password,
+      });
+      dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
+      await new Promise((resolve) => setTimeout(resolve, 1000)); //wait 1 sec
+      actions.resetForm();
+      console.log(res.data);
+      window.location.replace("/");
+      // res.data && window.location.replace("/login");
+    } catch (error) {
+      // console.log(error);
+      dispatch({ type: "LOGIN_FAILURE" });
+    }
+  };
+
   const {
     values,
     errors,

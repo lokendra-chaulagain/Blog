@@ -11,11 +11,15 @@ import { Context } from "./context/Context";
 import { useContext } from "react";
 import { Routes, Route } from "react-router-dom";
 import AltRegister from "./pages/alternative Register/AltRegister";
+import "./themeStyle/dark.scss";
+import { DarkModeContext } from "./darkModeContext/darkModeContext";
 
 function App() {
   const { user } = useContext(Context);
+  const { darkMode } = useContext(DarkModeContext);
+
   return (
-    <>
+    <div className={darkMode ? "dark" : " "}>
       <TopBar />
       <Routes>
         <Route exact path="/" element={<Home />} />
@@ -31,7 +35,7 @@ function App() {
         <Route path="/contact" element={user ? <Contact /> : <Register />} />
         <Route path="/altRegister" element={<AltRegister />} />
       </Routes>
-    </>
+    </div>
   );
 }
 export default App;

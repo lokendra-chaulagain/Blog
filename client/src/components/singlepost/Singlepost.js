@@ -151,7 +151,9 @@ export default function SinglePost() {
 
   //Edit Blog
   const [editMode, setEditMode] = useState(false);
+
   const [showDeleteCon, setShowDeleteCon] = useState(false);
+  
   const [title, setTitle] = useState(post.title);
   const [desc, setDesc] = useState(post.desc);
 

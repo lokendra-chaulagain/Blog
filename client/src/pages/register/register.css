@@ -1,110 +1,32 @@
-/* .register {
-    .registerWrapper {
-        .formContainer {
-            width: 550px;
-            display: flex;
-            flex-direction: column;
-            margin-left: 34%;
-            margin-top: 100px;
-
-            .heading {
-                font-size: 32px;
-                margin-bottom: 40px;
-                font-weight: 600;
-            }
-
-            .labelText {
-                font-size: 20px;
-                margin-bottom: 10px;
-            }
-
-            .loginInput {
-                height: 40px;
-                margin-bottom: 18px;
-                outline: none;
-                font-size: 16px;
-                border-radius: 10px;
-                padding-left: 10px;
-                border: none;
-                border: 1.5px solid teal;
-            }
-
-            .dontHaveAccountTxt {
-                font-size: 16px;
-                margin-bottom: 20px;
-                cursor: pointer;
-            }
-
-            .signUpButton {
-                height: 40px;
-                width: 100%;
-                margin-bottom: 18px;
-                border: none;
-                outline: none;
-                font-size: 18px;
-                border-radius: 10px;
-                padding-left: 10px;
-                font-weight: 600;
-                background-color: teal;
-                color: white;
-            }
-        }
-    }
-} */
-
-/* form with formik============== */
-
 .error {
-  color: #fc8181;
+  color: red;
   font-size: 0.75rem;
   text-align: left;
   margin-top: 0.25rem;
 }
 
-.checkbox {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin-top: 1rem;
-}
-
-/* nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 2rem;
-}
-nav h3 {
-  margin: 1rem;
-  cursor: pointer;
-  color: #718096;
-}
-nav h3:hover {
-  color: white;
-} */
-
-/* form {
+form {
   width: 95%;
   max-width: 400px;
   margin: 0 auto;
-} */
+}
 
-/* form label {
+form label {
   font-size: 1rem;
   font-weight: bold;
   display: block;
   text-align: left;
   margin: 1rem 0 0.2rem;
-} */
+}
 
 input,
 select {
   width: 100%;
   padding: 0.65rem 0.5rem;
   font-size: 1rem;
-  color: white;
-  border: 2px solid #4a5568;
-  background-color: #2d3748;
+  color: black;
+  border: 2px solid teal;
+  background-color: rgb(230, 229, 229);
   border-radius: 10px;
   outline: none;
 }
@@ -119,22 +41,17 @@ select::placeholder {
   color: #a0aec0;
 }
 
-/* input[type="checkbox"] {
-  width: fit-content;
-  margin-right: 0.5rem;
-  transform: scale(1.25);
-} */
 
-/* button {
+button {
   display: block;
   margin: 1rem 0;
   padding: 0.35rem 0.5rem;
   background-color: #4299e1;
-  color: #1a202c;
+  color: white;
   border: none;
   border-radius: 3px;
   width: 100%;
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
-} */
+}
