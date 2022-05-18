@@ -1,7 +1,7 @@
 // const { yup } = require("yup");
 import * as yup from "yup";
 
-const passwordRule = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{5,}$/;
+const passwordRule = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{5,}$/;
 
 export const registerSchema = yup.object().shape({
   username: yup

@@ -100,26 +100,51 @@
 //Form validation with formik and yup============>
 import React from "react";
 import { registerSchema } from "./formValidationSchema";
+import axios from "axios";
 
 import "./register.css";
 const { useFormik } = require("formik");
 
-const onSubmit = async () => {
+const onSubmit = async (values, actions) => {
+  console.log(values);
+  console.log(actions);
   console.log("submitted");
+  // await new Promise((resolve) => setTimeout(resolve, 1000)); //wait 1 sec
+  // actions.resetForm();
+  try {
+    const res = await axios.post("/auth/register",{
+      username: values.username,
+      email: values.email,
+      password: values.password,
+    });
+    await new Promise((resolve) => setTimeout(resolve, 1000)); //wait 1 sec
+     actions.resetForm();
+    console.log(res.data)
+    // res.data && window.location.replace("/login");
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 function Register() {
-  const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
-    useFormik({
-      initialValues: {
-        username: "",
-        email: "",
-        password: "",
-        confirmPassword: "",
-      },
-      validationSchema: registerSchema,
-      onSubmit,
-    });
+  const {
+    values,
+    errors,
+    touched,
+    handleBlur,
+    handleChange,
+    handleSubmit,
+    isSubmitting,
+  } = useFormik({
+    initialValues: {
+      username: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+    },
+    validationSchema: registerSchema,
+    onSubmit,
+  });
   console.log(errors);
 
   return (
@@ -184,7 +209,7 @@ function Register() {
         <p className="error">{errors.confirmPassword}</p>
       )}
 
-      <button className="submit" type="submit">
+      <button className="submit" type="submit" disabled={isSubmitting}>
         Register
       </button>
     </form>
