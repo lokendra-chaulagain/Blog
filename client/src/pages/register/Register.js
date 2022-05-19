@@ -25,9 +25,7 @@ function Register() {
       actions.resetForm();
       console.log(res.data);
       window.location.replace("/");
-      // res.data && window.location.replace("/login");
     } catch (error) {
-      // console.log(error);
       dispatch({ type: "LOGIN_FAILURE" });
     }
   };
@@ -54,35 +52,45 @@ function Register() {
 
   return (
     <form onSubmit={handleSubmit} className="form">
-      <label htmlFor="username">Username</label>
+      <label htmlFor="username" className="registerInputLabel">
+        Username
+      </label>
       <input
         type="text"
         id="username"
-        placeholder="Username"
+        placeholder="Username"ye
         value={values.username}
         autoComplete="off"
         onChange={handleChange}
         onBlur={handleBlur} //blur when leave the input
-        className={errors.username && touched.username ? "input-error" : ""}
+        className={
+          errors.username && touched.username ? "input-error" : "registerInputs"
+        }
       />
       {errors.username && touched.username && (
         <p className="error">{errors.username}</p>
       )}
 
-      <label htmlFor="email">Email</label>
+      <label htmlFor="email" className="registerInputLabel">
+        Email
+      </label>
       <input
-        // type="email"
+        type="email"
         id="email"
         placeholder="Email"
         value={values.email}
         autoComplete="off"
         onChange={handleChange}
         onBlur={handleBlur}
-        className={errors.email && touched.email ? "input-error" : ""}
+        className={
+          errors.email && touched.email ? "input-error" : "registerInputs"
+        }
       />
       {errors.email && touched.email && <p className="error">{errors.email}</p>}
 
-      <label htmlFor="password">Password</label>
+      <label htmlFor="password" className="registerInputLabel">
+        Password
+      </label>
       <input
         type="password"
         id="password"
@@ -91,13 +99,17 @@ function Register() {
         autoComplete="off"
         onChange={handleChange}
         onBlur={handleBlur}
-        className={errors.password && touched.password ? "input-error" : ""}
+        className={
+          errors.password && touched.password ? "input-error" : "registerInputs"
+        }
       />
       {errors.password && touched.password && (
         <p className="error">{errors.password}</p>
       )}
 
-      <label htmlFor="confirmPassword">Confirm Password</label>
+      <label htmlFor="confirmPassword" className="registerInputLabel">
+        Confirm Password
+      </label>
       <input
         type="password"
         id="confirmPassword"
@@ -107,14 +119,16 @@ function Register() {
         onChange={handleChange}
         onBlur={handleBlur}
         className={
-          errors.confirmPassword && touched.confirmPassword ? "input-error" : ""
+          errors.confirmPassword && touched.confirmPassword
+            ? "input-error"
+            : "registerInputs"
         }
       />
       {errors.confirmPassword && touched.confirmPassword && (
         <p className="error">{errors.confirmPassword}</p>
       )}
 
-      <button className="submit" type="submit" disabled={isSubmitting}>
+      <button className="registerSubmitBut" type="submit" disabled={isSubmitting}>
         Register
       </button>
     </form>

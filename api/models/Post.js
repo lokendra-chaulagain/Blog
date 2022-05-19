@@ -28,7 +28,7 @@ const PostSchema = new mongoose.Schema(
 
     img: {
       type: String,
-      default: "assets/post/1.jpeg",
+      default: "",
     },
 
     categories: {

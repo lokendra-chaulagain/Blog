@@ -21,27 +21,51 @@
       }
     }
   }
-}
 
-.header {
-  .headerTitles {
-    color: teal;
+  .header {
+    .headerTitles {
+      color: teal;
+    }
   }
-}
 
-.rightbar {
-  background-color: #111;
-  .rightbarItem {
-    .rightbarTitle {
+  .rightbar {
+    background-color: #111;
+    .rightbarItem {
+      .rightbarTitle {
+        color: white;
+      }
+      .introduction {
+        color: white;
+      }
+      .rightbarList {
+        .rightbarListItem {
+          color: white;
+        }
+      }
+    }
+  }
+
+  .post {
+    .postTitle {
+      color: white;
+    }
+    .postTime {
+      color: white;
+    }
+    .locationIcon {
+      color: white;
+    }
+    .locationText {
+      color: white;
+    }
+    .postDescription {
       color: white;
     }
   }
 
-  .rightbarItem {
-    .rightbarList {
-      .rightbarListItem {
-        color: white;
-      }
+  .form {
+    .registerInputLabel {
+      color: white;
     }
   }
 }

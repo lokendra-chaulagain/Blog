@@ -6,52 +6,84 @@
 }
 
 form {
+  height: 100vh;
+  padding-top: 50px;
   width: 95%;
-  max-width: 400px;
+  /* background-color: yellow; */
+  max-width: 500px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 
-form label {
-  font-size: 1rem;
-  font-weight: bold;
-  display: block;
-  text-align: left;
-  margin: 1rem 0 0.2rem;
-}
-
-input,
-select {
-  width: 100%;
-  padding: 0.65rem 0.5rem;
-  font-size: 1rem;
+.registerInputLabel {
   color: black;
-  border: 2px solid teal;
+  font-weight: 700;
+  margin-left: 5px;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+.input-error,
+.registerInputs {
+  border: 2px solid grey;
   background-color: rgb(230, 229, 229);
+  height: 40px;
   border-radius: 10px;
-  outline: none;
 }
 
-input:focus,
-select:focus {
-  border-color: #4299e1;
+.registerInputs::placeholder {
+  color: grey;
+  padding-left: 10px;
 }
 
-input::placeholder,
-select::placeholder {
-  color: #a0aec0;
-}
-
-
-button {
-  display: block;
-  margin: 1rem 0;
-  padding: 0.35rem 0.5rem;
-  background-color: #4299e1;
+.registerSubmitBut {
   color: white;
   border: none;
-  border-radius: 3px;
-  width: 100%;
-  font-size: 1rem;
+  border-radius: 10px;
   font-weight: bold;
   cursor: pointer;
+  background-color: teal;
+  height: 42px;
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+/* 550===================================== */
+@media only screen and (max-width: 600px) {
+  form {
+    width: 80%;
+  }
+}
+
+/*400===================================== */
+@media only screen and (max-width: 400px) {
+  form {
+    width: 90%;
+  }
+
+  .input-error,
+  .registerInputs {
+    height: 36px;
+  }
+
+  .registerSubmitBut {
+    height: 38px;
+  }
+}
+
+/*300===================================== */
+@media only screen and (max-width: 300px) {
+  form {
+    width: 90%;
+  }
+
+  .input-error,
+  .registerInputs {
+    height: 32px;
+  }
+
+  .registerSubmitBut {
+    height: 36px;
+  }
 }

@@ -1,7 +1,7 @@
 .rightbar {
   height: 170vh;
   flex: 3;
-  background-color: #fdfbfb;
+  background-color: rgb(226, 239, 239);
 
   .rightbarItem {
     margin-left: 30px;
@@ -37,6 +37,7 @@
     }
     .introduction {
       padding: 10px;
+      color: black;
     }
 
     .rightbarList {
@@ -118,9 +119,12 @@
   }
 }
 
-//6000=========================
-@media only screen and (max-width: 600px) {
+
+//Important=====================
+@media only screen and (max-width: 1000px) {
   .rightbar {
     display: none;
   }
 }
+
+

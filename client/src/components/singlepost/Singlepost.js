@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import "./singlePost.css";
 import axios from "axios";
 import { format } from "timeago.js";
@@ -68,10 +68,12 @@ export default function SinglePost() {
                 onClick={() => setShowDeleteCon(!showDeleteCon)}
               ></i>
 
-              {/* ------------------------------- */}
+              {/* Post Delete Alert------------------------------ */}
               {showDeleteCon && (
                 <div className="deleteContainer1">
-                  <span className="areYouSure1">Are you sure ?</span>
+                  <span className="areYouSure1">
+                    Are you sure you want to delete this post?
+                  </span>
                   <div className="nuYesRow1">
                     <button
                       className="nuNoBtn1"
@@ -95,7 +97,7 @@ export default function SinglePost() {
             Author:
             <b className="singlePostAuthor">{post.username}</b>
           </span>
-          <span>{format(post.createdAt)}</span>
+          <span className="createdTime">{format(post.createdAt)}</span>
         </div>
         {editMode ? (
           <input

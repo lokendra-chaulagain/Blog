@@ -1,5 +1,6 @@
 .singlePost {
   flex: 9;
+  height: 300vh;
 }
 
 .singlePostWrapper {
@@ -45,18 +46,24 @@
   cursor: pointer;
 }
 
+/* Post Delete Alert------------ */
 .deleteContainer1 {
   height: 100px;
   width: 200px;
-  background-color: grey;
+  background-color: rgb(170, 169, 169);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-radius: 10px;
+  position: sticky;
+  margin-top: -20px;
+  margin-left: -270px;
+
 }
 
 .areYouSure1 {
-  font-size: 24px;
+  font-size: 16px;
   font-weight: 500;
 }
 
@@ -68,14 +75,14 @@
 
 .nuNoBtn1,
 .nuYesBtn1 {
-  width: 60px;
-  height: 35px;
+  width: 50px;
+  height: 30px;
   border-radius: 10px;
   background-color: teal;
   color: white;
   border: none;
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 500;
   cursor: pointer;
 }
 
@@ -112,9 +119,6 @@
   font-size: 22px;
   font-family: "Lora", sans-serif;
   border: 1px solid grey;
-
-
-
 }
 
 .singlePostDescUpdateMode:focus {
@@ -140,5 +144,183 @@
   align-self: flex-end;
   margin-right: 10px;
   cursor: pointer;
+}
 
+/* 768====================================*/
+@media only screen and (max-width: 768px) {
+  .singlePostImg {
+    width: 710px;
+    height: 200px;
+  }
+
+  .singlePostTitle {
+    width: 700px;
+  }
+
+  .singlePostInfo {
+    width: 700px;
+  }
+}
+
+/* 730====================================*/
+@media only screen and (max-width: 730px) {
+  .singlePostImg {
+    width: 680px;
+    height: 200px;
+  }
+
+  .singlePostTitle {
+    width: 650px;
+  }
+
+  .singlePostInfo {
+    width: 670px;
+  }
+}
+
+/* 730====================================*/
+@media only screen and (max-width: 700px) {
+  .singlePostImg {
+    width: 650px;
+    height: 150px;
+  }
+
+  .singlePostTitle {
+    width: 600px;
+  }
+
+  .singlePostInfo {
+    width: 620px;
+  }
+}
+
+@media only screen and (max-width: 665px) {
+  .singlePostImg {
+    width: 610px;
+    height: 150px;
+  }
+
+}
+
+/* 600=====================================*/
+@media only screen and (max-width: 620px) {
+  .singlePostImg {
+    width: 550px;
+    height: 150px;
+  }
+
+  .singlePostTitle {
+    width: 530px;
+  }
+
+  .singlePostInfo {
+    width: 550px;
+  }
+}
+
+/* 565=====================================*/
+@media only screen and (max-width: 565px) {
+  .singlePostImg {
+    width: 520px;
+    height: 150px;
+  }
+
+  .singlePostTitle {
+    width: 500px;
+  }
+
+  .singlePostInfo {
+    width: 515px;
+  }
+}
+
+@media only screen and (max-width: 530px) {
+  .singlePostImg {
+    width: 490px;
+    height: 150px;
+  }
+
+  .singlePostTitle {
+    width: 470px;
+  }
+
+  .singlePostInfo {
+    width: 480px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .singlePostImg {
+    width: 450px;
+    height: 150px;
+  }
+
+  .singlePostTitle {
+    width: 430px;
+  }
+
+  .singlePostInfo {
+    width: 440px;
+  }
+}
+
+@media only screen and (max-width: 465px) {
+  .singlePostImg {
+    width: 410px;
+    height: 150px;
+  }
+
+  .singlePostTitle {
+    width: 390px;
+  }
+
+  .singlePostInfo {
+    width: 400px;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .singlePostImg {
+    width: 380px;
+    height: 150px;
+  }
+
+  .singlePostTitle {
+    width: 360px;
+  }
+
+  .singlePostInfo {
+    width: 370px;
+  }
+}
+
+@media only screen and (max-width: 390px) {
+  .singlePostImg {
+    width: 330px;
+    height: 150px;
+  }
+
+  .singlePostTitle {
+    width: 310px;
+  }
+
+  .singlePostInfo {
+    width: 320px;
+  }
+}
+
+@media only screen and (max-width: 340px) {
+  .singlePostImg {
+    width: 290px;
+    height: 200px;
+
+  }
+
+  .singlePostTitle {
+    width: 270px;
+  }
+
+  .singlePostInfo {
+    width: 290px;
+  }
 }
