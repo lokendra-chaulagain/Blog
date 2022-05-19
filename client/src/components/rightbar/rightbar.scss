@@ -1,5 +1,5 @@
 .rightbar {
-    height: 140vh;
+  height: 170vh;
   flex: 3;
   background-color: #fdfbfb;
 
@@ -69,5 +69,58 @@
         }
       }
     }
+  }
+}
+
+//1200=========================
+@media only screen and (max-width: 1200px) {
+  .rightbar {
+    height: 140vh;
+    flex: 4.4;
+
+    .rightbarItem {
+      .rightbarTitle {
+        font-size: 15px;
+      }
+
+      .introduction {
+        padding: 10px;
+        font-size: 16px;
+      }
+
+      .rightbarList {
+        .rightbarListItem {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
+
+//1100=========================
+@media only screen and (max-width: 1100px) {
+  .rightbar {
+    flex: 3.8;
+  }
+}
+
+//9000=========================
+@media only screen and (max-width: 900px) {
+  .rightbar {
+    flex: 6;
+  }
+}
+
+//8000=========================
+@media only screen and (max-width: 800px) {
+  .rightbar {
+    flex: 6;
+  }
+}
+
+//6000=========================
+@media only screen and (max-width: 600px) {
+  .rightbar {
+    display: none;
   }
 }

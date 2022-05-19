@@ -1,71 +1,427 @@
 .write {
-    max-width: 90vw;
-   padding-top: 50px;
-    display: flex;
-    flex-direction: column;
+  height: 500vh;
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  .writeForm {
     margin-left: 300px;
-    padding-bottom: 50px;
-    
     .writePostImg {
-        width: 80%;
-        height: 380px;
-        object-fit: cover;
-        border-radius: 10px;
-        margin-bottom: 40px;
-        border: 2px solid teal;
+      width: 1000px;
+
+      height: 380px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 40px;
+      border: 2px solid teal;
     }
 
+    .writeFormGroup1 {
+      .addIcon {
+        font-size: 30px;
+        cursor: pointer;
+        color: teal;
+      }
+      .titleInput {
+        font-size: 30px;
+        margin-top: 50px;
+        border: none;
+        outline: none;
+        width: 900px;
+      }
+    }
+
+    .writeFormGroup2 {
+      .descriptionInput {
+        font-size: 20px;
+        border: none;
+        outline: none;
+        margin-top: 40px;
+        font-family: "Varela", sans-serif;
+        border: 1px solid grey;
+        height: 150px;
+        width: 900px;
+      }
+    }
+    .locationInput {
+      font-size: 20px;
+      border: none;
+      outline: none;
+      margin-top: 40px;
+      font-family: "Varela", sans-serif;
+      border: 1px solid grey;
+      width: 400px;
+    }
+    .publishButton {
+      background-color: teal;
+      border: none;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      color: white;
+      width: 100px;
+      height: 38px;
+      margin-top: 30px;
+    }
+  }
+}
+
+//1300=====================================
+@media only screen and (max-width: 1300px) {
+  .write {
     .writeForm {
-        display: flex;
-        flex-direction: column;
-        .writeFormGroup1 {
-            display: flex;
-            flex-direction: column;
-            .addIcon {
-                font-size: 30px;
-                cursor: pointer;
-                color: teal;
-            }
-            .titleInput {
-                font-size: 30px;
-                margin-top: 50px;
-                border: none;
-                outline: none;
-            }
-        }
-
-        .writeFormGroup2 {
-            .descriptionInput {
-                font-size: 20px;
-                border: none;
-                outline: none;
-                margin-top: 40px;
-                font-family: "Varela", sans-serif;
-                border: 1px solid grey;
-                height: 300px;
-                width: 80%;
-            }
-        }
-        .locationInput {
-            font-size: 20px;
-            border: none;
-            outline: none;
-            margin-top: 40px;
-            font-family: "Varela", sans-serif;
-            border: 1px solid grey;
-            width: 200px;
-        }
-        .publishButton {
-            background-color: teal;
-            border: none;
-            border-radius: 10px;
-            font-size: 14px;
-            font-weight: 500;
-            cursor: pointer;
-            color: white;
-            width: 100px;
-            height: 38px;
-            margin-top: 30px;
-        }
+      margin-left: 120px;
     }
+  }
+}
+
+//1200=====================================
+@media only screen and (max-width: 1200px) {
+  .write {
+    .writeForm {
+      margin-left: 50px;
+    }
+  }
+}
+
+//1100=====================================
+@media only screen and (max-width: 1100px) {
+  .write {
+    .writeForm {
+      margin-left: 22px;
+
+      .writePostImg {
+        width: 900px;
+      }
+
+      .writeFormGroup1 {
+        .titleInput {
+          width: 800px;
+        }
+      }
+
+      .writeFormGroup2 {
+        .descriptionInput {
+          width: 800px;
+        }
+      }
+      .locationInput {
+        width: 300px;
+      }
+    }
+  }
+}
+
+//1050===================
+@media only screen and (max-width: 1050px) {
+  .write {
+    .writeForm {
+      margin-left: 22px;
+
+      .writePostImg {
+        width: 800px;
+      }
+
+      .writeFormGroup1 {
+        .titleInput {
+          width: 700px;
+        }
+      }
+
+      .writeFormGroup2 {
+        .descriptionInput {
+          width: 700px;
+        }
+      }
+      .locationInput {
+        width: 300px;
+      }
+    }
+  }
+}
+
+//8050===================
+@media only screen and (max-width: 8050px) {
+  .write {
+    .writeForm {
+      margin-left: 22px;
+
+      .writePostImg {
+        width: 700px;
+      }
+
+      .writeFormGroup1 {
+        .titleInput {
+          width: 600px;
+        }
+      }
+
+      .writeFormGroup2 {
+        .descriptionInput {
+          width: 600px;
+        }
+      }
+      .locationInput {
+        width: 300px;
+      }
+    }
+  }
+}
+
+//7050===================
+@media only screen and (max-width: 750px) {
+  .write {
+    .writeForm {
+      //   margin-left: 25px;
+
+      .writePostImg {
+        width: 550px;
+        height: 200px;
+      }
+
+      .writeFormGroup1 {
+        .titleInput {
+          width: 500px;
+        }
+      }
+
+      .writeFormGroup2 {
+        .descriptionInput {
+          width: 500px;
+        }
+      }
+      .locationInput {
+        width: 300px;
+      }
+    }
+  }
+}
+
+//600==================
+@media only screen and (max-width: 600px) {
+  .write {
+    .writeForm {
+      // margin-left: 25px;
+
+      .writePostImg {
+        width: 450px;
+        height: 230px;
+      }
+
+      .writeFormGroup1 {
+        .titleInput {
+          width: 400px;
+        }
+      }
+
+      .writeFormGroup2 {
+        .descriptionInput {
+          width: 400px;
+          height: 100px;
+        }
+      }
+    }
+  }
+}
+
+//500===================
+@media only screen and (max-width: 500px) {
+  .write {
+    .writeForm {
+      .writePostImg {
+        width: 400px;
+        height: 200px;
+      }
+
+      .writeFormGroup1 {
+        .titleInput {
+          width: 300px;
+        }
+      }
+
+      .writeFormGroup2 {
+        .descriptionInput {
+          width: 300px;
+        }
+      }
+      .locationInput {
+        width: 200px;
+      }
+    }
+  }
+}
+
+//440===================
+@media only screen and (max-width: 440px) {
+  .write {
+    .writeForm {
+      .writePostImg {
+        width: 350px;
+        height: 160px;
+      }
+
+      .writeFormGroup1 {
+        .titleInput {
+          width: 300px;
+        }
+      }
+
+      .writeFormGroup2 {
+        .descriptionInput {
+          width: 300px;
+          height: 120px;
+        }
+      }
+    }
+  }
+}
+
+//400====================
+@media only screen and (max-width: 400px) {
+  .write {
+    .writeForm {
+      .writePostImg {
+        width: 330px;
+        height: 200px;
+      }
+      .writeFormGroup1 {
+        .titleInput {
+          width: 300px;
+        }
+      }
+
+      .writeFormGroup2 {
+        .descriptionInput {
+          width: 300px;
+        }
+      }
+      .locationInput {
+        width: 240px;
+      }
+    }
+  }
+}
+
+//380====================
+@media only screen and (max-width: 380px) {
+  .write {
+    .writeForm {
+      .writePostImg {
+        width: 300px;
+        height: 180px;
+      }
+    }
+  }
+}
+
+//350====================
+@media only screen and (max-width: 350px) {
+  .write {
+    .writeForm {
+      .writePostImg {
+        width: 280px;
+        height: 130px;
+      }
+      .writeFormGroup1 {
+        .titleInput {
+          width: 270px;
+        }
+      }
+
+      .writeFormGroup2 {
+        .descriptionInput {
+          width: 270px;
+
+          height: 100px;
+        }
+      }
+      .locationInput {
+        width: 240px;
+      }
+    }
+  }
+}
+
+//300===============================
+@media only screen and (max-width: 300px) {
+  .write {
+    .writeForm {
+      .writePostImg {
+        width: 250px;
+        height: 110px;
+      }
+
+      .writeFormGroup1 {
+        .titleInput {
+          width: 230px;
+        }
+      }
+
+      .writeFormGroup2 {
+        .descriptionInput {
+          width: 230px;
+        }
+      }
+      .locationInput {
+        width: 200px;
+      }
+    }
+  }
+}
+
+//280===============================
+@media only screen and (max-width: 280px) {
+  .write {
+    .writeForm {
+      .writePostImg {
+        width: 210px;
+        height: 80px;
+      }
+
+      .writeFormGroup1 {
+        .titleInput {
+          width: 200px;
+        }
+      }
+
+      .writeFormGroup2 {
+        .descriptionInput {
+          width: 200px;
+          height: 80px;
+        }
+      }
+      .locationInput {
+        width: 100px;
+      }
+    }
+  }
+}
+
+//30===============================
+@media only screen and (max-width: 230px) {
+  .write {
+    .writeForm {
+      .writePostImg {
+        width: 180px;
+        height: 50px;
+      }
+
+      .writeFormGroup1 {
+        .titleInput {
+          width: 180px;
+        }
+      }
+
+      .writeFormGroup2 {
+        .descriptionInput {
+          width: 180px;
+          height: 50px;
+        }
+      }
+      .locationInput {
+        width: 150px;
+      }
+    }
+  }
 }
