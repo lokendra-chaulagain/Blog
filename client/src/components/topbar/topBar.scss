@@ -1,140 +1,194 @@
 .topBarCon {
-    padding-top: 2px;
-    width: 100%;
-    height: 50px;
-    position: sticky;
-    top: 0;
-    z-index: 999;
+  padding-top: 2px;
+  width: 100%;
+  height: 50px;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  font-family: "Josefin Sans", sans-serif;
+
+  .barIcon {
+    color: black;
+    cursor: pointer;
+  }
+
+  .sideBar {
+    background-color: teal;
+    height: 100vh;
+    width: 18vw;
+    margin-top: 400px;
+    position: absolute;
+    top: -400px;
+
+    .drawerSliderWrapper {
+      margin-left: 50px;
+      margin-top: 50px;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+
+      .sliderItems {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+        width: 180px;
+        padding: 5px;
+        border-radius: 20px;
+
+        .sliderListIcons {
+          font-size: 28px;
+        }
+
+        .sliderListItem {
+          font-size: 20px;
+        }
+      }
+
+      .sliderItems:hover {
+        background-color: #f5f5f5;
+        width: 180px;
+        color: teal;
+        padding: 5px;
+        border-radius: 20px;
+        transition: all 0.3s ease;
+        padding-left: 17px;
+        font-weight: 600;
+      }
+    }
+    
+    .clearIcon {
+      cursor: pointer;
+      font-size: 45px;
+      margin-left: 20px;
+      margin-top: 10px;
+    }
+  }
+
+  .topLeft {
+    flex: 3;
     display: flex;
     align-items: center;
-    font-family: "Josefin Sans", sans-serif;
+    justify-content: center;
 
-    .barIcon {
-        color: black;
+    .topIcon {
+      font-size: 24px;
+      margin-right: 10px;
+      color: rgb(43, 155, 155);
+      cursor: pointer;
+
+      &:hover {
+        color: teal;
+      }
     }
+  }
 
-    .topLeft {
-        flex: 3;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+  .searchCon {
+    width: 200px;
+    height: 34px;
+    background-color: white;
+    border: 1.5px solid teal;
+    border-radius: 26px;
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
 
-        .topIcon {
-            font-size: 24px;
-            margin-right: 10px;
-            color: rgb(43, 155, 155);
-            cursor: pointer;
-
-            &:hover {
-                color: teal;
-            }
-        }
+    .topSearchIcon {
+      color: teal;
+      margin-left: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
     }
+  }
 
-    .searchCon {
-        width: 200px;
-        height: 34px;
-        background-color: white;
-        border: 1.5px solid teal;
-        border-radius: 26px;
-        display: flex;
-        align-items: center;
-        margin-top: 5px;
+  .topCenter,
+  .topRight {
+    flex: 6;
 
-        .topSearchIcon {
+    .topList {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      list-style: none;
+
+      .topListItems {
+        margin-right: 20px;
+        font-size: 18px;
+        font-weight: 500;
+        cursor: pointer;
+
+        .link {
+          color: rgb(14, 13, 13);
+
+          &:hover {
             color: teal;
-            margin-left: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
+            border-bottom: 2px solid teal;
+            padding-bottom: 3px;
+            font-weight: 600;
+            transition: all 0.2s ease-out;
+          }
         }
+      }
+    }
+  }
+
+  .topRight {
+    flex: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .topImg {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      cursor: pointer;
+      border: 2px solid teal;
+      overflow: hidden;
     }
 
-    .topCenter,
-    .topRight {
-        flex: 6;
-
-        .topList {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            list-style: none;
-
-            .topListItems {
-                margin-right: 20px;
-                font-size: 18px;
-                font-weight: 500;
-                cursor: pointer;
-
-                .link {
-                    color: rgb(14, 13, 13);
-
-                    &:hover {
-                        color: teal;
-                        border-bottom: 2px solid teal;
-                        padding-bottom: 3px;
-                        font-weight: 600;
-                        transition: all 0.2s ease-out;
-                    }
-                }
-            }
-        }
+    .topSearchIcon {
+      font-size: 20px;
+      color: #666;
+      cursor: pointer;
+      margin-left: 30px;
     }
-
-    .topRight {
-        flex: 3;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        .topImg {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            object-fit: cover;
-            cursor: pointer;
-            border: 2px solid teal;
-            overflow: hidden;
-        }
-
-        .topSearchIcon {
-            font-size: 20px;
-            color: #666;
-            cursor: pointer;
-            margin-left: 30px;
-        }
-    }
+  }
 }
 
 @media only screen and (min-width: 600px) {
-    .topBarCon {
-        .drawerIcon {
-            display: none;
-        }
+  .topBarCon {
+    .drawerIcon {
+      display: none;
     }
+  }
 }
 
 @media only screen and (max-width: 600px) {
-    .topBarCon {
-        .topLeft {
-            display: none;
-        }
-        .searchCon {
-            display: none;
-        }
-        .topCenter {
-            display: none;
-        }
-        .topRight {
-            .topImg {
-                display: flex;
-                margin-left: 118vh;
-            }
-
-            .topList {
-                display: none;
-            }
-        }
+  .topBarCon {
+    .topLeft {
+      display: none;
     }
+    .searchCon {
+      display: none;
+    }
+    .topCenter {
+      display: none;
+    }
+    .topRight {
+      .topImg {
+        display: flex;
+        margin-left: 118vh;
+      }
+
+      .topList {
+        display: none;
+      }
+    }
+  }
 }
