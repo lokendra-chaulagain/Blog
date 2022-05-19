@@ -117,6 +117,7 @@ function TopBar() {
         </div>
       )}
       {/*----------- */}
+      
       <div className="topLeft">
         <i className=" topIcon fa-brands fa-facebook-square"></i>
         <i className=" topIcon fa-brands fa-twitter-square"></i>
@@ -151,10 +152,12 @@ function TopBar() {
               WRITE
             </Link>
           </li>
-          <li className="topListItems" onClick={handleLogout}>
+
+          {/* <li className="topListItems" onClick={handleLogout}>
             LOGOUT
-          </li>
-          <ToggleButton />
+          </li> */}
+
+          <ToggleButton className="navToggle" />
         </ul>
       </div>
 

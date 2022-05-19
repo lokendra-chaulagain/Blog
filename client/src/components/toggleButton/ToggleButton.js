@@ -23,7 +23,7 @@ function ToggleButton() {
         onClick={changeTheme} //dark mode
         inputProps={{ "aria-label": "controlled" }}
       />
-      ToggleButton
+     
     </div>
   );
 }
