@@ -20,13 +20,14 @@ import Post from "../post/Post";
 import "./posts.scss";
 
 function Posts({ posts }) {
-  console.log(posts);
+  // console.log(posts);
   //taking posts props from Home.js
   return (
     <div className="posts">
       {posts.map((post, key) => (
-        <Post key={key} post={post}  />
+        <Post key={key} post={post} />
       ))}
+      {/* <SearchResult/> */}
     </div>
   );
 }

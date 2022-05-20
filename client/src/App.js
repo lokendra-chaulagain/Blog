@@ -20,7 +20,7 @@ function App() {
 
   return (
     <div className={darkMode ? "dark" : " "}>
-      <TopBar />
+      {/* <TopBar /> */}
       <Routes>
         <Route exact path="/" element={<Home />} />
         {/* <Route path="/register" element={user ? <Home /> : <Register />} /> */}

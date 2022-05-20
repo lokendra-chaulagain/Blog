@@ -15,7 +15,7 @@ import ContactMailIcon from "@mui/icons-material/ContactMail";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import SettingsIcon from "@mui/icons-material/Settings";
 
-function TopBar() {
+function TopBar({ setSearchresult }) {
   const { user } = useContext(Context);
   const currentUser = user;
 
@@ -25,7 +25,7 @@ function TopBar() {
     const getUserDetails = async () => {
       const res = await axios.get(`/users/get/${currentUser?._id}`);
       setUserDetails(res.data);
-      console.log(res.data);
+      // console.log(res.data);
     };
     getUserDetails();
   }, [currentUser]);
@@ -48,6 +48,33 @@ function TopBar() {
   const showSlider = () => {
     setSidebar(!sidebar);
   };
+
+  //fetching all post to search
+  //Fetching all posts
+  const [posts, setPosts] = useState([]);
+  useEffect(() => {
+    const fetchAllPosts = async () => {
+      const res = await axios.get("/posts/getAll");
+      // console.log(res.data);
+      setPosts(res.data);
+    };
+    fetchAllPosts();
+  }, []);
+  // console.log(posts);
+
+  // //Searching
+  // const [searchQuery, setSearchQuery] = useState("");
+  // console.log(searchQuery);
+  // posts.filter((post) => post.title.toLowerCase().includes(setSearchQuery));
+  // console.log(searchQuery);
+  // const [searchresult, setSearchresult] = useState("");
+  // const keys = ["title"];
+  // const searchData = (data) => {
+  //   return data.filter((item) =>
+  //     keys.some((key) => item[key].toLowerCase().includes(searchresult))
+  //   );
+  // };
+  // console.log(searchresult);
 
   return (
     <div className="topBarCon">
@@ -117,7 +144,7 @@ function TopBar() {
         </div>
       )}
       {/*----------- */}
-      
+
       <div className="topLeft">
         <i className=" topIcon fa-brands fa-facebook-square"></i>
         <i className=" topIcon fa-brands fa-twitter-square"></i>
@@ -126,6 +153,12 @@ function TopBar() {
       </div>
 
       <div className="searchCon">
+        <input
+          className="searchInput"
+          type="text"
+          placeholder="search"
+          onChange={(e) => setSearchresult(e.target.value)}
+        />
         <i className=" topSearchIcon fa-solid fa-magnifying-glass"></i>
       </div>
 

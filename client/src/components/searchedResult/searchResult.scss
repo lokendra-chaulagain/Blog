@@ -1,4 +1,4 @@
-.post {
+.searchResultPost {
   height: 360px;
   width: 320px;
   display: flex;
@@ -10,7 +10,15 @@
   -moz-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.57);
   border-radius: 15px;
 
-  .postTitle {
+  .srPostImg {
+    height: 180px;
+    width: 320px;
+    border-radius: 10px;
+    object-fit: cover;
+    overflow: hidden;
+  }
+
+  .srPostTitle {
     font-size: 24px;
     font-weight: 600;
     font-family: "Varela", sans-serif;
@@ -19,35 +27,28 @@
     justify-content: center;
   }
 
-  .postImg {
-    height: 180px;
-    width: 320px;
-    border-radius: 2px;
-    object-fit: cover;
-    overflow: hidden;
-  }
-  .timeLocationRow {
+  .srTimeLocationRow {
     margin-top: 10px;
     margin-left: 10px;
     margin-right: 10px;
 
-    .postTime {
+    .srPostTime {
       margin-right: 20px;
       font-size: 14px;
       color: #999;
     }
 
-    .locationIcon {
+    .srLocationIcon {
       font-size: 14px;
       margin-right: 5px;
       color: #777;
     }
-    .locationText {
+    .srLocationText {
       font-size: 16px;
       font-weight: 500;
       color: #777;
     }
-    .postDescription {
+    .srPostDescription {
       margin-top: 14px;
       line-height: 20px;
       color: #444;
@@ -57,15 +58,5 @@
       -webkit-line-clamp: 4;
       -webkit-box-orient: vertical;
     }
-  }
-}
-
-//1100=====================================
-@media only screen and (max-width: 1100px) {
-  .post {
-    height: 360px;
-    width: 300px;
-    margin-left: 20px;
-    margin-right: 20px;
   }
 }
