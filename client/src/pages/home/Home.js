@@ -13,23 +13,34 @@ function Home() {
   useEffect(() => {
     const fetchAllPosts = async () => {
       const res = await axios.get("/posts/getAll");
-      // console.log(res.data);
       setPosts(res.data);
     };
     fetchAllPosts();
   }, []);
-  ///Searching
-  // const [searchQuery, setSearchQuery] = useState("");
-  // posts.filter((post) =>
-  //   post.title.toLowerCase().includes(searchQuery.toLowerCase())
-  // );
-  // console.log(searchQuery);
+
+  //Searching posts
   const [searchresult, setSearchresult] = useState("");
-  const keys = ["title"];
 
   const searchData = (data) => {
     return data.filter((item) =>
-      keys.some((key) => item[key].toLowerCase().includes(searchresult))
+      item.title
+        .toLowerCase()
+        .includes(
+          searchresult.toLowerCase() ||
+            item.desc
+              .toLowerCase()
+              .includes(
+                searchresult.toLowerCase() ||
+                  item.location
+                    .toLowerCase()
+                    .includes(
+                      searchresult.toLowerCase() ||
+                        item.username
+                          .toLowerCase()
+                          .includes(searchresult.toLowerCase())
+                    )
+              )
+        )
     );
   };
 
@@ -43,7 +54,6 @@ function Home() {
         <>
           <div className="home">
             <Posts posts={posts} />
-            <input type="text" />
             <Rightbar />
           </div>
         </>

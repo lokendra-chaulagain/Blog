@@ -6,8 +6,8 @@ import { format } from "timeago.js";
 function SearchResult({ data }) {
   console.log(data);
 
-  return data.map((item, index) => (
-    <Link to={`/post/${item._id}`} className="link">
+  return data.map((item, index, key) => (
+    <Link key={key}  to={`/post/${item._id}`} className="link">
       <div className="searchResultPost">
         <img className="srPostImg" src="" alt="" />
         <span className="srPostTitle">{data[index].username}</span>
@@ -27,4 +27,3 @@ function SearchResult({ data }) {
 }
 
 export default SearchResult;
-

@@ -8,7 +8,6 @@ import ClearIcon from "@mui/icons-material/Clear";
 import "./topBar.scss";
 import ToggleButton from "../toggleButton/ToggleButton";
 import LogoutIcon from "@mui/icons-material/Logout";
-import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
 import InfoIcon from "@mui/icons-material/Info";
 import ContactMailIcon from "@mui/icons-material/ContactMail";
@@ -25,7 +24,6 @@ function TopBar({ setSearchresult }) {
     const getUserDetails = async () => {
       const res = await axios.get(`/users/get/${currentUser?._id}`);
       setUserDetails(res.data);
-      // console.log(res.data);
     };
     getUserDetails();
   }, [currentUser]);
@@ -50,37 +48,20 @@ function TopBar({ setSearchresult }) {
   };
 
   //fetching all post to search
-  //Fetching all posts
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     const fetchAllPosts = async () => {
       const res = await axios.get("/posts/getAll");
-      // console.log(res.data);
       setPosts(res.data);
     };
     fetchAllPosts();
   }, []);
-  // console.log(posts);
-
-  // //Searching
-  // const [searchQuery, setSearchQuery] = useState("");
-  // console.log(searchQuery);
-  // posts.filter((post) => post.title.toLowerCase().includes(setSearchQuery));
-  // console.log(searchQuery);
-  // const [searchresult, setSearchresult] = useState("");
-  // const keys = ["title"];
-  // const searchData = (data) => {
-  //   return data.filter((item) =>
-  //     keys.some((key) => item[key].toLowerCase().includes(searchresult))
-  //   );
-  // };
-  // console.log(searchresult);
 
   return (
     <div className="topBarCon">
       <HorizontalSplitIcon className="barIcon" onClick={showSlider} />
 
-      {/* slider -----------------*/}
+      {/* slider ----------------------------------*/}
       {sidebar && (
         <div className="sideBar" onClick={showSlider}>
           <ClearIcon className="clearIcon" />
@@ -92,42 +73,35 @@ function TopBar({ setSearchresult }) {
               </div>
             </Link>
 
-            <Link to="/" className="link">
-              <div className="sliderItems">
-                <AutoStoriesIcon className="sliderListIcons" />
-                <span className="sliderListItem">Read Blogs</span>
-              </div>
-            </Link>
-
-            <Link to="/" className="link">
+            <Link to="/write" className="link">
               <div className="sliderItems">
                 <DriveFileRenameOutlineIcon className="sliderListIcons" />
                 <span className="sliderListItem">Create Blogs</span>
               </div>
             </Link>
 
-            <Link to="/" className="link">
+            <Link to="/about" className="link">
               <div className="sliderItems">
                 <InfoIcon className="sliderListIcons" />
                 <span className="sliderListItem">About</span>
               </div>
             </Link>
 
-            <Link to="/" className="link">
+            <Link to="/contact" className="link">
               <div className="sliderItems">
                 <ContactMailIcon className="sliderListIcons" />
                 <span className="sliderListItem">Contact</span>
               </div>
             </Link>
 
-            <Link to="/" className="link">
+            <Link to="/setting" className="link">
               <div className="sliderItems">
                 <AccountBoxIcon className="sliderListIcons" />
                 <span className="sliderListItem">Profile</span>
               </div>
             </Link>
 
-            <Link to="/" className="link">
+            <Link to="/setting" className="link">
               <div className="sliderItems">
                 <SettingsIcon className="sliderListIcons" />
                 <span className="sliderListItem">Settings</span>
@@ -137,26 +111,36 @@ function TopBar({ setSearchresult }) {
             <Link to="/" className="link">
               <div className="sliderItems">
                 <LogoutIcon className="sliderListIcons" />
-                <span className="sliderListItem">Logout</span>
+                <span className="sliderListItem" onClick={handleLogout}>
+                  Logout
+                </span>
               </div>
             </Link>
           </div>
         </div>
       )}
-      {/*----------- */}
+      {/*--------------------------------------------------- */}
 
       <div className="topLeft">
-        <i className=" topIcon fa-brands fa-facebook-square"></i>
-        <i className=" topIcon fa-brands fa-twitter-square"></i>
-        <i className=" topIcon fa-brands fa-pinterest-square"></i>
+        <a href="https://www.facebook.com/">
+          <i className=" topIcon fa-brands fa-facebook-square"></i>
+        </a>
+        <a href="https://www.twitter.com">
+          <i className=" topIcon fa-brands fa-twitter-square"></i>
+        </a>
+        <a href="https://www.pinterest.com">
+          <i className=" topIcon fa-brands fa-pinterest-square"></i>
+        </a>
+        <a href="https://www.instagram.com">
         <i className=" topIcon fa-brands fa-instagram-square"></i>
+        </a>
       </div>
 
       <div className="searchCon">
         <input
           className="searchInput"
           type="text"
-          placeholder="search"
+          placeholder="Type keyword eg:api"
           onChange={(e) => setSearchresult(e.target.value)}
         />
         <i className=" topSearchIcon fa-solid fa-magnifying-glass"></i>
@@ -185,10 +169,6 @@ function TopBar({ setSearchresult }) {
               WRITE
             </Link>
           </li>
-
-          {/* <li className="topListItems" onClick={handleLogout}>
-            LOGOUT
-          </li> */}
 
           <ToggleButton className="navToggle" />
         </ul>
