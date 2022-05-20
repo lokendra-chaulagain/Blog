@@ -67,5 +67,70 @@
     width: 300px;
     margin-left: 20px;
     margin-right: 20px;
+
+    .postImg {
+      height: 180px;
+      width: 300px;
+      border-radius: 2px;
+      object-fit: cover;
+      overflow: hidden;
+    }
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .post {
+    height: 320px;
+    width: 250px;
+
+    .postImg {
+      height: 130px;
+      width: 250px;
+      border-radius: 2px;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .post {
+    height: 460px;
+    width: 460px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 40px;
+    margin-bottom: 50px;
+
+    .postImg {
+      height: 220px;
+      width: 460px;
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .post {
+    height: 460px;
+    width: 570px;
+
+    .postImg {
+      height: 240px;
+      width: 570px;
+    }
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .post {
+    height: 460px;
+    width: 580px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 40px;
+    margin-bottom: 50px;
+
+    .postImg {
+      height: 280px;
+      width: 580px;
+    }
   }
 }

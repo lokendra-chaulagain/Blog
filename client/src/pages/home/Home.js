@@ -54,7 +54,7 @@ function Home() {
         <>
           <div className="home">
             <Posts posts={posts} />
-            <Rightbar />
+            {/* <Rightbar /> */}
           </div>
         </>
       )}
