@@ -15,15 +15,19 @@ function ToggleButton() {
     dispatch({ type: "TOGGLE" });
   };
 
+  const { darkMode } = useContext(DarkModeContext);
+
   return (
-    <div>
+    <div className="toggleBut">
+      {/* <p>dark</p> */}
+      {darkMode ? "" : <p>Dark</p>}
       <Switch
         checked={checked}
         onChange={handleChange}
         onClick={changeTheme} //dark mode
         inputProps={{ "aria-label": "controlled" }}
       />
-     
+      {darkMode ? <p>Light</p> : ""}
     </div>
   );
 }

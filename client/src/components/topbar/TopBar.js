@@ -132,11 +132,21 @@ function TopBar({ setSearchresult }) {
           <i className=" topIcon fa-brands fa-pinterest-square"></i>
         </a>
         <a href="https://www.instagram.com">
-        <i className=" topIcon fa-brands fa-instagram-square"></i>
+          <i className=" topIcon fa-brands fa-instagram-square"></i>
         </a>
+
+        <div className="searchCon">
+          <input
+            className="searchInput"
+            type="text"
+            placeholder="Type keyword eg:api"
+            onChange={(e) => setSearchresult(e.target.value)}
+          />
+          <i className=" topSearchIcon fa-solid fa-magnifying-glass"></i>
+        </div>
       </div>
 
-      <div className="searchCon">
+      {/* <div className="searchCon">
         <input
           className="searchInput"
           type="text"
@@ -144,7 +154,7 @@ function TopBar({ setSearchresult }) {
           onChange={(e) => setSearchresult(e.target.value)}
         />
         <i className=" topSearchIcon fa-solid fa-magnifying-glass"></i>
-      </div>
+      </div> */}
 
       <div className="topCenter">
         <ul className="topList">
@@ -169,10 +179,9 @@ function TopBar({ setSearchresult }) {
               WRITE
             </Link>
           </li>
-
-          <ToggleButton className="navToggle" />
         </ul>
       </div>
+      <ToggleButton className="modeToggle" />
 
       <div className="topRight">
         <Link to={"/setting"}>
