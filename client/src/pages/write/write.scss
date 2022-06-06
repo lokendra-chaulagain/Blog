@@ -7,9 +7,10 @@
   .writeForm {
     margin-left: 300px;
     height: 200vh;
+    padding-left: 50px;
+
     .writePostImg {
       width: 1000px;
-
       height: 380px;
       object-fit: cover;
       border-radius: 10px;
@@ -28,6 +29,12 @@
           margin-top: 10px;
         }
       }
+
+      .star {
+        color: red;
+        font-size: 17px;
+      }
+
       .titleInput {
         font-size: 30px;
         margin-top: 50px;
@@ -38,6 +45,10 @@
         height: 60px;
         border-radius: 5px;
         padding-left: 7px;
+      }
+      .star1 {
+        color: red;
+        font-size: 17px;
       }
     }
 
@@ -66,6 +77,10 @@
       border-radius: 5px;
       height: 40px;
       padding-left: 7px;
+    }
+    .star1 {
+      color: red;
+      font-size: 17px;
     }
 
     .publishButton {

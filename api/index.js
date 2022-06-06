@@ -9,9 +9,7 @@ const categoryRoute = require("./routes/categories");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 
-//middleware
 app.use(express.json());
-app.use("/images", express.static(path.join(__dirname, "/images")));
 
 //MongoDB connection
 mongoose

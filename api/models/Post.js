@@ -24,11 +24,13 @@ const PostSchema = new mongoose.Schema(
 
     timeRead: {
       type: String,
+      required: true,
     },
 
     img: {
       type: String,
       default: "",
+      required: true,
     },
 
     categories: {

@@ -75,19 +75,23 @@ function Write() {
       <TopBar />
       <div className="write">
         <form className="writeForm" onSubmit={handleClick}>
-          {file && (
+          {file ? (
             <img
               src={URL.createObjectURL(file)}
               alt=""
               className="writePostImg"
             />
+          ) : (
+            <img src="" alt="" className="writePostImg" />
           )}
           <div className="writeFormGroup1">
             <label htmlFor="fileInput">
               <i className=" addIcon fa-solid fa-square-plus">
                 <p className="selectImg">Select image</p>
               </i>
+              {!file && <span className="star"> ( * photo required ) </span>}
             </label>
+
             <input
               type="file"
               id="fileInput"
@@ -95,6 +99,7 @@ function Write() {
               required
               onChange={(e) => setFile(e.target.files[0])}
             />
+
             <input
               placeholder="Title"
               type="text"
@@ -102,6 +107,7 @@ function Write() {
               onChange={(e) => setTitle(e.target.value)}
               autoFocus={true}
             />
+            {!title && <span className="star1">*</span>}
           </div>
 
           <div className="writeFormGroup2">
@@ -112,6 +118,7 @@ function Write() {
               className="descriptionInput "
               onChange={(e) => setDesc(e.target.value)}
             />
+             {!desc && <span className="star1">*</span>}
           </div>
           <input
             placeholder="Location ..."
@@ -120,6 +127,7 @@ function Write() {
             required
             onChange={(e) => setLocation(e.target.value)}
           />
+           {!location && <span className="star1">*</span>}
 
           <input
             placeholder="time to read"
@@ -130,6 +138,7 @@ function Write() {
             required
             onChange={(e) => setTimeRead(e.target.value)}
           />
+           {!timeRead && <span className="star1">*</span>}
           <button className="publishButton" type="submit">
             {uploading ? "Uploading..." : "Publish"}
           </button>

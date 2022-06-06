@@ -12,11 +12,6 @@ export const DarkModeContext = createContext(INITIAL_STATE);
 export const DarkModeContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(DarkModeReducer, INITIAL_STATE);
 
-  //   //saving user in local storage
-  //   useEffect(() => {
-  //     localStorage.setItem("user", JSON.stringify(state.user));
-  //   }, [state.user]);
-
   return (
     <DarkModeContext.Provider
       value={{

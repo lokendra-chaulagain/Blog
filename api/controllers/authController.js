@@ -15,7 +15,7 @@ const register = async (req, res, next) => {
     const user = await newUser.save();
     res.status(200).json(user);
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    next(error);
   }
 };
 
@@ -38,7 +38,7 @@ const login = async (req, res, next) => {
             isAdmin: user.isAdmin,
           },
           process.env.JWT_SECRET,
-          { expiresIn: "1d" }
+          { expiresIn: "3d" }
         );
         //now saving the token in the cookies
         const { password, ...others } = user._doc;

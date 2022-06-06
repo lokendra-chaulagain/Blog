@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import "./singlePost.css";
 import axios from "axios";
 import { format } from "timeago.js";
+import { Context } from "../../context/Context";
 
 export default function SinglePost() {
+  const { user } = useContext(Context);
   const location = useLocation();
   const path = location.pathname.split("/")[2];
 
@@ -68,14 +70,18 @@ export default function SinglePost() {
           <h1 className="singlePostTitle">
             {post.title}
             <div className="singlePostEdit">
-              <i
-                className="singlePostIcon far fa-edit"
-                onClick={() => setEditMode(true)}
-              ></i>
-              <i
-                className="singlePostIcon far fa-trash-alt"
-                onClick={() => setShowDeleteCon(!showDeleteCon)}
-              ></i>
+              {user.username === post.username ? (
+                <>
+                  <i
+                    className="singlePostIcon far fa-edit"
+                    onClick={() => setEditMode(true)}
+                  ></i>
+                  <i
+                    className="singlePostIcon far fa-trash-alt"
+                    onClick={() => setShowDeleteCon(!showDeleteCon)}
+                  ></i>
+                </>
+              ) : null}
 
               {/* Post Delete Alert------------------------------ */}
               {showDeleteCon && (

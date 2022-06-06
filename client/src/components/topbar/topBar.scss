@@ -1,12 +1,16 @@
 .topBarCon {
   width: 100%;
-  height: 50px;
+  height: 60px;
   position: sticky;
-  top: 10px;
+  top: 0px;
   z-index: 999;
   display: flex;
   align-items: center;
   font-family: "Josefin Sans", sans-serif;
+  background-color: white;
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.75);
 
   .barIcon {
     color: rgb(7, 176, 176);
@@ -23,7 +27,7 @@
   // SideBar-----------------
   .sideBar {
     background-color: teal;
-    height: 100vh;
+    height: 120vh;
     width: 18vw;
     margin-top: 400px;
     position: absolute;
@@ -72,7 +76,7 @@
       cursor: pointer;
       font-size: 45px;
       margin-left: 20px;
-      margin-top: 10px;
+      margin-top:30px;
     }
   }
 
@@ -181,7 +185,7 @@
       display: flex;
 
       .topListItems {
-        display:none;
+        display: none;
         color: rgb(14, 13, 13);
         list-style: none;
         margin-right: 20px;

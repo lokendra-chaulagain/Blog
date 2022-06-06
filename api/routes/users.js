@@ -7,12 +7,13 @@ const {
   getUser,
   getAllUser,
 } = require("../controllers/userController");
+const { verifyUser } = require("../utils/verifyToken");
 
 //Update user
-router.put("/update/:id", update);
+router.put("/update/:id", verifyUser, update);
 
 //Delete user
-router.delete("/delete/:id", deleteUser);
+router.delete("/delete/:id", verifyUser, deleteUser);
 
 //Get a user
 router.get("/get/:id", getUser);
