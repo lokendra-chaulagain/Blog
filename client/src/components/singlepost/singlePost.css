@@ -11,6 +11,14 @@
   flex-direction: column
 }
 
+.editTitle{
+  height: 50px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-left: 7px;
+  font-size: 20px;
+}
+
 .singlePostImg {
   height: 300px;
   border-radius: 5px;
@@ -45,6 +53,8 @@
 .singlePostIcon {
   margin-left: 10px;
   cursor: pointer;
+  font-size: 32px;
+  margin-right: 10px;
 }
 
 /* Post Delete Alert------------ */
@@ -104,6 +114,15 @@
   font-family: "Varela Round", Arial, Helvetica, sans-serif;
 }
 
+.editDesc {
+  height: 200px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  padding-left: 7px;
+  font-size: 20px;
+
+}
+
 .singlePostAuthor {
   margin-left: 5px;
 }
@@ -145,6 +164,33 @@
   align-self: flex-end;
   margin-right: 10px;
   cursor: pointer;
+}
+.editSave{
+  height: 40px;
+  background-color: teal;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 18px;
+}
+.editCancel{
+  height: 35px;
+  background-color: teal;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 18px;
+  width: 100px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  
+  
+
 }
 
 /* 768====================================*/

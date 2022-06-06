@@ -8,21 +8,21 @@ const PostSchema = new mongoose.Schema(
       required: true,
       minlength: 4,
       unique: true,
-      maxlength: 20,
+      maxlength:300,
     },
 
     desc: {
       type: String,
       required: true,
       trim: true,
-      maxlength: 100,
+      maxlength: 5000,
     },
 
     username: {
       type: String,
     },
 
-    timeRead:{
+    timeRead: {
       type: String,
     },
 
@@ -43,5 +43,4 @@ const PostSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-//creating model and exporting
 module.exports = mongoose.model("Post", PostSchema);

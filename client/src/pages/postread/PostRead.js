@@ -1,7 +1,7 @@
 import React from "react";
 import SinglePost from "../../components/singlepost/SinglePost";
-import "./postRead.scss";
 import TopBar from "../../components/topbar/TopBar";
+import "./postRead.scss";
 
 function PostRead() {
   return (

@@ -7,25 +7,24 @@ import {
   ref,
   uploadBytesResumable,
   getDownloadURL,
-} from "firebase/storage"; //to upload image in firebase
+} from "firebase/storage";
 import app from "../../firebase";
 import TopBar from "../../components/topbar/TopBar";
 
 function Write() {
   const { user } = useContext(Context);
-  // console.log(user)
 
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const [timeRead, setTimeRead] = useState("");
   const [location, setLocation] = useState("");
   const [file, setFile] = useState(null);
+  const [uploading, setUploading] = useState(false);
 
   console.log(file);
   const handleClick = (e) => {
     e.preventDefault();
-    //uploading same file overwrites so we need to rename it before uploading
-    const fileName = new Date().getTime() + file.name; //current time + file name//unique file name
+    const fileName = new Date().getTime() + file?.name;
     const storage = getStorage(app);
     const storageRef = ref(storage, fileName);
     const uploadTask = uploadBytesResumable(storageRef, file);
@@ -35,6 +34,7 @@ function Write() {
       (snapshot) => {
         const progress =
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        setUploading(true);
         console.log("Upload is " + progress + "% done");
         switch (snapshot.state) {
           case "paused":
@@ -49,8 +49,6 @@ function Write() {
       (error) => {},
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          // console.log("File available at", downloadURL);
-          // newPost.img = downloadURL;
           try {
             const res = axios.post("/posts/create", {
               username: user.username,
@@ -60,8 +58,8 @@ function Write() {
               timeRead,
               img: downloadURL,
             });
+            setUploading(true);
             console.log(res.data);
-            // console.log(newPost);
             window.location.replace("/");
           } catch (error) {
             console.log(error);
@@ -76,16 +74,25 @@ function Write() {
     <>
       <TopBar />
       <div className="write">
-        <form className="writeForm">
-          <img src="" alt="" className="writePostImg" />
+        <form className="writeForm" onSubmit={handleClick}>
+          {file && (
+            <img
+              src={URL.createObjectURL(file)}
+              alt=""
+              className="writePostImg"
+            />
+          )}
           <div className="writeFormGroup1">
             <label htmlFor="fileInput">
-              <i className=" addIcon fa-solid fa-square-plus"><p className="selectImg">Select image</p></i>
+              <i className=" addIcon fa-solid fa-square-plus">
+                <p className="selectImg">Select image</p>
+              </i>
             </label>
             <input
               type="file"
               id="fileInput"
               style={{ display: "none" }}
+              required
               onChange={(e) => setFile(e.target.files[0])}
             />
             <input
@@ -98,9 +105,10 @@ function Write() {
           </div>
 
           <div className="writeFormGroup2">
-            <input
+            <textarea
               placeholder="Tell your Story ..."
               type="text"
+              required
               className="descriptionInput "
               onChange={(e) => setDesc(e.target.value)}
             />
@@ -109,17 +117,21 @@ function Write() {
             placeholder="Location ..."
             type="text"
             className="locationInput"
+            required
             onChange={(e) => setLocation(e.target.value)}
           />
 
           <input
             placeholder="time to read"
-            type="text"
+            type="number"
+            min={1}
+            max={60}
             className="locationInput"
+            required
             onChange={(e) => setTimeRead(e.target.value)}
           />
-          <button className="publishButton" onClick={handleClick}>
-            Publish
+          <button className="publishButton" type="submit">
+            {uploading ? "Uploading..." : "Publish"}
           </button>
         </form>
       </div>

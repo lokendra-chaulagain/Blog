@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import "./singlePost.css";
 import axios from "axios";
 import { format } from "timeago.js";
-import TopBar from "../topbar/TopBar";
 
 export default function SinglePost() {
-  //Fetching data from URL id
   const location = useLocation();
   const path = location.pathname.split("/")[2];
 
@@ -49,6 +48,15 @@ export default function SinglePost() {
     <div className="singlePost">
       <div className="singlePostWrapper">
         <img className="singlePostImg" src={post.img} alt="" />
+        {editMode && (
+          <Link to={`/post/${post._id}`} className="link">
+            <button className="editCancel" onClick={handleEditSave}>
+              <ArrowBackIcon />
+              Cancel
+            </button>
+          </Link>
+        )}
+
         {editMode ? (
           <input
             type="text"
@@ -101,7 +109,7 @@ export default function SinglePost() {
           <span className="createdTime">{format(post.createdAt)}</span>
         </div>
         {editMode ? (
-          <input
+          <textarea
             type="text"
             className="editDesc"
             defaultValue={post.desc}
@@ -113,7 +121,7 @@ export default function SinglePost() {
 
         {editMode && (
           <button className="editSave" onClick={handleEditSave}>
-            Save
+            Update
           </button>
         )}
       </div>

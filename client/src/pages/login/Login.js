@@ -21,7 +21,6 @@ function Login() {
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
       window.location.replace("/");
     } catch (error) {
-      //if error dispatch the Login_Failure action
       dispatch({ type: "LOGIN_FAILURE" });
     }
   };

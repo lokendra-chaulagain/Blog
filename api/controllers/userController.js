@@ -9,7 +9,6 @@ const update = async (req, res, next) => {
 
   if (req.body.password) {
     try {
-      //hash the password
       req.body.password = await bcrypt.hash(req.body.password, 10);
     } catch (error) {
       res.status(500).json({ message: error.message });
@@ -56,6 +55,5 @@ const getAllUser = async (req, res, next) => {
     res.status(500).json(error);
   }
 };
-
 
 module.exports = { update, deleteUser, getUser, getAllUser };

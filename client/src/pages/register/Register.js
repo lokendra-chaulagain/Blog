@@ -7,12 +7,9 @@ import { Link } from "react-router-dom";
 const { useFormik } = require("formik");
 
 function Register() {
-  const { user, dispatch } = useContext(Context);
+  const { dispatch } = useContext(Context);
 
   const onSubmit = async (values, actions) => {
-    // console.log(values);
-    // console.log(actions);
-    // console.log("submitted");
     dispatch({ type: "LOGIN_START" });
     try {
       const res = await axios.post("/auth/register", {
@@ -48,7 +45,6 @@ function Register() {
     validationSchema: registerSchema,
     onSubmit,
   });
-  console.log(errors);
 
   return (
     <form onSubmit={handleSubmit} className="form">

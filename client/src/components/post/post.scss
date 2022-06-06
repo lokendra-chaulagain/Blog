@@ -17,6 +17,26 @@
     margin-bottom: 14px;
     display: flex;
     justify-content: center;
+    padding: 7px;
+    // white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 60px;
+  }
+  .createdAndAuthorDiv {
+    font-size: 14px;
+    font-weight: 600;
+    font-family: "Varela", sans-serif;
+    margin-bottom: 14px;
+    display: flex;
+    padding-left: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 7px;
+
+    .auth {
+      color: goldenrod;
+    }
   }
 
   .postImg {
@@ -33,34 +53,34 @@
 
     .postTime {
       margin-right: 20px;
-      font-size: 14px;
-      color: #999;
+      font-size: 15px;
+      color: rgb(95, 94, 94);
     }
 
     .locationIcon {
       font-size: 14px;
       margin-right: 5px;
-      color: #777;
+      color: rgb(211, 105, 105);
     }
     .locationText {
       font-size: 16px;
       font-weight: 500;
-      color: #777;
+      color: rgb(92, 92, 92);
     }
     .postDescription {
       margin-top: 14px;
       line-height: 20px;
-      color: #444;
+      color: rgb(47, 46, 46);
       overflow: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;
       -webkit-line-clamp: 4;
       -webkit-box-orient: vertical;
+      margin-bottom: 10px;
     }
   }
 }
 
-//1100=====================================
 @media only screen and (max-width: 1100px) {
   .post {
     height: 360px;

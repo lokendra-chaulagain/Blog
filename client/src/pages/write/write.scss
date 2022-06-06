@@ -6,7 +6,6 @@
 
   .writeForm {
     margin-left: 300px;
-    // background-color: yellow;
     height: 200vh;
     .writePostImg {
       width: 1000px;
@@ -24,7 +23,7 @@
         cursor: pointer;
         color: teal;
 
-        .selectImg{
+        .selectImg {
           font-size: 18px;
           margin-top: 10px;
         }
@@ -38,6 +37,7 @@
         border: 1px solid grey;
         height: 60px;
         border-radius: 5px;
+        padding-left: 7px;
       }
     }
 
@@ -52,6 +52,7 @@
         height: 150px;
         width: 900px;
         border-radius: 5px;
+        padding-left: 7px;
       }
     }
     .locationInput {
@@ -64,6 +65,7 @@
       width: 400px;
       border-radius: 5px;
       height: 40px;
+      padding-left: 7px;
     }
 
     .publishButton {
@@ -81,7 +83,6 @@
   }
 }
 
-//1300=====================================
 @media only screen and (max-width: 1300px) {
   .write {
     .writeForm {
@@ -90,7 +91,6 @@
   }
 }
 
-//1200=====================================
 @media only screen and (max-width: 1200px) {
   .write {
     .writeForm {
@@ -99,7 +99,6 @@
   }
 }
 
-//1100=====================================
 @media only screen and (max-width: 1100px) {
   .write {
     .writeForm {
@@ -127,7 +126,6 @@
   }
 }
 
-//1050===================
 @media only screen and (max-width: 1050px) {
   .write {
     .writeForm {
@@ -155,7 +153,6 @@
   }
 }
 
-//8050===================
 @media only screen and (max-width: 8050px) {
   .write {
     .writeForm {

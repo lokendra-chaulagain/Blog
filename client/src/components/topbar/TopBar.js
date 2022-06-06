@@ -9,8 +9,6 @@ import "./topBar.scss";
 import ToggleButton from "../toggleButton/ToggleButton";
 import LogoutIcon from "@mui/icons-material/Logout";
 import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
-import InfoIcon from "@mui/icons-material/Info";
-import ContactMailIcon from "@mui/icons-material/ContactMail";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import SettingsIcon from "@mui/icons-material/Settings";
 
@@ -27,7 +25,6 @@ function TopBar({ setSearchresult }) {
     };
     getUserDetails();
   }, [currentUser]);
-
 
   //Logout
   const { dispatch } = useContext(Context);
@@ -62,7 +59,7 @@ function TopBar({ setSearchresult }) {
     <div className="topBarCon">
       <HorizontalSplitIcon className="barIcon" onClick={showSlider} />
 
-      {/* slider ----------------------------------*/}
+      {/* slider */}
       {sidebar && (
         <div className="sideBar" onClick={showSlider}>
           <ClearIcon className="clearIcon" />
@@ -80,20 +77,6 @@ function TopBar({ setSearchresult }) {
                 <span className="sliderListItem">Create Blogs</span>
               </div>
             </Link>
-
-            {/* <Link to="/about" className="link">
-              <div className="sliderItems">
-                <InfoIcon className="sliderListIcons" />
-                <span className="sliderListItem">About</span>
-              </div>
-            </Link> */}
-
-            {/* <Link to="/contact" className="link">
-              <div className="sliderItems">
-                <ContactMailIcon className="sliderListIcons" />
-                <span className="sliderListItem">Contact</span>
-              </div>
-            </Link> */}
 
             <Link to="/setting" className="link">
               <div className="sliderItems">
@@ -120,7 +103,7 @@ function TopBar({ setSearchresult }) {
           </div>
         </div>
       )}
-      {/*--------------------------------------------------- */}
+      {/* */}
 
       <div className="topLeft">
         <a href="https://www.facebook.com/">
@@ -147,16 +130,6 @@ function TopBar({ setSearchresult }) {
         </div>
       </div>
 
-      {/* <div className="searchCon">
-        <input
-          className="searchInput"
-          type="text"
-          placeholder="Type keyword eg:api"
-          onChange={(e) => setSearchresult(e.target.value)}
-        />
-        <i className=" topSearchIcon fa-solid fa-magnifying-glass"></i>
-      </div> */}
-
       <div className="topCenter">
         <ul className="topList">
           <li className="topListItems">
@@ -171,9 +144,7 @@ function TopBar({ setSearchresult }) {
             </Link>
           </li>
           <li className="topListItems">
-            <Link to="/settings" className="link">
-            
-            </Link>
+            <Link to="/settings" className="link"></Link>
           </li>
           <li className="topListItems">
             <Link to="/write" className="link">
@@ -189,12 +160,12 @@ function TopBar({ setSearchresult }) {
           <img className="topImg" src={userDetails?.profilePic} alt="" />
         </Link>
         <ul className="topList">
-          <li className="topListItems">
+          <li className="topListItems lr1">
             <Link to="/login" className="link">
               LOGIN
             </Link>
           </li>
-          <li className="topListItems">
+          <li className="topListItems  lr1">
             <Link to="/register" className=" link">
               REGISTER
             </Link>

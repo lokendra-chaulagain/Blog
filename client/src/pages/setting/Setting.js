@@ -5,6 +5,13 @@ import { Context } from "../../context/Context";
 import DeleteAlert from "../../components/deleteAlert/DeleteAlert";
 import TopBar from "../../components/topbar/TopBar";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+import {
+  getStorage,
+  ref,
+  uploadBytesResumable,
+  getDownloadURL,
+} from "firebase/storage";
+import app from "../../firebase";
 
 function Setting() {
   const { user } = useContext(Context);
@@ -13,16 +20,48 @@ function Setting() {
   const [username, setUsername] = React.useState(user.username);
   const [email, setEmail] = React.useState(user.email);
   const [password, setPassword] = React.useState("");
+  const [file, setFile] = React.useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await axios.put("/users/update/" + user._id, {
-      username,
-      email,
-      password,
-    });
-    window.location.reload();
-    console.log(res);
+    const fileName = new Date().getTime() + file.name;
+    const storage = getStorage(app);
+    const storageRef = ref(storage, fileName);
+    const uploadTask = uploadBytesResumable(storageRef, file);
+
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const progress =
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        console.log("Upload is " + progress + "% done");
+        switch (snapshot.state) {
+          case "paused":
+            console.log("Upload is paused");
+            break;
+          case "running":
+            console.log("Upload is running");
+            break;
+          default:
+        }
+      },
+      (error) => {},
+      () => {
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          try {
+            axios.put("/users/update/" + user._id, {
+              username,
+              email,
+              password,
+              profilePic: downloadURL,
+            });
+            window.location.reload();
+          } catch (error) {
+            console.log(error);
+          }
+        });
+      }
+    );
   };
 
   //Fetching current user
@@ -55,11 +94,29 @@ function Setting() {
 
           <form className="profileUpdateform" onSubmit={handleSubmit}>
             <div className="profileTxtPicIconCon">
-              <img src="" alt="" className="profileImg" />
+              {file ? (
+                <img
+                  src={URL.createObjectURL(file)}
+                  alt=""
+                  className="profileImg"
+                />
+              ) : (
+                <img
+                  src={currentUser.profilePic}
+                  alt=""
+                  className="profileImg"
+                />
+              )}
+
               <label htmlFor="fileInput">
                 <i className="settingProfileUploadIcon fa-regular fa-image"></i>
               </label>
-              <input type="file" id="fileInput" style={{ display: "none" }} />
+              <input
+                type="file"
+                id="fileInput"
+                style={{ display: "none" }}
+                onChange={(e) => setFile(e.target.files[0])}
+              />
               {showDeleteAlert && <DeleteAlert />}
             </div>
 

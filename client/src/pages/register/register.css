@@ -9,7 +9,6 @@ form {
   height: 100vh;
   padding-top: 50px;
   width: 95%;
-  /* background-color: yellow; */
   max-width: 500px;
   margin: 0 auto;
   display: flex;
@@ -30,6 +29,8 @@ form {
   background-color: rgb(230, 229, 229);
   height: 40px;
   border-radius: 10px;
+  padding-left: 10px;
+  font-size: 17px;
 }
 
 .registerInputs::placeholder {
@@ -48,7 +49,8 @@ form {
   margin-top: 20px;
   font-size: 18px;
 }
-.alreadyAcc{
+
+.alreadyAcc {
   margin-top: 10px;
   margin-bottom: 10px;
 }
@@ -71,14 +73,13 @@ form {
   margin-top: 10px;
 }
 
-/* 550===================================== */
 @media only screen and (max-width: 600px) {
   form {
     width: 80%;
   }
 }
 
-/*400===================================== */
+
 @media only screen and (max-width: 400px) {
   form {
     width: 90%;
@@ -94,7 +95,6 @@ form {
   }
 }
 
-/*300===================================== */
 @media only screen and (max-width: 300px) {
   form {
     width: 90%;

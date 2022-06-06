@@ -5,20 +5,13 @@ const jwt = require("jsonwebtoken");
 //Register
 const register = async (req, res, next) => {
   try {
-    //create salt
     const salt = await bcrypt.genSalt(10);
-
-    //hash the password
     const hashedPassword = await bcrypt.hash(req.body.password, salt);
-
-    //create a new user
     const newUser = new User({
       username: req.body.username,
       email: req.body.email,
       password: hashedPassword,
     });
-    //save the user
-
     const user = await newUser.save();
     res.status(200).json(user);
   } catch (error) {
@@ -29,19 +22,15 @@ const register = async (req, res, next) => {
 //Login
 const login = async (req, res, next) => {
   try {
-    //find user by username
     const user = await User.findOne({ username: req.body.username });
-
-    //if user exists check password
     if (user) {
       const validPassword = await bcrypt.compare(
         req.body.password,
         user.password
       );
 
-      //if password match create token
       if (validPassword) {
-        //create token//hiding these details in the token and passing this token in cookies
+        //create token
         const token = jwt.sign(
           {
             id: user._id,
@@ -68,5 +57,4 @@ const login = async (req, res, next) => {
   }
 };
 
-//export
 module.exports = { register, login };
