@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import "./singlePost.css";
 import axios from "axios";
 import { format } from "timeago.js";
+import TopBar from "../topbar/TopBar";
 
 export default function SinglePost() {
   //Fetching data from URL id

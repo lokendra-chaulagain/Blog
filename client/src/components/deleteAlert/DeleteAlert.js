@@ -16,7 +16,7 @@ function DeleteAlert() {
 
   return (
     <div className="deleteContainer">
-      <span className="areYouSure">Are you sure ?</span>
+      <span className="areYouSure">Are you sure you want to delete your account ?</span>
       <div className="nuYesRow">
         <button className="nuNoBtn">No</button>
         <button className="nuYesBtn" onClick={handleDelete}>

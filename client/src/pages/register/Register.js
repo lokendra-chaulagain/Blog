@@ -3,16 +3,16 @@ import { registerSchema } from "./formValidationSchema";
 import axios from "axios";
 import "./register.css";
 import { Context } from "../../context/Context";
+import { Link } from "react-router-dom";
 const { useFormik } = require("formik");
 
 function Register() {
   const { user, dispatch } = useContext(Context);
-  console.log(user);
 
   const onSubmit = async (values, actions) => {
-    console.log(values);
-    console.log(actions);
-    console.log("submitted");
+    // console.log(values);
+    // console.log(actions);
+    // console.log("submitted");
     dispatch({ type: "LOGIN_START" });
     try {
       const res = await axios.post("/auth/register", {
@@ -58,7 +58,7 @@ function Register() {
       <input
         type="text"
         id="username"
-        placeholder="Username"ye
+        placeholder="Username"
         value={values.username}
         autoComplete="off"
         onChange={handleChange}
@@ -128,9 +128,17 @@ function Register() {
         <p className="error">{errors.confirmPassword}</p>
       )}
 
-      <button className="registerSubmitBut" type="submit" disabled={isSubmitting}>
+      <button
+        className="registerSubmitBut"
+        type="submit"
+        disabled={isSubmitting}
+      >
         Register
       </button>
+      <span className="alreadyAcc">Already have an account</span>
+      <Link to="/login" className="link ">
+        <button className="loginButton1">Login</button>
+      </Link>
     </form>
   );
 }

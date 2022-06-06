@@ -9,6 +9,7 @@ import {
   getDownloadURL,
 } from "firebase/storage"; //to upload image in firebase
 import app from "../../firebase";
+import TopBar from "../../components/topbar/TopBar";
 
 function Write() {
   const { user } = useContext(Context);
@@ -72,54 +73,57 @@ function Write() {
   console.log(file);
 
   return (
-    <div className="write">
-      <form className="writeForm">
-        <img src="" alt="" className="writePostImg" />
-        <div className="writeFormGroup1">
-          <label htmlFor="fileInput">
-            <i className=" addIcon fa-solid fa-square-plus"></i>
-          </label>
-          <input
-            type="file"
-            id="fileInput"
-            style={{ display: "none" }}
-            onChange={(e) => setFile(e.target.files[0])}
-          />
-          <input
-            placeholder="Title"
-            type="text"
-            className="titleInput"
-            onChange={(e) => setTitle(e.target.value)}
-            autoFocus={true}
-          />
-        </div>
+    <>
+      <TopBar />
+      <div className="write">
+        <form className="writeForm">
+          <img src="" alt="" className="writePostImg" />
+          <div className="writeFormGroup1">
+            <label htmlFor="fileInput">
+              <i className=" addIcon fa-solid fa-square-plus"><p className="selectImg">Select image</p></i>
+            </label>
+            <input
+              type="file"
+              id="fileInput"
+              style={{ display: "none" }}
+              onChange={(e) => setFile(e.target.files[0])}
+            />
+            <input
+              placeholder="Title"
+              type="text"
+              className="titleInput"
+              onChange={(e) => setTitle(e.target.value)}
+              autoFocus={true}
+            />
+          </div>
 
-        <div className="writeFormGroup2">
+          <div className="writeFormGroup2">
+            <input
+              placeholder="Tell your Story ..."
+              type="text"
+              className="descriptionInput "
+              onChange={(e) => setDesc(e.target.value)}
+            />
+          </div>
           <input
-            placeholder="Tell your Story ..."
+            placeholder="Location ..."
             type="text"
-            className="descriptionInput "
-            onChange={(e) => setDesc(e.target.value)}
+            className="locationInput"
+            onChange={(e) => setLocation(e.target.value)}
           />
-        </div>
-        <input
-          placeholder="Location ..."
-          type="text"
-          className="locationInput"
-          onChange={(e) => setLocation(e.target.value)}
-        />
 
-        <input
-          placeholder="time to read"
-          type="text"
-          className="locationInput"
-          onChange={(e) => setTimeRead(e.target.value)}
-        />
-        <button className="publishButton" onClick={handleClick}>
-          Publish
-        </button>
-      </form>
-    </div>
+          <input
+            placeholder="time to read"
+            type="text"
+            className="locationInput"
+            onChange={(e) => setTimeRead(e.target.value)}
+          />
+          <button className="publishButton" onClick={handleClick}>
+            Publish
+          </button>
+        </form>
+      </div>
+    </>
   );
 }
 

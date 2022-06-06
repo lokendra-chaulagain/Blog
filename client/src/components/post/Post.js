@@ -7,15 +7,12 @@ function Post({ post }) {
     <Link to={`/post/${post._id}`} className="link">
       <div className="post">
         <img className="postImg" src={post.img} alt="" />
-        <span className="postTitle">{post.username}</span>
-        <div className="postCats">
-          <span>Sports</span>
-        </div>
+        <span className="postTitle">{post.title}</span>
 
         <div className="timeLocationRow">
-          <span className="postTime">{post.title}</span>
+          <span className="postTime">{post.timeRead} min read</span>
           <i className="locationIcon fa-solid fa-location-dot"></i>
-          <span className="locationText">{post.location}</span>
+          <span className="locationText">Location : {post.location}</span>
           <p className="postDescription">{post.desc}</p>
         </div>
       </div>

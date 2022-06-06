@@ -1,4 +1,77 @@
-.home{
-    display: flex;
-    
+.home {
+  display: flex;
+  padding: 0px 100px;
+  justify-content: center;
+
+  //   .postHelpWrapper{
+  //     //
+  //     //   padding-left: 120px;
+
+  //   }
+}
+
+@media only screen and (max-width: 1300px) {
+  .home {
+    .postHelpWrapper {
+      //
+      padding-left: 150px;
+    }
+  }
+}
+
+@media only screen and (max-width: 1030px) {
+  .home {
+    .postHelpWrapper {
+      padding-left: 80px;
+    }
+  }
+}
+
+@media only screen and (max-width: 960px) {
+  .home {
+    padding: 0px 0px;
+    .postHelpWrapper {
+      padding-left: 100px;
+    }
+  }
+}
+
+@media only screen and (max-width: 820px) {
+  .home {
+    .postHelpWrapper {
+      padding-left: 50px;
+    }
+  }
+}
+
+@media only screen and (max-width: 740px) {
+  .home {
+    .postHelpWrapper {
+      padding-left: 10px;
+    }
+  }
+}
+
+@media only screen and (max-width: 740px) {
+  .home {
+    .postHelpWrapper {
+      padding-left: 10px;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .home {
+    .postHelpWrapper {
+      padding-left: 50px;
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .home {
+    .postHelpWrapper {
+      padding-left: 300px;
+    }
+  }
 }

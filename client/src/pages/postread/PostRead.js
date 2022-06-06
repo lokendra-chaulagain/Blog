@@ -1,14 +1,16 @@
-import React from 'react'
-import SinglePost from '../../components/singlepost/SinglePost'
-import "./postRead.scss"
-import Rightbar from '../../components/rightbar/Rightbar'
+import React from "react";
+import SinglePost from "../../components/singlepost/SinglePost";
+import "./postRead.scss";
+import TopBar from "../../components/topbar/TopBar";
 
 function PostRead() {
   return (
-    <div className='singlePage'>
-     <SinglePost/>
-     <Rightbar/>
-    </div>
-  )
+    <>
+      <TopBar />
+      <div className="singlePage">
+        <SinglePost />
+      </div>
+    </>
+  );
 }
-export default PostRead
+export default PostRead;

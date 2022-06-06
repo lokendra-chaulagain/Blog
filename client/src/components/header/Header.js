@@ -5,7 +5,7 @@ function Header() {
   return (
     <div className="header">
       <div className="headerTitles">
-        <span className="headerTitleSmall">React and Nodes </span>
+        <span className="headerTitleSmall">MERN Stack Blog Web App </span>
         <span className="headerTitleBig">BLOG </span>
       </div>
       <img

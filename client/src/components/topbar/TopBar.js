@@ -28,6 +28,7 @@ function TopBar({ setSearchresult }) {
     getUserDetails();
   }, [currentUser]);
 
+
   //Logout
   const { dispatch } = useContext(Context);
   const handleLogout = (e) => {
@@ -80,19 +81,19 @@ function TopBar({ setSearchresult }) {
               </div>
             </Link>
 
-            <Link to="/about" className="link">
+            {/* <Link to="/about" className="link">
               <div className="sliderItems">
                 <InfoIcon className="sliderListIcons" />
                 <span className="sliderListItem">About</span>
               </div>
-            </Link>
+            </Link> */}
 
-            <Link to="/contact" className="link">
+            {/* <Link to="/contact" className="link">
               <div className="sliderItems">
                 <ContactMailIcon className="sliderListIcons" />
                 <span className="sliderListItem">Contact</span>
               </div>
-            </Link>
+            </Link> */}
 
             <Link to="/setting" className="link">
               <div className="sliderItems">
@@ -165,13 +166,13 @@ function TopBar({ setSearchresult }) {
           </li>
 
           <li className="topListItems">
-            <Link to="/about" className="link">
-              ABOUT
+            <Link to="/setting" className="link">
+              SETTING
             </Link>
           </li>
           <li className="topListItems">
-            <Link to="/contact" className="link">
-              CONTACT
+            <Link to="/settings" className="link">
+            
             </Link>
           </li>
           <li className="topListItems">

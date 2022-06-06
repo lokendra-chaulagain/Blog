@@ -1,7 +1,6 @@
 import "./home.scss";
 import Header from "../../components/header/Header";
 import Posts from "../../components/posts/Posts";
-import Rightbar from "../../components/rightbar/Rightbar";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import TopBar from "../../components/topbar/TopBar";
@@ -53,8 +52,9 @@ function Home() {
       ) : (
         <>
           <div className="home">
-            <Posts posts={posts} />
-            {/* <Rightbar /> */}
+            <div className="postHelpWrapper">
+              <Posts posts={posts} />
+            </div>
           </div>
         </>
       )}

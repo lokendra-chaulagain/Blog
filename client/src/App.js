@@ -9,7 +9,6 @@ import Setting from "./pages/setting/Setting";
 import { Context } from "./context/Context";
 import { useContext } from "react";
 import { Routes, Route } from "react-router-dom";
-import AltRegister from "./pages/alternative Register/AltRegister";
 import "./themeStyle/dark.scss";
 import { DarkModeContext } from "./darkModeContext/darkModeContext";
 
@@ -20,7 +19,7 @@ function App() {
   return (
     <div className={darkMode ? "dark" : "light "}>
       <Routes>
-        <Route exact path="/" element={<Home />} />
+        <Route exact path="/" element={user ? <Home /> : <Register />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={user ? <Home /> : <Login />} />
         <Route path="/setting" element={user ? <Setting /> : <Register />} />
@@ -28,7 +27,6 @@ function App() {
         <Route path="/post/:postId" element={<PostRead />} />
         <Route path="/about" element={user ? <About /> : <Register />} />
         <Route path="/contact" element={user ? <Contact /> : <Register />} />
-        <Route path="/altRegister" element={<AltRegister />} />
       </Routes>
     </div>
   );

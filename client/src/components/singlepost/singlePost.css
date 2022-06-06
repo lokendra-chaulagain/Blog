@@ -1,6 +1,7 @@
 .singlePost {
   flex: 9;
   height: 300vh;
+  padding-right: 50px;
 }
 
 .singlePostWrapper {
@@ -11,10 +12,10 @@
 }
 
 .singlePostImg {
-  width: 100%;
   height: 300px;
   border-radius: 5px;
   object-fit: cover;
+  border: 2px solid teal
 }
 
 .singlePostTitle {

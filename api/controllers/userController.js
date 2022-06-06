@@ -1,8 +1,12 @@
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
 
-//Update user
+//Update
 const update = async (req, res, next) => {
+  if (!req.body.password) {
+    delete req.body.password;
+  }
+
   if (req.body.password) {
     try {
       //hash the password
@@ -23,7 +27,7 @@ const update = async (req, res, next) => {
   }
 };
 
-//Delete user
+//Delete
 const deleteUser = async (req, res, next) => {
   try {
     const deletedUser = await User.findByIdAndDelete(req.params.id);
@@ -53,5 +57,5 @@ const getAllUser = async (req, res, next) => {
   }
 };
 
-//export
+
 module.exports = { update, deleteUser, getUser, getAllUser };
