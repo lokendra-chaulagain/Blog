@@ -1,12 +1,21 @@
 .login {
   .loginWrapper {
+    .largeLogin{
+      display: flex;
+      justify-content: center;
+      font-size: 100px;
+      font-weight:500;
+      margin-top: 20px;
+      color: teal;
+    }
     .formContainer {
       width: 500px;
       height: 500px;
       display: flex;
       flex-direction: column;
       margin-left: 34%;
-      margin-top: 100px;
+      margin-top: 20px;
+      // background-color: red;
 
       .labelText {
         font-size: 20px;

@@ -1,14 +1,18 @@
 import React from "react";
 import "./login.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useRef, useContext } from "react";
 import { Context } from "../../context/Context";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 function Login() {
   const userRef = useRef();
   const passwordRef = useRef();
-  const { user, isFetching, dispatch } = useContext(Context);
+  const { isFetching, dispatch } = useContext(Context);
+  const navigate = useNavigate();
+  const notifySuccess = () =>
+    toast.success("Login Successful", { theme: "colored" }, {});
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,16 +23,18 @@ function Login() {
         password: passwordRef.current.value,
       });
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
-      window.location.replace("/");
+      navigate("/");
+      notifySuccess();
     } catch (error) {
+      toast.error("Wrong Credentials", { theme: "colored" });
       dispatch({ type: "LOGIN_FAILURE" });
     }
   };
-  console.log(user);
 
   return (
     <div className="login">
       <div className="loginWrapper">
+        <span className="largeLogin">Login .</span>
         <form className="formContainer" onSubmit={handleSubmit}>
           <label className="labelText">Username</label>
           <input

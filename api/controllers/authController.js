@@ -7,13 +7,28 @@ const register = async (req, res, next) => {
   try {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(req.body.password, salt);
+    //username check
+    const user = await User.findOne({ username: req.body.username });
+    if (user) {
+      return res.status(400).json({
+        error: "Username already exist",
+      });
+    }
+    //email check
+    const email = await User.findOne({ email: req.body.email });
+    if (email) {
+      return res.status(400).json({
+        error: "Email already exist",
+      });
+    }
+
     const newUser = new User({
       username: req.body.username,
       email: req.body.email,
       password: hashedPassword,
     });
-    const user = await newUser.save();
-    res.status(200).json(user);
+    const user1 = await newUser.save();
+    res.status(200).json(user1);
   } catch (error) {
     next(error);
   }
@@ -58,3 +73,12 @@ const login = async (req, res, next) => {
 };
 
 module.exports = { register, login };
+//check if username and email already exists
+// const user = await User.findOne({
+//   $or: [{ username: req.body.username }, { email: req.body.email }],
+// });
+// if (user) {
+//   return res.status(400).json({
+//     error: "Username or email already exists",
+//   });
+// }

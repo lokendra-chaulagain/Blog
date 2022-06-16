@@ -3,11 +3,15 @@ import { registerSchema } from "./formValidationSchema";
 import axios from "axios";
 import "./register.css";
 import { Context } from "../../context/Context";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 const { useFormik } = require("formik");
 
 function Register() {
   const { dispatch } = useContext(Context);
+  const navigate = useNavigate();
+  const notifySuccess = () =>
+    toast.success("Register Successful", { theme: "colored" }, {});
 
   const onSubmit = async (values, actions) => {
     dispatch({ type: "LOGIN_START" });
@@ -20,10 +24,11 @@ function Register() {
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
       await new Promise((resolve) => setTimeout(resolve, 1000)); //wait 1 sec
       actions.resetForm();
-      console.log(res.data);
-      window.location.replace("/");
+      navigate("/");
+      notifySuccess();
     } catch (error) {
       dispatch({ type: "LOGIN_FAILURE" });
+      toast.error("Username & Email must be unique", { theme: "colored" });
     }
   };
 
@@ -48,6 +53,7 @@ function Register() {
 
   return (
     <form onSubmit={handleSubmit} className="form">
+      <span className="RegisterLarge">Register .</span>
       <label htmlFor="username" className="registerInputLabel">
         Username
       </label>
