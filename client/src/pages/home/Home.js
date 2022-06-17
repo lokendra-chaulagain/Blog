@@ -12,7 +12,7 @@ function Home() {
   useEffect(() => {
     const fetchAllPosts = async () => {
       const res = await axios.get("/posts/getAll");
-      const sortedPosts = res.data.sort((a, b) => {
+      res.data.sort((a, b) => {
         return new Date(b.createdAt) - new Date(a.createdAt);
       });
       setPosts(res.data);

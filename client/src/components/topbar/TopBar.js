@@ -54,6 +54,7 @@ function TopBar({ setSearchresult }) {
     };
     fetchAllPosts();
   }, []);
+  console.log(posts);
 
   return (
     <div className="topBarCon">
